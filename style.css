@@ -580,6 +580,91 @@ h2.s-title { font-size: var(--text-display-sm); }
 }
 @media (max-width: 880px) { .duo { grid-template-columns: 1fr; } }
 
+/* ---------- Divisions index — one compact band, four panels ----------
+   Replaces four full-height division sections on the homepage (which were 30%
+   of total page height, ~8 screens). Deliberately edge-to-edge panels with no
+   gaps or borders so it reads as a single band of color rather than a
+   four-card grid, which is the tell this site is trying to avoid. */
+
+.dband { display: grid; grid-template-columns: repeat(4, 1fr); }
+.dpanel {
+  position: relative; display: flex; flex-direction: column; justify-content: flex-end;
+  min-height: 420px; padding: var(--s-5) var(--s-3) var(--s-4);
+  color: var(--on-blk); text-decoration: none;
+  transition: flex-grow 0.35s var(--ease);
+}
+.dpanel--sprouts { background: var(--blk-sprouts); }
+.dpanel--roots   { background: var(--blk-roots); }
+.dpanel--crew    { background: var(--blk-crew); }
+.dpanel--club    { background: var(--blk-club); }
+
+.dpanel-n {
+  font-family: var(--font-b); font-weight: 500; font-size: 0.6875rem;
+  letter-spacing: 0.14em; margin-bottom: auto; font-variant-numeric: tabular-nums;
+}
+.dpanel h3 { font-size: var(--text-xl); margin-bottom: 6px; letter-spacing: -0.02em; }
+.dpanel .dpanel-ages {
+  font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.12em;
+  text-transform: uppercase; margin-bottom: var(--s-2);
+}
+.dpanel p { font-size: var(--text-sm); line-height: 1.45; margin-bottom: var(--s-3); }
+.dpanel-go {
+  font-family: var(--font-b); font-weight: 500; font-size: var(--text-sm);
+  display: inline-flex; align-items: center; gap: 8px;
+  border-bottom: 1.5px solid currentColor; padding-bottom: 3px; align-self: flex-start;
+  transition: gap 0.2s var(--ease);
+}
+.dpanel:hover .dpanel-go { gap: 14px; }
+
+@media (max-width: 900px) {
+  .dband { grid-template-columns: repeat(2, 1fr); }
+  .dpanel { min-height: 320px; }
+}
+@media (max-width: 560px) {
+  .dband { grid-template-columns: 1fr; }
+  .dpanel { min-height: 0; padding-block: var(--s-4); }
+  .dpanel-n { margin-bottom: var(--s-2); }
+}
+
+/* ---------- Division page hero ---------- */
+
+.dhero { color: var(--on-blk); padding-block: var(--s-10) var(--s-8); position: relative; overflow: hidden; }
+.dhero::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: var(--grain); opacity: 0.05;
+}
+.dhero > * { position: relative; z-index: 1; }
+.dhero--sprouts { background: var(--blk-sprouts); }
+.dhero--roots   { background: var(--blk-roots); }
+.dhero--crew    { background: var(--blk-crew); }
+.dhero--club    { background: var(--blk-club); }
+.dhero h1 { font-size: var(--text-display-sm); max-width: 24ch; margin-bottom: var(--s-3); }
+.dhero .lede { color: rgba(255,255,255,.88); max-width: 54ch; }
+.dhero .eyebrow { color: rgba(255,255,255,.85); }
+.dhero-back {
+  display: inline-flex; align-items: center; gap: 8px; color: var(--on-blk);
+  font-size: var(--text-sm); font-weight: 500; text-decoration: none;
+  margin-bottom: var(--s-4); opacity: 0.9;
+}
+.dhero-back:hover { text-decoration: underline; }
+
+/* Numbered list on a light background, for the division pages. */
+.plist { list-style: none; margin: var(--s-5) 0 0; padding: 0; counter-reset: pl; }
+.plist li {
+  counter-increment: pl;
+  display: grid; grid-template-columns: 2.5rem 1fr; gap: var(--s-2);
+  padding-block: var(--s-3); border-top: 1px solid var(--hair);
+}
+.plist li:last-child { border-bottom: 1px solid var(--hair); }
+.plist li::before {
+  content: "0" counter(pl);
+  font-family: var(--font-b); font-weight: 500; font-size: 0.6875rem;
+  letter-spacing: 0.1em; color: var(--ink-2); translate: 0 6px;
+  font-variant-numeric: tabular-nums;
+}
+.plist h3 { font-size: var(--text-base); margin-bottom: 4px; }
+.plist p { color: var(--ink-2); font-size: var(--text-sm); max-width: 58ch; }
+
 /* ---------- Outcomes — large numerals, two columns, no rules ---------- */
 
 .outcomes {
@@ -693,7 +778,7 @@ table.tuition tbody tr:last-child { border-bottom: 1px solid var(--hair); }
 /* ---------- Footer ---------- */
 
 .footer { background: var(--paper-2); border-top: 1px solid var(--hair); padding-block: var(--s-8) var(--s-5); }
-.footer-top { display: grid; grid-template-columns: 1.4fr 0.9fr 0.9fr; gap: var(--s-6); }
+.footer-top { display: grid; grid-template-columns: 1.3fr 0.9fr 0.9fr 0.8fr; gap: var(--s-5); }
 .footer-brand .wordmark { font-size: var(--text-lg); }
 .footer-brand p { color: var(--ink-2); font-size: var(--text-sm); max-width: 42ch; margin-top: var(--s-2); }
 .footer h4 {
