@@ -53,16 +53,16 @@
   --ac-black:  #141414;
 
   /* --- Type ---
-     Display is Erode, body is Switzer, both from Fontshare rather than Google
-     Fonts. That source matters: the "AI website" typographic signature comes
-     from the Google top-fifty, which is what every agent reaches for by
-     default. Erode is drawn with deliberate organic irregularities in the
-     letterforms — the visible-imperfection quality is the argument for a school
-     built on things children make by hand, and it gives serif-against-sans
-     contrast the previous all-sans pairing lacked. Suez One remains solely for
-     the Hebrew letters in the Aleph Champ ladder: a separate script voice, the
-     way a monospace face is treated. See design-digest.md. */
-  --font-d:  'Erode', Georgia, serif;
+     Display is Bespoke Slab 700, body is Switzer, both from Fontshare rather
+     than Google Fonts. The source matters: the "AI website" typographic
+     signature comes from the Google top-fifty, the set every agent defaults to.
+     A slab was chosen over the previous literary serif because at 96px a text
+     serif reads *magazine* and this is a children's school — slabs carry
+     bakery-and-signage associations that suit a culinary program, friendly
+     without tipping into a cartoon face. Deliberately unlike the two sibling
+     camp sites (Bangers, Boogaloo). Suez One remains solely for the Hebrew
+     letters in the Aleph Champ ladder. See design-digest.md. */
+  --font-d:  'Bespoke Slab', Georgia, serif;
   --font-b:  'Switzer', system-ui, -apple-system, sans-serif;
   --font-he: 'Suez One', Georgia, serif;
 
@@ -80,9 +80,19 @@
   --section-pad:    clamp(4.5rem, 11vw, 9rem);
   --section-pad-lg: clamp(6rem, 14vw, 12rem);
 
-  /* --- Radius --- */
-  --r-xs: 4px; --r-sm: 6px; --r-md: 10px;
-  --r-lg: 14px; --r-xl: 20px; --r-full: 9999px;
+  /* --- Radius ---
+     Rounded up across the board. The rectangular-sober lane was an
+     over-correction to avoid resembling the sibling camp sites; softer corners
+     read friendlier, which is right for a program for three-to-thirteens. */
+  --r-xs: 6px; --r-sm: 10px; --r-md: 14px;
+  --r-lg: 18px; --r-xl: 24px; --r-full: 9999px;
+
+  /* --- Tilt ---
+     Applied to photographs only, never to cards, text blocks or buttons. Both
+     camp sites tilt everything; here the tilt language is specifically
+     "photographs pinned to a wall", which keeps it distinct and stops the whole
+     page feeling askew. Kept under 1.5deg so nothing overflows. */
+  --tilt-a: -1.3deg; --tilt-b: 1.1deg; --tilt-c: -0.8deg;
 
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -130,7 +140,7 @@ body {
 
 h1, h2, h3, h4 {
   font-family: var(--font-d);
-  font-weight: 600;
+  font-weight: 700;
   margin: 0;
   text-wrap: balance;
   line-height: 1.03;
@@ -187,7 +197,7 @@ a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset:
 
 .eyebrow {
   display: flex; align-items: center; gap: var(--s-2);
-  font-family: var(--font-b); font-weight: 600;
+  font-family: var(--font-b); font-weight: 500;
   font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--ink-2); margin: 0 0 var(--s-3);
 }
@@ -208,7 +218,7 @@ h2.s-title { font-size: var(--text-display-sm); }
 
 .btn {
   display: inline-flex; align-items: center; gap: var(--s-1);
-  font-family: var(--font-b); font-weight: 600; font-size: var(--text-sm);
+  font-family: var(--font-b); font-weight: 500; font-size: var(--text-sm);
   letter-spacing: 0.01em;
   min-height: 48px; padding-inline: var(--s-3);
   border-radius: var(--r-sm); border: 1.5px solid transparent;
@@ -236,7 +246,7 @@ h2.s-title { font-size: var(--text-display-sm); }
 
 /* Text link with a moving underline — a small, cheap piece of polish. */
 .tlink {
-  font-weight: 600; font-size: var(--text-sm); color: inherit;
+  font-weight: 500; font-size: var(--text-sm); color: inherit;
   text-decoration: none; padding-bottom: 3px;
   border-bottom: 1.5px solid currentColor;
   transition: opacity 0.14s var(--ease);
@@ -267,7 +277,7 @@ h2.s-title { font-size: var(--text-display-sm); }
 
 .nav-links { display: flex; gap: var(--s-3); list-style: none; margin: 0; padding: 0; }
 .nav-links a {
-  font-weight: 600; font-size: 0.875rem; color: var(--ink-2); text-decoration: none;
+  font-weight: 500; font-size: 0.875rem; color: var(--ink-2); text-decoration: none;
   transition: color 0.14s var(--ease);
 }
 .nav-links a:hover { color: var(--ink); }
@@ -342,7 +352,7 @@ h2.s-title { font-size: var(--text-display-sm); }
   font-variant-numeric: tabular-nums; font-feature-settings: "tnum";
 }
 .hero-stat span {
-  font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.1em;
+  font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.1em;
   text-transform: uppercase; color: var(--ink-2);
 }
 
@@ -379,7 +389,7 @@ h2.s-title { font-size: var(--text-display-sm); }
 /* One honest credit line under the strip, rather than a caption per image
    asserting things the photographs do not actually show. */
 .photo-credit {
-  font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.12em;
+  font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.12em;
   text-transform: uppercase; color: var(--ink-2);
   padding-block: var(--s-2);
 }
@@ -427,7 +437,7 @@ h2.s-title { font-size: var(--text-display-sm); }
    contrast below AA. Size, weight and tracking do the demoting. */
 .d-ages {
   display: flex; align-items: center; gap: var(--s-2);
-  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.16em;
+  font-size: 0.75rem; font-weight: 500; letter-spacing: 0.16em;
   text-transform: uppercase; margin-bottom: var(--s-2);
 }
 .d-ages::before { content: ""; width: 28px; height: 1px; background: currentColor; flex: none; }
@@ -459,8 +469,18 @@ h2.s-title { font-size: var(--text-display-sm); }
 
 /* height:auto is required, not cosmetic: the <img> carries width/height
    attributes for CLS, which make the box height definite and silently cancel
-   aspect-ratio. Without this the per-division image shapes do nothing. */
-.division-media img { width: 100%; height: auto; object-fit: cover; border-radius: var(--r-sm); }
+   aspect-ratio. Without this the per-division image shapes do nothing.
+   The paper border plus tilt reads as a print pinned to the wall. */
+.division-media img {
+  width: 100%; height: auto; object-fit: cover;
+  border-radius: var(--r-sm);
+  border: 8px solid var(--paper);
+  transition: rotate 0.3s var(--ease);
+}
+.division--roots .division-media img { rotate: var(--tilt-a); }
+.division--crew  .division-media img { rotate: var(--tilt-b); }
+.division--club  .division-media img { rotate: var(--tilt-c); }
+.division-media img:hover { rotate: 0deg; }
 .division-mark { width: min(100%, 320px); margin-inline: auto; }
 
 /* ---- Per-division layout variants ----
@@ -513,11 +533,11 @@ h2.s-title { font-size: var(--text-display-sm); }
 .rung-top { display: flex; align-items: center; justify-content: space-between; gap: var(--s-1); }
 .rung-he { font-size: 1.5rem; line-height: 1; }
 .rung-n {
-  font-family: var(--font-b); font-weight: 600; font-size: 0.625rem;
+  font-family: var(--font-b); font-weight: 500; font-size: 0.625rem;
   letter-spacing: 0.1em; opacity: 0.75;
 }
 .rung-name {
-  font-family: var(--font-b); font-weight: 600; font-size: 0.6875rem;
+  font-family: var(--font-b); font-weight: 500; font-size: 0.6875rem;
   letter-spacing: 0.1em; text-transform: uppercase;
 }
 .rung-what { font-size: 0.75rem; line-height: 1.4; }
@@ -547,11 +567,149 @@ h2.s-title { font-size: var(--text-display-sm); }
 
 .duo { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
 .duo-pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-2); }
-.duo-pair img { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: var(--r-sm); }
-/* Second image of the pair drops to break the flat top edge. */
-.duo-pair img:last-child { translate: 0 var(--s-6); }
-@media (max-width: 880px) { .duo-pair img:last-child { translate: none; } }
+.duo-pair img {
+  width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover;
+  border-radius: var(--r-sm); border: 8px solid var(--paper);
+}
+/* Second image drops and counter-rotates, so the pair reads as two prints laid
+   down by hand rather than a two-column image grid. */
+.duo-pair img:first-child { rotate: var(--tilt-a); }
+.duo-pair img:last-child  { rotate: var(--tilt-b); translate: 0 var(--s-6); }
+@media (max-width: 880px) {
+  .duo-pair img:last-child { translate: none; }
+}
 @media (max-width: 880px) { .duo { grid-template-columns: 1fr; } }
+
+/* ---------- Outcomes — large numerals, two columns, no rules ---------- */
+
+.outcomes {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: var(--s-6) clamp(2rem, 5vw, 4.5rem);
+  margin-top: var(--s-8); counter-reset: oc; list-style: none; padding: 0;
+}
+.outcomes li { counter-increment: oc; }
+.outcomes li::before {
+  content: "0" counter(oc);
+  display: block; font-family: var(--font-d); font-weight: 700;
+  font-size: var(--text-lg); color: var(--accent);
+  letter-spacing: -0.01em; margin-bottom: var(--s-1);
+  font-variant-numeric: tabular-nums;
+}
+.outcomes h3 { font-size: var(--text-lg); margin-bottom: 6px; }
+.outcomes p { color: var(--ink-2); font-size: var(--text-sm); max-width: 44ch; }
+@media (max-width: 780px) { .outcomes { grid-template-columns: 1fr; gap: var(--s-5); } }
+
+/* ---------- Tuition — a real table, not three pricing cards ---------- */
+
+.tuition-wrap { margin-top: var(--s-6); overflow-x: auto; }
+table.tuition { width: 100%; border-collapse: collapse; text-align: start; }
+table.tuition caption { text-align: start; padding-bottom: var(--s-2); color: var(--ink-2); font-size: var(--text-sm); }
+table.tuition th, table.tuition td {
+  padding: var(--s-3) var(--s-2); border-top: 1px solid var(--hair);
+  text-align: start; vertical-align: baseline;
+}
+table.tuition thead th {
+  border-top: 0; border-bottom: 1px solid var(--ink);
+  font-family: var(--font-b); font-weight: 500;
+  font-size: 0.6875rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2);
+}
+table.tuition tbody th { font-family: var(--font-d); font-weight: 700; font-size: var(--text-base); }
+table.tuition td.amount {
+  font-family: var(--font-d); font-weight: 700; font-size: var(--text-lg);
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+table.tuition tbody tr:last-child { border-bottom: 1px solid var(--hair); }
+.tuition-note { font-size: var(--text-sm); color: var(--ink-2); max-width: 62ch; margin-top: var(--s-4); }
+
+/* ---------- Calendar ---------- */
+
+.cal { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(2rem, 6vw, 5rem); }
+.cal-facts { list-style: none; margin: 0; padding: 0; }
+.cal-facts li { padding-block: var(--s-2); border-top: 1px solid var(--hair); }
+.cal-facts li:last-child { border-bottom: 1px solid var(--hair); }
+.cal-facts b { display: block; font-family: var(--font-d); font-weight: 700; font-size: var(--text-base); }
+.cal-facts span { font-size: var(--text-sm); color: var(--ink-2); }
+.cal-high { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.cal-high li {
+  display: grid; grid-template-columns: 1.5rem 1fr; gap: var(--s-2);
+  align-items: baseline; padding: var(--s-2) var(--s-2) var(--s-2) 0;
+  border-top: 1px solid var(--hair); font-size: var(--text-sm);
+}
+.cal-high li:last-child { border-bottom: 1px solid var(--hair); }
+.cal-high li::before {
+  content: ""; width: 7px; height: 7px; border-radius: var(--r-full);
+  background: var(--hair); translate: 0 -2px;
+}
+/* The reserved ceremony color, spent here and on the two teen division marks.
+   Nowhere else — not on a button, not on a link. */
+.cal-high li.is-ceremony::before { background: var(--ceremony); }
+.cal-high li.is-ceremony { font-weight: 500; }
+@media (max-width: 820px) { .cal { grid-template-columns: 1fr; } }
+
+/* ---------- FAQ ---------- */
+
+.faq { margin-top: var(--s-6); }
+.faq details { border-top: 1px solid var(--hair); }
+.faq details:last-of-type { border-bottom: 1px solid var(--hair); }
+.faq summary {
+  display: flex; align-items: baseline; justify-content: space-between; gap: var(--s-3);
+  padding-block: var(--s-3); cursor: pointer; list-style: none;
+  font-family: var(--font-d); font-weight: 700; font-size: var(--text-lg);
+  letter-spacing: -0.015em;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+"; flex: none; font-family: var(--font-b); font-weight: 500;
+  font-size: 1.25rem; color: var(--accent); line-height: 1;
+  transition: transform 0.18s var(--ease);
+}
+.faq details[open] summary::after { content: "\2212"; }
+.faq summary:hover { color: var(--accent-ink); }
+.faq .faq-a { padding-bottom: var(--s-4); color: var(--ink-2); max-width: 66ch; }
+
+/* ---------- Final CTA ---------- */
+
+.cta-final { position: relative; background: var(--ink); color: var(--paper); padding-block: var(--s-12); overflow: hidden; }
+.cta-final::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: var(--grain); opacity: 0.05;
+}
+.cta-final > * { position: relative; z-index: 1; }
+.cta-final-inner { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: clamp(2rem, 6vw, 5rem); align-items: end; }
+.cta-final h2 { font-size: var(--text-display-sm); max-width: 24ch; margin-bottom: var(--s-3); }
+.cta-final p { color: #C6BCAB; max-width: 52ch; }
+.cta-final .eyebrow { color: #A79C8A; }
+.cta-final .btn--primary { background: var(--paper); color: var(--ink); }
+.cta-final .btn--primary:hover { background: var(--accent); color: #fff; }
+.cta-final .btn--ghost { color: var(--paper); border-color: rgba(251,247,240,.5); }
+.cta-final .btn--ghost:hover { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+.cta-buttons { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.cta-tag {
+  font-family: var(--font-d); font-weight: 700; font-size: var(--text-lg);
+  letter-spacing: -0.02em; color: var(--paper); margin-top: var(--s-5);
+}
+@media (max-width: 820px) { .cta-final-inner { grid-template-columns: 1fr; align-items: start; } }
+
+/* ---------- Footer ---------- */
+
+.footer { background: var(--paper-2); border-top: 1px solid var(--hair); padding-block: var(--s-8) var(--s-5); }
+.footer-top { display: grid; grid-template-columns: 1.4fr 0.9fr 0.9fr; gap: var(--s-6); }
+.footer-brand .wordmark { font-size: var(--text-lg); }
+.footer-brand p { color: var(--ink-2); font-size: var(--text-sm); max-width: 42ch; margin-top: var(--s-2); }
+.footer h4 {
+  font-family: var(--font-b); font-weight: 500; font-size: 0.6875rem;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2);
+  margin-bottom: var(--s-2); letter-spacing: 0.12em;
+}
+.footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.footer a { color: var(--ink); text-decoration: none; font-size: var(--text-sm); }
+.footer a:hover { color: var(--accent); text-decoration: underline; }
+.footer-bottom {
+  margin-top: var(--s-6); padding-top: var(--s-3); border-top: 1px solid var(--hair);
+  display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-3); justify-content: space-between;
+  font-size: 0.8125rem; color: var(--ink-2);
+}
+@media (max-width: 780px) { .footer-top { grid-template-columns: 1fr; gap: var(--s-5); } }
 
 /* ---------- Scroll reveal ----------
    Opacity and transform only.
