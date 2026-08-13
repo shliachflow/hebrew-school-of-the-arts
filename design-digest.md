@@ -162,3 +162,61 @@ Tokens ship as real CSS custom properties; there is no ChabadOne inline-compile 
   `--accent`, echoing the camp site's one-word-italic device. This is the single intentional
   resemblance to camp.jewishtroy.com, and the client asked for it in writing.
 - **External reference consulted:** none.
+
+---
+
+## Revisions
+
+### 2026-08-13 — premium pass
+
+Client feedback, in order: the page read dead; then the energy was better but it should look like a
+professional agency made it rather than an AI; then the language was too insider; then some copy
+felt generically AI-written. Each produced a real change.
+
+**Hebrew requirement dropped.** The client confirmed no Hebrew is needed anywhere except the Aleph
+Champ ladder. This invalidated the reason Suez One + Assistant were selected — that pairing existed
+*because* both cover Hebrew. With the constraint gone the typography was re-picked on merit.
+
+**Font pairing is now Bricolage Grotesque (display) + Instrument Sans (body).** Bricolage is a
+variable grotesque with genuine designed character and an optical-size axis, heavy enough to carry a
+children's program where a delicate serif would fight the brief. Suez One survives *only* for the
+Hebrew letters in the Aleph Champ ladder — a separate script voice, the way a monospace face is
+treated in the master prompt's weight rule.
+**Revised weight roster: Bricolage 700, Instrument Sans 400, Instrument Sans 600.** Plus Suez One
+400 for Hebrew glyphs only. No fourth Latin weight.
+
+**Paper-tier colors may now be full-bleed section backgrounds.** The original illustration-only
+restriction is what made the page anemic. Reversed deliberately.
+
+**Division blocks deepened.** The first colored pass used mid-saturation brights, which read
+kindergarten next to the ten-color Aleph Champ ladder. Now deep and rich — forest `#2F5D3A`, amber
+`#8F5A12`, indigo `#24476E`, wine `#8A2B48` — so the ladder is the single bright moment on the page.
+
+**Aleph Champ colors are now the program's real ones**, from the client's own level chart: white,
+red, orange, yellow, green, blue, purple, brown, grey, black, three stripes each. These are program
+data and appear nowhere else on the site. The earlier eight-color guess is gone.
+
+**Grain added** at 3% on the hero and 5% on the dark band only — not as a divider on every section,
+which is its own tell.
+
+### New rules
+
+- **No insider vocabulary.** The school's core pitch is that unaffiliated families belong, and it
+  fails if the homepage assumes the reader knows the words. Banned: tefillos, Shabbos, mitzvos,
+  parsha, kashered, Gemara, haftarah, Alef-Bet, sufganiyot, Hebrew month names, "Jewish manhood".
+  Use prayers, Friday night, traditions, the week's Torah portion, certified kosher, Talmud, a
+  memorized reading, Hebrew letters, jelly doughnuts, holiday names.
+- **Never hide content in CSS that only JS can restore.** The scroll-reveal hiding rule is gated
+  behind `.js-reveal` on `<html>`, added by script only after it confirms it can un-hide, plus a
+  2.5s failsafe that drops the gate if nothing revealed. An earlier version hid twenty sections
+  behind an IntersectionObserver that never fired.
+- **Do not caption documentary photographs with marketing claims.** Four invented captions ("Hands
+  on, every Sunday") were removed: the photos are all from one supermarket event, not weekly
+  sessions. One honest credit line replaced them. See `CONTENT-SOURCES.md`.
+- **Every published claim must be traceable.** `CONTENT-SOURCES.md` labels every fact as verified,
+  client-supplied-unverified, or written-for-the-site. The client's copy document is AI-generated
+  and is a statement of intent, not a source of fact.
+- **Contrast is measured, not assumed.** Three failures were caught by measuring rather than
+  eyeballing: white on the original green (3.98:1), `.d-ages` at `opacity: 0.85`, and white on the
+  real Aleph Champ green (3.33:1 — that rung now takes dark text, since the level color itself
+  cannot be altered).

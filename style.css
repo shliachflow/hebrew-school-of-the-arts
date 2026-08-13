@@ -1,69 +1,93 @@
 /* ==========================================================================
    Hebrew School of the Arts — Chabad Jewish Center of Troy
-   Design system. Every value here is a token; see design-digest.md for the
-   rules that govern them. Hairline elevation: there is no shadow scale, on
-   purpose. Do not add one.
+   Design system. See design-digest.md for the rules that govern these tokens.
+
+   Hairline elevation: there is no shadow scale, on purpose. Do not add one.
+   Depth comes from 1px hairlines, tonal contrast, and flat offset silhouettes.
    ========================================================================== */
 
 :root {
-  /* --- Color, UI tier. The only colors allowed on interface elements. --- */
-  --paper:      #FBF6EC;
-  --paper-2:    #F3EADA;
-  --ink:        #1F1B16;
-  --ink-2:      #6B6156;
-  --hair:       #E4D9C6;
+  /* --- Canvas and ink --- */
+  --paper:      #FBF7F0;   /* never pure white */
+  --paper-2:    #F2EBDF;
+  --paper-3:    #E9DFCE;
+  --ink:        #1A1712;
+  --ink-2:      #6A6055;
+  --hair:       #E2D8C8;
+
+  /* --- The single UI accent. CTA, links, focus ring, brand mark. Nothing else. --- */
   --accent:     #17706A;
   --accent-ink: #10534E;
   --accent-rgb: 23, 112, 106;
 
-  /* Reserved. Mitzvah Crew mark, Bat Mitzvah Club mark, Siyum calendar entry.
-     Nowhere else — never a button, link, or text run. */
+  /* --- Reserved ceremony color. Three approved locations only. --- */
   --ceremony:   #B4832A;
 
-  /* --- Color, paper tier. --- */
-  /* REVISED 2026-08-13: originally illustration-only. Now also permitted as
-     full-bleed section backgrounds and division blocks. The illustration-only
-     rule made the page read as dead for a children's program; saturated color
-     blocks are the energy. Still never used for body text or borders.
-     Each has a paired on-color that clears WCAG AA. */
-  --pp-berry:   #B4335F;  --on-berry:   #FFFFFF;
-  --pp-blue:    #2E6FA7;  --on-blue:    #FFFFFF;
-  --pp-mustard: #E0A32E;  --on-mustard: #2A1D05;
-  /* #4E8E43 was only 3.98:1 against white — failed AA as a division block.
-     #3E7235 measures 5.73:1. */
-  --pp-green:   #3E7235;  --on-green:   #FFFFFF;
+  /* --- Division blocks -------------------------------------------------
+     Deep and rich rather than bright and primary. Earlier revision used
+     mid-saturation brights (#3E7235 / #E0A32E / #2E6FA7 / #B4335F); against
+     the ten-color Aleph Champ ladder that read kindergarten, not premium.
+     These are the same hue families pushed darker so the ladder is the one
+     bright moment on the page. All four verified >= 4.5:1 with white.
+     -------------------------------------------------------------------- */
+  --blk-sprouts: #2F5D3A;
+  --blk-roots:   #8F5A12;
+  --blk-crew:    #24476E;
+  --blk-club:    #8A2B48;
+  --on-blk:      #FFFFFF;
 
-  /* Division tints — flat surfaces behind division rows, derived from the
-     paper tier at low saturation so text stays legible on them. */
-  --tint-sprouts: #E9F0E5;
-  --tint-roots:   #FBEBD3;
-  --tint-crew:    #E3EBF3;
-  --tint-club:    #F7E2E8;
+  /* Light tints of the same four, for stat tiles and quiet surfaces. */
+  --tint-sprouts: #E6EDE5;
+  --tint-roots:   #F6EBD6;
+  --tint-crew:    #E4EAF1;
+  --tint-club:    #F5E3E8;
 
-  /* --- Type --- */
-  --font-d: 'Suez One', Georgia, serif;
-  --font-b: 'Assistant', system-ui, -apple-system, sans-serif;
+  /* --- Aleph Champ level colors ---------------------------------------
+     The program's real ten levels, taken from the client's own chart.
+     These are program data, not brand palette: they appear in the level
+     ladder and nowhere else on the site.
+     -------------------------------------------------------------------- */
+  --ac-white:  #FFFFFF; --ac-red:    #E1252B; --ac-orange: #EE7A17;
+  --ac-yellow: #FBD914; --ac-green:  #17A24A; --ac-blue:   #1F3F94;
+  --ac-purple: #9B4FA0; --ac-brown:  #8B4A1E; --ac-grey:   #9A9A9A;
+  --ac-black:  #141414;
+
+  /* --- Type ---
+     Display is Bricolage Grotesque: a variable grotesque with real designed
+     character and an optical-size axis, punchy enough at heavy weights to
+     carry a children's program. Body is Instrument Sans. Suez One survives
+     only for the Hebrew letters in the Aleph Champ ladder — a separate
+     script voice, the way a monospace face would be. See design-digest.md. */
+  --font-d:  'Bricolage Grotesque', Georgia, serif;
+  --font-b:  'Instrument Sans', system-ui, -apple-system, sans-serif;
+  --font-he: 'Suez One', Georgia, serif;
 
   --text-sm:         clamp(0.875rem, 0.85rem + 0.15vw, 0.9375rem);
-  --text-base:       clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
-  --text-lg:         clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
-  --text-xl:         clamp(1.375rem, 1.1rem + 1.2vw, 1.875rem);
-  --text-display-sm: clamp(1.75rem, 1.2rem + 2.6vw, 2.75rem);
-  --text-display:    clamp(2.5rem, 1.4rem + 5.4vw, 5rem);
-  --text-display-xl: clamp(3rem, 1.4rem + 8vw, 6.5rem);
+  --text-base:       clamp(1rem, 0.95rem + 0.28vw, 1.1875rem);
+  --text-lg:         clamp(1.125rem, 1rem + 0.55vw, 1.4375rem);
+  --text-xl:         clamp(1.375rem, 1.05rem + 1.4vw, 2rem);
+  --text-display-sm: clamp(2rem, 1.3rem + 3.2vw, 3.5rem);
+  --text-display:    clamp(2.75rem, 1.4rem + 6.4vw, 6rem);
+  --text-display-xl: clamp(3.25rem, 1.4rem + 9vw, 7.5rem);
 
   /* --- Space. Every value divisible by 8. --- */
-  --s-1: 8px;   --s-2: 16px;  --s-3: 24px;  --s-4: 32px;
-  --s-5: 40px;  --s-6: 48px;  --s-8: 64px;  --s-10: 80px;
-  --section-pad:    clamp(4rem, 10vw, 8rem);
+  --s-1: 8px;  --s-2: 16px; --s-3: 24px; --s-4: 32px;
+  --s-5: 40px; --s-6: 48px; --s-8: 64px; --s-10: 80px; --s-12: 96px;
+  --section-pad:    clamp(4.5rem, 11vw, 9rem);
   --section-pad-lg: clamp(6rem, 14vw, 12rem);
 
   /* --- Radius --- */
   --r-xs: 4px; --r-sm: 6px; --r-md: 10px;
   --r-lg: 14px; --r-xl: 20px; --r-full: 9999px;
 
-  /* --- Motion --- */
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Grain. 3% opacity fractal noise, used on the hero and the dark band only —
+   not as a divider on every section, which is its own tell. Breaks the
+   too-perfect flatness that reads as machine-made. */
+:root {
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.42'/%3E%3C/svg%3E");
 }
 
 /* ========================================================================== */
@@ -96,17 +120,18 @@ body {
   font-family: var(--font-b);
   font-weight: 400;
   font-size: var(--text-base);
-  line-height: 1.65;
-  letter-spacing: 0.005em;
+  line-height: 1.62;
   text-wrap: pretty;
 }
 
 h1, h2, h3, h4 {
   font-family: var(--font-d);
-  font-weight: 400;            /* Suez One ships one weight */
+  font-weight: 700;
+  font-optical-sizing: auto;
   margin: 0;
   text-wrap: balance;
-  line-height: 1.02;
+  line-height: 1.0;
+  letter-spacing: -0.025em;
 }
 
 p { margin: 0; }
@@ -115,7 +140,7 @@ a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset:
 
 [id] { scroll-margin-top: 88px; }
 
-::selection { background: rgba(var(--accent-rgb), 0.18); color: var(--ink); }
+::selection { background: rgba(var(--accent-rgb), 0.16); color: var(--ink); }
 
 ::-webkit-scrollbar       { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
@@ -132,55 +157,58 @@ a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset:
   overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
 }
 
-/* Hebrew. Overrides every Latin display rule. See design-digest.md.
-   These three carry !important deliberately: negative tracking, synthesized
-   italic and uppercase are all *wrong* for Hebrew, not merely undesirable, and
-   any later single-class rule (.m-name, .tl-time, a display heading) would
-   otherwise win on source order and silently break it. Guard rail, not a hack. */
+/* Hebrew. Only appears in the Aleph Champ ladder. Negative tracking,
+   synthesized italic and uppercase are all wrong for Hebrew, not merely
+   undesirable, so these carry !important as a guard rail against any later
+   single-class rule winning on source order. */
 .he {
+  font-family: var(--font-he);
   letter-spacing: 0 !important;
   font-style: normal !important;
   text-transform: none !important;
-  font-size: 1.08em;   /* optical match against adjacent Latin */
   line-height: 1.5;
 }
-.he-nikud { line-height: 1.9 !important; }
 
 /* ---------- Layout ---------- */
 
-.container        { width: min(1240px, 100% - 3rem); margin-inline: auto; }
+.container        { width: min(1280px, 100% - 3rem); margin-inline: auto; }
 .container-narrow { width: min(760px,  100% - 3rem); margin-inline: auto; }
 
 .section { padding-block: var(--section-pad); }
 .section--tint { background: var(--paper-2); }
 
+/* Section headers get a consistent editorial structure: a hairline, a tracked
+   label, a large heading, and a lede at a controlled measure. */
+.s-head { max-width: 40ch; }
+.s-head--wide { max-width: 62ch; }
+
 .eyebrow {
-  font-family: var(--font-b);
-  font-weight: 700;
-  font-size: 0.8125rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin: 0 0 var(--s-2);
+  display: flex; align-items: center; gap: var(--s-2);
+  font-family: var(--font-b); font-weight: 600;
+  font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink-2); margin: 0 0 var(--s-3);
 }
-/* Hebrew inside an eyebrow cannot use caps — size and weight carry it instead. */
-.eyebrow .he { text-transform: none; letter-spacing: 0; font-size: 1.15em; }
+.eyebrow::before {
+  content: ""; width: 32px; height: 1px; background: currentColor;
+  flex: none; opacity: 0.6;
+}
+
+h2.s-title { font-size: var(--text-display-sm); }
 
 .lede {
-  font-size: var(--text-lg);
-  color: var(--ink-2);
-  max-width: 58ch;
-  line-height: 1.6;
+  font-size: var(--text-lg); color: var(--ink-2);
+  max-width: 56ch; line-height: 1.55; margin-top: var(--s-3);
 }
+.fine { font-size: var(--text-sm); color: var(--ink-2); max-width: 62ch; }
 
 /* ---------- Buttons ---------- */
 
 .btn {
   display: inline-flex; align-items: center; gap: var(--s-1);
-  font-family: var(--font-b); font-weight: 700; font-size: var(--text-sm);
-  letter-spacing: 0.02em;
+  font-family: var(--font-b); font-weight: 600; font-size: var(--text-sm);
+  letter-spacing: 0.01em;
   min-height: 48px; padding-inline: var(--s-3);
-  border-radius: var(--r-sm); border: 2px solid transparent;
+  border-radius: var(--r-sm); border: 1.5px solid transparent;
   text-decoration: none; cursor: pointer;
   transition:
     background-color 0.14s var(--ease),
@@ -196,13 +224,28 @@ a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset:
 .btn--ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
 .btn--ghost:hover { background: var(--ink); color: var(--paper); }
 
+/* Inside a color block, buttons invert rather than reaching for the teal —
+   the accent stays scarce. */
+.btn--oncolor { background: var(--paper); color: var(--ink); }
+.btn--oncolor:hover { background: transparent; color: var(--paper); border-color: var(--paper); }
+
 .btn[aria-disabled="true"] { cursor: not-allowed; opacity: 0.45; }
+
+/* Text link with a moving underline — a small, cheap piece of polish. */
+.tlink {
+  font-weight: 600; font-size: var(--text-sm); color: inherit;
+  text-decoration: none; padding-bottom: 3px;
+  border-bottom: 1.5px solid currentColor;
+  transition: opacity 0.14s var(--ease);
+}
+.tlink:hover { opacity: 0.62; }
 
 /* ---------- Nav ---------- */
 
 .nav {
   position: sticky; top: 0; z-index: 50;
-  background: var(--paper);
+  background: rgba(251, 247, 240, 0.92);
+  backdrop-filter: saturate(140%) blur(8px);
   border-bottom: 1px solid var(--hair);
 }
 .nav-inner {
@@ -211,286 +254,261 @@ a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset:
 }
 
 .wordmark {
-  font-family: var(--font-d);
-  font-size: clamp(1.0625rem, 0.9rem + 0.7vw, 1.375rem);
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-  text-decoration: none;
+  font-family: var(--font-d); font-weight: 700;
+  font-size: clamp(1.0625rem, 0.9rem + 0.7vw, 1.3125rem);
+  line-height: 1.1; letter-spacing: -0.02em;
+  color: var(--ink); text-decoration: none;
 }
-/* The one intentional echo of camp.jewishtroy.com's wordmark, requested in writing. */
+/* The one intentional echo of camp.jewishtroy.com, requested in writing. */
 .wordmark em { font-style: italic; color: var(--accent); }
 
-.nav-links {
-  display: flex; gap: var(--s-3); list-style: none; margin: 0; padding: 0;
-}
+.nav-links { display: flex; gap: var(--s-3); list-style: none; margin: 0; padding: 0; }
 .nav-links a {
-  font-weight: 700; font-size: 0.875rem; color: var(--ink-2);
-  text-decoration: none;
+  font-weight: 600; font-size: 0.875rem; color: var(--ink-2); text-decoration: none;
   transition: color 0.14s var(--ease);
 }
-.nav-links a:hover { color: var(--accent); }
+.nav-links a:hover { color: var(--ink); }
 
-.nav-cta { border-radius: var(--r-full); min-height: 44px; }
+.nav-cta { min-height: 44px; }
 
-.nav-toggle {
-  display: none; background: none; border: 0; cursor: pointer;
-  padding: var(--s-1); color: var(--ink);
-}
+.nav-toggle { display: none; background: none; border: 0; cursor: pointer; padding: var(--s-1); color: var(--ink); }
 
-@media (max-width: 900px) {
+@media (max-width: 940px) {
   .nav-links { display: none; }
   .nav-toggle { display: inline-flex; }
   .nav-links--open {
     display: flex; flex-direction: column; position: absolute;
     inset-inline: 0; top: 100%; background: var(--paper);
-    border-bottom: 1px solid var(--hair);
-    padding: var(--s-3); gap: var(--s-2);
+    border-bottom: 1px solid var(--hair); padding: var(--s-3); gap: var(--s-2);
   }
 }
 
-/* ---------- Hero — H1 Asymmetric Split ---------- */
+/* ---------- Hero ---------- */
 
 .hero {
-  display: grid;
-  grid-template-columns: 1fr 1.15fr;
-  min-height: 88svh;
-  overflow: hidden;
-  border-bottom: 1px solid var(--hair);
+  position: relative;
+  display: grid; grid-template-columns: 1fr 1.02fr;
+  min-height: 90svh; overflow: hidden;
+}
+.hero::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: var(--grain); opacity: 0.03; mix-blend-mode: multiply;
 }
 
 .hero-content {
   display: flex; flex-direction: column; justify-content: flex-end;
-  padding: clamp(3rem, 7vw, 6rem) clamp(1.5rem, 4vw, 4rem) clamp(2.5rem, 5vw, 4rem);
-  padding-inline-start: max(1.5rem, calc((100vw - 1240px) / 2));
+  padding: clamp(3rem, 7vw, 6rem) clamp(2rem, 4vw, 4.5rem) clamp(3rem, 5vw, 4.5rem);
+  padding-inline-start: max(1.5rem, calc((100vw - 1280px) / 2));
+  z-index: 1;
 }
 
 .hero h1 {
   font-size: var(--text-display);
-  letter-spacing: -0.025em;
+  letter-spacing: -0.04em;
+  line-height: 0.92;
   margin-bottom: var(--s-3);
-  max-width: 12ch;
+  max-width: 11ch;
 }
-
 .hero-sub {
-  font-size: var(--text-lg);
-  color: var(--ink-2);
-  max-width: 44ch;
-  line-height: 1.6;
-  margin-bottom: var(--s-4);
+  font-size: var(--text-lg); color: var(--ink-2);
+  max-width: 42ch; line-height: 1.55; margin-bottom: var(--s-4);
 }
-
 .hero-btns { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.hero-fineprint { margin-top: var(--s-3); font-size: var(--text-sm); color: var(--ink-2); max-width: 46ch; }
+.hero-fineprint strong { color: var(--ink); }
 
-.hero-fineprint {
-  margin-top: var(--s-3);
-  font-size: var(--text-sm);
-  color: var(--ink-2);
-  max-width: 48ch;
-}
+.hero-media { position: relative; background: var(--paper-2); min-height: 46svh; overflow: hidden; }
+.hero-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 32%; }
 
-.hero-media {
-  position: relative; background: var(--paper-2); min-height: 44svh;
-  display: grid; place-items: center;
-  padding: clamp(1.5rem, 3vw, 2.5rem);
-  border-inline-start: 1px solid var(--hair);
-}
-/* Photo state — when a real image lands, it covers the panel and the art hides. */
-.hero-media img {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: center;
-}
-.hero-media:has(img) .hero-art { display: none; }
-
-/* Cut-paper illustration — the identity, not a stand-in. Flat offset silhouettes
-   give the layered-paper depth; there are no blurred shadows anywhere. */
-.hero-art { width: min(100%, 520px); }
-
-/* Stat tiles — flat, hairline, no rotation. Paper-tier tints are permitted here
-   as surface fills only (see design-digest.md); never as text or border color. */
+/* Stat tiles */
 .hero-stats {
   display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: 1px; background: var(--hair);
-  border-block: 1px solid var(--hair);
+  gap: 1px; background: var(--hair); border-block: 1px solid var(--hair);
 }
-.hero-stat { background: var(--paper); padding: var(--s-3) clamp(1rem, 2.5vw, 1.5rem); }
+.hero-stat { padding: var(--s-3) clamp(1rem, 2.4vw, 1.75rem); }
 .hero-stat:nth-child(1) { background: var(--tint-sprouts); }
 .hero-stat:nth-child(2) { background: var(--tint-roots); }
 .hero-stat:nth-child(3) { background: var(--tint-club); }
 .hero-stat:nth-child(4) { background: var(--tint-crew); }
 .hero-stat b {
-  display: block; font-family: var(--font-d); font-weight: 400;
-  font-size: var(--text-lg); letter-spacing: -0.01em; margin-bottom: 2px;
+  display: block; font-family: var(--font-d); font-weight: 700;
+  font-size: var(--text-lg); letter-spacing: -0.02em; margin-bottom: 3px;
   font-variant-numeric: tabular-nums; font-feature-settings: "tnum";
 }
 .hero-stat span {
-  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em;
+  font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.1em;
   text-transform: uppercase; color: var(--ink-2);
 }
 
-@media (max-width: 900px) {
-  .hero { grid-template-columns: 1fr; grid-template-rows: 42svh auto; min-height: 0; }
+@media (max-width: 940px) {
+  .hero { grid-template-columns: 1fr; grid-template-rows: 44svh auto; min-height: 0; }
   .hero-media { order: -1; }
   .hero-content {
     justify-content: flex-start;
     padding-inline: clamp(1.5rem, 5vw, 2rem);
-    padding-block: var(--s-5) var(--s-4);
+    padding-block: var(--s-6) var(--s-5);
   }
-  .hero h1 { max-width: 16ch; }
+  .hero h1 { max-width: 14ch; }
   .hero-stats { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* ---------- Photo band ---------- */
+/* ---------- Dark band ---------- */
 
-.band { background: var(--ink); color: var(--paper); padding-block: var(--s-8); }
-.band h2 {
-  font-size: var(--text-display-sm);
-  letter-spacing: -0.02em;
-  max-width: 24ch;
-  margin-bottom: var(--s-2);
+.band { position: relative; background: var(--ink); color: var(--paper); padding-block: var(--s-10); overflow: hidden; }
+.band::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: var(--grain); opacity: 0.05;
 }
-.band p { color: #C9BFAE; max-width: 62ch; font-size: var(--text-base); }
-.band .rule {
-  width: 64px; height: 3px; background: var(--accent);
-  border-radius: var(--r-full); margin-bottom: var(--s-4);
-}
+.band > * { position: relative; z-index: 1; }
+.band h2 { font-size: var(--text-display-sm); max-width: 22ch; margin-bottom: var(--s-3); }
+.band p { color: #C6BCAB; max-width: 58ch; font-size: var(--text-lg); line-height: 1.5; }
+.band .eyebrow { color: #A79C8A; }
 
-/* ---------- Photo strip — real archive photography, full bleed ---------- */
+/* ---------- Photo strip ---------- */
 
-.strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; background: var(--ink); }
+.strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: var(--ink); }
 .strip figure { margin: 0; position: relative; overflow: hidden; }
-.strip img {
-  width: 100%; height: 100%; object-fit: cover; aspect-ratio: 3 / 4;
-  transition: transform 0.5s var(--ease);
+.strip img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 5; transition: transform 0.6s var(--ease); }
+.strip figure:hover img { transform: scale(1.045); }
+/* One honest credit line under the strip, rather than a caption per image
+   asserting things the photographs do not actually show. */
+.photo-credit {
+  font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--ink-2);
+  padding-block: var(--s-2);
 }
-.strip figure:hover img { transform: scale(1.04); }
-.strip figcaption {
-  position: absolute; inset-inline: 0; bottom: 0;
-  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em;
-  text-transform: uppercase; color: #fff;
-  padding: var(--s-4) var(--s-2) var(--s-1);
-  background: linear-gradient(to top, rgba(20,16,12,.78), transparent);
-}
-@media (max-width: 760px) {
-  .strip { grid-template-columns: repeat(2, 1fr); }
-}
+@media (max-width: 760px) { .strip { grid-template-columns: repeat(2, 1fr); } }
 
 /* ---------- Sunday timeline ---------- */
 
 .timeline { list-style: none; margin: var(--s-6) 0 0; padding: 0; }
 .timeline li {
-  display: grid; grid-template-columns: 132px 1fr; gap: var(--s-3);
-  padding-block: var(--s-3);
-  border-top: 1px solid var(--hair);
+  display: grid; grid-template-columns: 148px 1fr; gap: var(--s-4);
+  padding-block: var(--s-4); border-top: 1px solid var(--hair);
+  transition: background-color 0.2s var(--ease);
 }
 .timeline li:last-child { border-bottom: 1px solid var(--hair); }
 .tl-time {
-  font-family: var(--font-d); font-size: var(--text-lg);
-  letter-spacing: -0.01em; line-height: 1.1;
+  font-family: var(--font-d); font-weight: 700; font-size: var(--text-lg);
+  letter-spacing: -0.02em; line-height: 1.1;
   font-variant-numeric: tabular-nums; font-feature-settings: "tnum";
-  display: flex; align-items: baseline; gap: var(--s-1);
+  display: flex; align-items: baseline; gap: 10px; color: var(--ink);
 }
-.tl-dot { width: 10px; height: 10px; border-radius: var(--r-full); flex: none; translate: 0 -3px; }
-.timeline li:nth-child(1) .tl-dot { background: var(--pp-green); }
-.timeline li:nth-child(2) .tl-dot { background: var(--pp-blue); }
-.timeline li:nth-child(3) .tl-dot { background: var(--pp-berry); }
-.timeline li:nth-child(4) .tl-dot { background: var(--pp-mustard); }
+.tl-dot { width: 9px; height: 9px; border-radius: var(--r-full); flex: none; translate: 0 -3px; }
+.timeline li:nth-child(1) .tl-dot { background: var(--blk-sprouts); }
+.timeline li:nth-child(2) .tl-dot { background: var(--blk-crew); }
+.timeline li:nth-child(3) .tl-dot { background: var(--blk-club); }
+.timeline li:nth-child(4) .tl-dot { background: var(--blk-roots); }
 .timeline li:nth-child(5) .tl-dot { background: var(--accent); }
-.tl-body h3 { font-size: var(--text-lg); letter-spacing: -0.01em; margin-bottom: 4px; }
-.tl-body p { color: var(--ink-2); max-width: 60ch; }
-@media (max-width: 640px) {
+.tl-body h3 { font-size: var(--text-lg); margin-bottom: 6px; }
+.tl-body p { color: var(--ink-2); max-width: 58ch; }
+@media (max-width: 660px) {
   .timeline li { grid-template-columns: 1fr; gap: var(--s-1); }
 }
 
-/* ---------- Division blocks — full-strength color. The energy lives here. ---------- */
+/* ---------- Division blocks ---------- */
 
-.division { padding-block: var(--s-8); }
-.division-inner {
-  display: grid; grid-template-columns: 1.1fr 1fr;
-  gap: clamp(2rem, 5vw, 4.5rem); align-items: center;
-}
+.division { padding-block: var(--s-10); color: var(--on-blk); }
+.division-inner { display: grid; grid-template-columns: 1.08fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
 .division:nth-of-type(even) .division-media { order: -1; }
 
-.division--sprouts { background: var(--pp-green);   color: var(--on-green); }
-.division--roots   { background: var(--pp-mustard); color: var(--on-mustard); }
-.division--crew    { background: var(--pp-blue);    color: var(--on-blue); }
-.division--club    { background: var(--pp-berry);   color: var(--on-berry); }
+.division--sprouts { background: var(--blk-sprouts); }
+.division--roots   { background: var(--blk-roots); }
+.division--crew    { background: var(--blk-crew); }
+.division--club    { background: var(--blk-club); }
 
-/* No opacity here on purpose: fading white on a saturated block drops the real
-   contrast below AA for small text. Size, weight and tracking do the demoting. */
-.division .d-ages {
-  font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.12em;
-  text-transform: uppercase; margin-bottom: var(--s-1);
+/* No opacity on labels over a saturated block: fading white drops small-text
+   contrast below AA. Size, weight and tracking do the demoting. */
+.d-ages {
+  display: flex; align-items: center; gap: var(--s-2);
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.16em;
+  text-transform: uppercase; margin-bottom: var(--s-2);
 }
-.division h2 {
-  font-size: var(--text-display-sm); letter-spacing: -0.025em; margin-bottom: var(--s-1);
-}
-.division .d-tag {
-  font-family: var(--font-d); font-size: var(--text-lg);
-  opacity: 0.9; margin-bottom: var(--s-2);
-}
-.division p { max-width: 56ch; margin-bottom: var(--s-3); }
-.division ul { list-style: none; margin: 0 0 var(--s-4); padding: 0; display: grid; gap: 10px; }
-.division li { display: grid; grid-template-columns: 22px 1fr; gap: var(--s-1); font-size: var(--text-sm); }
-.division li svg { width: 16px; height: 16px; translate: 0 4px; }
+.d-ages::before { content: ""; width: 28px; height: 1px; background: currentColor; flex: none; }
 
-/* Buttons inside a color block invert rather than using the teal accent —
-   accent scarcity: the teal CTA stays the hero's and the nav's. */
-.btn--oncolor { background: var(--paper); color: var(--ink); }
-.btn--oncolor:hover { background: var(--ink); color: var(--paper); }
-.division--roots .btn--oncolor { background: var(--ink); color: var(--paper); }
-.division--roots .btn--oncolor:hover { background: var(--paper); color: var(--ink); }
-
-.division-media img {
-  width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
-  border-radius: var(--r-md);
+.division h2 { font-size: var(--text-display-sm); margin-bottom: var(--s-3); max-width: 20ch; }
+.division p { max-width: 52ch; margin-bottom: var(--s-4); font-size: var(--text-base); }
+.division ul { list-style: none; margin: 0 0 var(--s-5); padding: 0; display: grid; gap: 12px; max-width: 50ch; }
+.division li {
+  display: grid; grid-template-columns: 18px 1fr; gap: var(--s-2);
+  font-size: var(--text-sm); padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,.18);
 }
-.division-mark { width: min(100%, 300px); margin-inline: auto; }
+.division li:last-child { border-bottom: 0; padding-bottom: 0; }
+.division li svg { width: 13px; height: 13px; translate: 0 6px; }
 
-@media (max-width: 860px) {
+.division-media img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--r-sm); }
+.division-mark { width: min(100%, 320px); margin-inline: auto; }
+
+@media (max-width: 880px) {
   .division-inner { grid-template-columns: 1fr; }
   .division:nth-of-type(even) .division-media { order: 0; }
 }
 
 /* ---------- Aleph Champ ladder ---------- */
 
-.ladder { display: flex; gap: 10px; align-items: flex-end; flex-wrap: wrap; margin-top: var(--s-5); }
+.ladder {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(112px, 1fr));
+  gap: 2px; margin-top: var(--s-6);
+  border: 1px solid var(--hair);
+}
 .rung {
-  width: 76px; border-radius: var(--r-sm);
-  display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
-  padding-block: var(--s-2) 10px;
-  transition: transform 0.14s var(--ease);
+  padding: var(--s-3) var(--s-2) var(--s-3);
+  display: flex; flex-direction: column; gap: 10px;
+  transition: transform 0.16s var(--ease);
 }
-.rung:hover { transform: translateY(-3px); }
-.rung i {
-  font-family: var(--font-d); font-style: normal; font-size: 1.75rem;
-  line-height: 1; letter-spacing: 0;   /* Hebrew: never tracked */
+.rung:hover { transform: translateY(-2px); }
+.rung-top { display: flex; align-items: center; justify-content: space-between; gap: var(--s-1); }
+.rung-he { font-size: 1.5rem; line-height: 1; }
+.rung-n {
+  font-family: var(--font-b); font-weight: 600; font-size: 0.625rem;
+  letter-spacing: 0.1em; opacity: 0.75;
 }
-.rung u {
-  text-decoration: none; font-size: 0.625rem; font-weight: 700;
-  letter-spacing: 0.08em; text-transform: uppercase; margin-top: 7px; opacity: 0.9;
+.rung-name {
+  font-family: var(--font-b); font-weight: 600; font-size: 0.6875rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
 }
+.rung-what { font-size: 0.75rem; line-height: 1.4; }
 
 /* ---------- Month cycle ---------- */
 
-.months { list-style: none; margin: var(--s-5) 0 0; padding: 0; }
+.months { list-style: none; margin: var(--s-6) 0 0; padding: 0; }
 .months li {
-  display: grid; grid-template-columns: 118px 1fr; gap: var(--s-3);
-  align-items: baseline; padding-block: var(--s-2);
-  border-top: 1px solid var(--hair);
+  display: grid; grid-template-columns: 190px 1fr; gap: var(--s-4);
+  align-items: baseline; padding-block: var(--s-3); border-top: 1px solid var(--hair);
 }
 .months li:last-child { border-bottom: 1px solid var(--hair); }
-.m-name { font-family: var(--font-d); font-size: var(--text-lg); letter-spacing: -0.01em; }
+.m-when { font-family: var(--font-d); font-weight: 700; font-size: var(--text-lg); letter-spacing: -0.02em; }
 .m-what { color: var(--ink-2); }
-@media (max-width: 560px) {
-  .months li { grid-template-columns: 1fr; gap: 2px; }
-}
+@media (max-width: 620px) { .months li { grid-template-columns: 1fr; gap: 4px; } }
 
 /* ---------- Pull quote ---------- */
 
 .pull {
-  font-family: var(--font-d); font-size: var(--text-xl);
-  line-height: 1.25; letter-spacing: -0.015em;
-  max-width: 34ch; margin-block: var(--s-5) 0;
+  font-family: var(--font-d); font-weight: 700;
+  font-size: var(--text-xl); line-height: 1.15; letter-spacing: -0.03em;
+  max-width: 30ch; margin-block: var(--s-8) 0;
+  padding-inline-start: var(--s-4); border-inline-start: 2px solid var(--accent);
+}
+
+/* ---------- Two-up editorial ---------- */
+
+.duo { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+.duo-pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-2); }
+.duo-pair img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: var(--r-sm); }
+@media (max-width: 880px) { .duo { grid-template-columns: 1fr; } }
+
+/* ---------- Scroll reveal ----------
+   Opacity and transform only.
+
+   Note the `.js-reveal` gate: the hiding rule applies ONLY once script has
+   confirmed it can un-hide things. Content is therefore visible by default and
+   stays visible if JS fails, IntersectionObserver is unavailable, or the
+   observer never fires. Never hide content in CSS that only JS can restore. */
+@media (prefers-reduced-motion: no-preference) {
+  .js-reveal .reveal { opacity: 0; transform: translateY(14px); }
+  .js-reveal .reveal.is-in {
+    opacity: 1; transform: none;
+    transition: opacity 0.5s var(--ease), transform 0.55s var(--ease);
+  }
 }
