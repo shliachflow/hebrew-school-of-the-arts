@@ -116,6 +116,51 @@
 
 <a class="sr-only" href="#main">Skip to main content</a>
 
+<!-- Cut-paper spot marks, defined once and referenced with <use>. Flat fills,
+     no gradients, no strokes except where a shape genuinely needs one. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="spot-bowl" viewBox="0 0 100 100">
+      <path d="M12 52 Q10 34 34 30 Q64 25 74 46 Q82 66 48 71 Q18 74 12 52Z" fill="#17706A"/>
+      <path d="M24 45 Q40 39 60 44" stroke="#FBF7F0" stroke-width="4" fill="none" stroke-linecap="round" opacity=".6"/>
+      <path d="M70 24 Q84 18 88 30 Q91 42 79 45" stroke="#8F5A12" stroke-width="6" fill="none" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="spot-challah" viewBox="0 0 100 100">
+      <path d="M14 48 Q50 34 86 48 Q92 62 84 70 Q50 84 16 70 Q8 60 14 48Z" fill="#8A2B48"/>
+      <path d="M24 53 Q36 46 46 55 Q57 45 68 54 Q78 46 84 54" stroke="#FBF7F0" stroke-width="5" fill="none" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="spot-palette" viewBox="0 0 100 100">
+      <path d="M22 28 Q56 16 74 40 Q90 68 56 78 Q20 86 14 56 Q10 34 22 28Z" fill="#8F5A12"/>
+      <circle cx="38" cy="38" r="7" fill="#8A2B48"/>
+      <circle cx="60" cy="46" r="6" fill="#24476E"/>
+      <circle cx="40" cy="60" r="6" fill="#2F5D3A"/>
+    </symbol>
+    <symbol id="spot-sprout" viewBox="0 0 100 100">
+      <path d="M50 66 Q54 38 78 26 Q73 58 50 66Z" fill="#2F5D3A"/>
+      <path d="M50 66 Q46 36 22 24 Q28 56 50 66Z" fill="#2F5D3A" opacity=".78"/>
+      <path d="M50 68 L50 88" stroke="#2F5D3A" stroke-width="6" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="spot-book" viewBox="0 0 100 100">
+      <path d="M10 30 Q30 22 48 30 L48 76 Q30 68 10 76Z" fill="#24476E"/>
+      <path d="M52 30 Q70 22 90 30 L90 76 Q70 68 52 76Z" fill="#24476E" opacity=".8"/>
+      <path d="M50 28 L50 78" stroke="#FBF7F0" stroke-width="4" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="spot-menorah" viewBox="0 0 100 100">
+      <path d="M50 40 L50 78" stroke="#8F5A12" stroke-width="7" stroke-linecap="round"/>
+      <path d="M26 78 Q50 70 74 78" stroke="#8F5A12" stroke-width="7" fill="none" stroke-linecap="round"/>
+      <path d="M28 42 Q28 60 50 62" stroke="#8F5A12" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M72 42 Q72 60 50 62" stroke="#8F5A12" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <circle cx="28" cy="32" r="6" fill="#B4832A"/>
+      <circle cx="50" cy="26" r="6" fill="#B4832A"/>
+      <circle cx="72" cy="32" r="6" fill="#B4832A"/>
+    </symbol>
+    <symbol id="spot-clock" viewBox="0 0 100 100">
+      <path d="M18 50 Q16 26 44 22 Q76 18 84 46 Q90 74 54 79 Q22 82 18 50Z" fill="#2F5D3A"/>
+      <path d="M51 36 L51 52 L64 58" stroke="#FBF7F0" stroke-width="5" fill="none" stroke-linecap="round"/>
+    </symbol>
+  </defs>
+</svg>
+
 <!-- ============================ NAV ============================ -->
 <header class="nav">
   <div class="container nav-inner">
@@ -224,6 +269,7 @@
   <section class="section" id="sundays">
     <div class="container">
       <div class="s-head reveal">
+        <svg class="spot" aria-hidden="true" focusable="false"><use href="#spot-clock"/></svg>
         <p class="eyebrow">What the Morning Looks Like</p>
         <h2 class="s-title">Two and a half hours. Nothing wasted.</h2>
         <p class="lede">Parents always ask what actually happens. Here it is, start to finish.</p>
@@ -286,6 +332,7 @@
   <section class="section" id="divisions">
     <div class="container">
       <div class="s-head s-head--wide reveal">
+        <svg class="spot" aria-hidden="true" focusable="false"><use href="#spot-sprout"/></svg>
         <p class="eyebrow">Four Divisions</p>
         <h2 class="s-title">Every age gets a program built for them.</h2>
         <p class="lede">
@@ -331,6 +378,7 @@
   <section class="section section--tint" id="hebrew">
     <div class="container">
       <div class="s-head s-head--wide reveal">
+        <svg class="spot" aria-hidden="true" focusable="false"><use href="#spot-book"/></svg>
         <p class="eyebrow">Hebrew Reading</p>
         <h2 class="s-title">Ten levels. They know exactly which one they're on.</h2>
         <p class="lede">
@@ -397,6 +445,7 @@
   <section class="section" id="kitchen">
     <div class="container">
       <div class="s-head s-head--wide reveal">
+        <svg class="spot" aria-hidden="true" focusable="false"><use href="#spot-challah"/></svg>
         <p class="eyebrow">Beyond the Classroom</p>
         <h2 class="s-title">A real kitchen. Not a hot plate in a classroom.</h2>
         <p class="lede">
@@ -426,6 +475,7 @@
   <section class="section section--tint" id="studio">
     <div class="container duo">
       <div class="reveal">
+        <svg class="spot" aria-hidden="true" focusable="false"><use href="#spot-palette"/></svg>
         <p class="eyebrow">The Art Room</p>
         <h2 class="s-title">The &ldquo;Arts&rdquo; was never decoration.</h2>
         <p class="lede">
@@ -453,6 +503,7 @@
   <section class="section" id="learning">
     <div class="container">
       <div class="s-head s-head--wide reveal">
+        <svg class="spot" aria-hidden="true" focusable="false"><use href="#spot-menorah"/></svg>
         <p class="eyebrow">The Substance</p>
         <h2 class="s-title">Fun is the method. This is the goal.</h2>
         <p class="lede">What your child should be able to do by the end of the year.</p>

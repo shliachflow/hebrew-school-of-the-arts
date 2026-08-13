@@ -237,6 +237,39 @@ cancels `aspect-ratio`. All three per-division image shapes were doing nothing u
   then left on the page anyway; that was the error.
 - "we had it certified kosher" — the kitchen's existence is itself unverified.
 
+### 2026-08-13 — external reference: PostHog, via getdesign.md
+
+Client pointed at getdesign.md. Consulted the **PostHog** breakdown (raw file at
+`github.com/VoltAgent/awesome-design-md`, `design-md/posthog/DESIGN.md` — the website itself is an
+SPA shell and serves the same 31KB payload for every path, so fetch from the repo). Recorded as an
+input, not a commitment.
+
+**What was taken — the principle:**
+
+> "The system has no drop-shadow elevation in marketing or product chrome. Cards sit flat on cream
+> with thin olive borders." … "Depth comes entirely from illustration and the pastel callout band
+> system, not from CSS effects."
+
+PostHog is a playful brand whose playfulness is carried almost entirely by **hand-drawn characters
+scattered as marginalia** over flat surfaces. That is now the model here: a set of flat cut-paper
+spot marks (bowl, challah, palette, sprout, book, menorah, clock) defined once as SVG `<symbol>`s
+and placed above six section eyebrows. Objects are drawn from what the school actually makes, so
+they carry meaning rather than decorate. Scattered across six of nine sections, not applied to all —
+marginalia, not a system.
+
+**Two things it corrected:**
+- Its radius scale clusters at **4–6px**. Playfulness therefore does *not* come from large radii,
+  which was my assumption when rounding the scale up. The rounding stays (the client liked the
+  warmer direction) but illustration is now doing the work it was being asked to do.
+- It confirms the hairline/no-shadow choice independently, from a brand far more playful than this
+  one.
+
+**What was deliberately NOT taken:** its typeface. IBM Plex Sans is a fit to PostHog's
+developer-tool context, not a transferable rule — importing it would be exactly the brand-specific
+tell to avoid. Bespoke Slab already carries more character than Plex; what was missing was the
+illustration layer, not a different font. Its pale pastel callout tints were also left alone: this
+site already has the four `--tint-*` values and does not need a second tint vocabulary.
+
 ### New rules
 
 - **No insider vocabulary.** The school's core pitch is that unaffiliated families belong, and it

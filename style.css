@@ -206,6 +206,18 @@ a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset:
   flex: none; opacity: 0.6;
 }
 
+/* ---------- Spot marks ----------
+   Flat cut-paper objects placed as marginalia above section eyebrows. Taken as
+   a principle from the PostHog breakdown on getdesign.md: its playfulness comes
+   from scattered hand-drawn characters over flat surfaces, not from CSS effects,
+   big radii or a decorative typeface. Objects are drawn from what the school
+   actually makes — challah, a bowl, a palette, a menorah — so they carry
+   meaning rather than decorating. Flat fills only, native aspect, never framed
+   or cropped. Hidden from assistive tech; the heading carries the meaning. */
+.spot { width: 76px; height: 76px; margin-bottom: var(--s-2); }
+.spot--sm { width: 56px; height: 56px; }
+@media (max-width: 640px) { .spot { width: 60px; height: 60px; } }
+
 h2.s-title { font-size: var(--text-display-sm); }
 
 .lede {
