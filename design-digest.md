@@ -199,6 +199,44 @@ data and appear nowhere else on the site. The earlier eight-color guess is gone.
 **Grain added** at 3% on the hero and 5% on the dark band only — not as a divider on every section,
 which is its own tell.
 
+### 2026-08-13 — second premium pass (anti-AI-vibe)
+
+Client: the colour is good, but the font reads like the typeface every AI site uses, and the page
+still has the vibe of a generated site. Also flagged three specific pieces of made-up content.
+
+**Typography moved off Google Fonts to Fontshare: Erode (display) + Switzer (body).** This is the
+substantive point — the "AI website" typographic signature comes from the Google top-fifty, which is
+the set every agent reaches for. Erode is drawn with deliberate organic irregularities in the
+letterforms, which is the *handmadeness* trust signal Section 0 of the master prompt describes, and
+it is the right argument for a school built on things children make by hand. It also restores
+serif-against-sans contrast, which the all-sans Bricolage/Instrument pairing lacked.
+**Revised weight roster: Erode 600, Switzer 400, Switzer 500.** Suez One 400 for Hebrew glyphs only.
+
+**Structural tells fixed — these matter more than the typeface.** The remaining AI-ness was
+skeletal, not typographic:
+- *Marker glyph per bullet.* Every division list had a circle before each item — the "icon in a
+  circle" tell in reduced form. Replaced with a CSS counter (`01`, `02`) on hairline-ruled rows.
+  **Do not put a dot, chevron, check or icon in front of list items on this site.**
+- *Four identical two-column division blocks*, which is a card grid rotated ninety degrees. Each
+  division now has its own column proportions, its own image aspect ratio (5:4, 3:4, 4:3), its own
+  vertical alignment, and Roots runs its list in two columns. Verified as four distinct layouts.
+- *Uniform full-width stacked bands.* The studio pair now offsets its second image to break the
+  flat top edge.
+
+**`height: auto` is mandatory on any image with an aspect-ratio.** The `<img>` elements carry
+width/height attributes to prevent layout shift, which makes the box height definite and silently
+cancels `aspect-ratio`. All three per-division image shapes were doing nothing until this was fixed.
+
+**Hero tracking relaxed to -0.03em** from -0.04em. The size-scaling formula puts a 96px heading near
+-0.03em, and Erode is a serif — serifs collide at grotesque tracking.
+
+**Content removed at client request**, all three unverifiable filler:
+- "A child who bakes the challah doesn't need to be told why Friday night matters" — an aphorism
+  that cannot be true or false.
+- "every allergy is accounted for" — an unverified **safety** claim. Flagged in CONTENT-SOURCES and
+  then left on the page anyway; that was the error.
+- "we had it certified kosher" — the kitchen's existence is itself unverified.
+
 ### New rules
 
 - **No insider vocabulary.** The school's core pitch is that unaffiliated families belong, and it

@@ -53,13 +53,17 @@
   --ac-black:  #141414;
 
   /* --- Type ---
-     Display is Bricolage Grotesque: a variable grotesque with real designed
-     character and an optical-size axis, punchy enough at heavy weights to
-     carry a children's program. Body is Instrument Sans. Suez One survives
-     only for the Hebrew letters in the Aleph Champ ladder — a separate
-     script voice, the way a monospace face would be. See design-digest.md. */
-  --font-d:  'Bricolage Grotesque', Georgia, serif;
-  --font-b:  'Instrument Sans', system-ui, -apple-system, sans-serif;
+     Display is Erode, body is Switzer, both from Fontshare rather than Google
+     Fonts. That source matters: the "AI website" typographic signature comes
+     from the Google top-fifty, which is what every agent reaches for by
+     default. Erode is drawn with deliberate organic irregularities in the
+     letterforms — the visible-imperfection quality is the argument for a school
+     built on things children make by hand, and it gives serif-against-sans
+     contrast the previous all-sans pairing lacked. Suez One remains solely for
+     the Hebrew letters in the Aleph Champ ladder: a separate script voice, the
+     way a monospace face is treated. See design-digest.md. */
+  --font-d:  'Erode', Georgia, serif;
+  --font-b:  'Switzer', system-ui, -apple-system, sans-serif;
   --font-he: 'Suez One', Georgia, serif;
 
   --text-sm:         clamp(0.875rem, 0.85rem + 0.15vw, 0.9375rem);
@@ -126,12 +130,11 @@ body {
 
 h1, h2, h3, h4 {
   font-family: var(--font-d);
-  font-weight: 700;
-  font-optical-sizing: auto;
+  font-weight: 600;
   margin: 0;
   text-wrap: balance;
-  line-height: 1.0;
-  letter-spacing: -0.025em;
+  line-height: 1.03;
+  letter-spacing: -0.022em;
 }
 
 p { margin: 0; }
@@ -302,10 +305,13 @@ h2.s-title { font-size: var(--text-display-sm); }
   z-index: 1;
 }
 
+/* -0.03em, not -0.04em: the scaling formula puts a 96px heading near -0.03em,
+   and Erode is a serif — pulling serifs as tight as a grotesque collides the
+   bracketing. */
 .hero h1 {
   font-size: var(--text-display);
-  letter-spacing: -0.04em;
-  line-height: 0.92;
+  letter-spacing: -0.03em;
+  line-height: 0.96;
   margin-bottom: var(--s-3);
   max-width: 11ch;
 }
@@ -368,7 +374,7 @@ h2.s-title { font-size: var(--text-display-sm); }
 
 .strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: var(--ink); }
 .strip figure { margin: 0; position: relative; overflow: hidden; }
-.strip img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 5; transition: transform 0.6s var(--ease); }
+.strip img { width: 100%; height: auto; object-fit: cover; aspect-ratio: 4 / 5; transition: transform 0.6s var(--ease); }
 .strip figure:hover img { transform: scale(1.045); }
 /* One honest credit line under the strip, rather than a caption per image
    asserting things the photographs do not actually show. */
@@ -427,22 +433,68 @@ h2.s-title { font-size: var(--text-display-sm); }
 .d-ages::before { content: ""; width: 28px; height: 1px; background: currentColor; flex: none; }
 
 .division h2 { font-size: var(--text-display-sm); margin-bottom: var(--s-3); max-width: 20ch; }
-.division p { max-width: 52ch; margin-bottom: var(--s-4); font-size: var(--text-base); }
-.division ul { list-style: none; margin: 0 0 var(--s-5); padding: 0; display: grid; gap: 12px; max-width: 50ch; }
-.division li {
-  display: grid; grid-template-columns: 18px 1fr; gap: var(--s-2);
-  font-size: var(--text-sm); padding-bottom: 12px;
-  border-bottom: 1px solid rgba(255,255,255,.18);
-}
-.division li:last-child { border-bottom: 0; padding-bottom: 0; }
-.division li svg { width: 13px; height: 13px; translate: 0 6px; }
+.division p { max-width: 52ch; margin-bottom: var(--s-5); font-size: var(--text-base); }
 
-.division-media img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--r-sm); }
+/* Numbered, hairline-ruled list. Deliberately not a dot or an icon in front of
+   each line — a marker glyph per bullet is the single most recognisable
+   generated-page tell. A counter reads as editorial index instead. */
+.division ol {
+  list-style: none; margin: 0 0 var(--s-5); padding: 0;
+  counter-reset: dpoint; max-width: 52ch;
+}
+.division ol li {
+  counter-increment: dpoint;
+  display: grid; grid-template-columns: 2.5rem 1fr; gap: var(--s-2);
+  font-size: var(--text-sm); line-height: 1.5;
+  padding-block: 14px;
+  border-top: 1px solid rgba(255,255,255,.22);
+}
+.division ol li:last-child { border-bottom: 1px solid rgba(255,255,255,.22); }
+.division ol li::before {
+  content: "0" counter(dpoint);
+  font-family: var(--font-b); font-weight: 500; font-size: 0.6875rem;
+  letter-spacing: 0.1em; opacity: 0.72; translate: 0 3px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* height:auto is required, not cosmetic: the <img> carries width/height
+   attributes for CLS, which make the box height definite and silently cancel
+   aspect-ratio. Without this the per-division image shapes do nothing. */
+.division-media img { width: 100%; height: auto; object-fit: cover; border-radius: var(--r-sm); }
 .division-mark { width: min(100%, 320px); margin-inline: auto; }
 
+/* ---- Per-division layout variants ----
+   Four identical two-column blocks is a card grid rotated ninety degrees.
+   Each division gets its own proportions, image shape and list rhythm so the
+   page has a rhythm rather than a template. */
+
+/* 01 Sprouts — copy-led, generous, tall paper mark alongside */
+.division--sprouts .division-inner { grid-template-columns: 1.25fr 0.75fr; }
+
+/* 02 Roots — image-led and wide, copy in a tighter measure */
+.division--roots .division-inner { grid-template-columns: 0.9fr 1.1fr; }
+.division--roots .division-media img { aspect-ratio: 5 / 4; }
+.division--roots ol { grid-template-columns: 1fr 1fr; display: grid; column-gap: var(--s-4); }
+.division--roots ol li:nth-child(2) { border-top: 1px solid rgba(255,255,255,.22); }
+
+/* 03 Mitzvah Crew — the widest text column; portrait image offset lower */
+.division--crew .division-inner { grid-template-columns: 1.5fr 0.85fr; align-items: end; }
+.division--crew .division-media img { aspect-ratio: 3 / 4; }
+.division--crew h2 { max-width: 26ch; }
+
+/* 04 Bat Mitzvah Club — image dominant, copy in a narrow editorial column */
+.division--club .division-inner { grid-template-columns: 0.8fr 1.2fr; }
+.division--club .division-media img { aspect-ratio: 4 / 3; }
+.division--club p { max-width: 44ch; }
+
 @media (max-width: 880px) {
-  .division-inner { grid-template-columns: 1fr; }
+  .division-inner,
+  .division--sprouts .division-inner,
+  .division--roots .division-inner,
+  .division--crew .division-inner,
+  .division--club .division-inner { grid-template-columns: 1fr; align-items: start; }
   .division:nth-of-type(even) .division-media { order: 0; }
+  .division--roots ol { grid-template-columns: 1fr; }
 }
 
 /* ---------- Aleph Champ ladder ---------- */
@@ -495,7 +547,10 @@ h2.s-title { font-size: var(--text-display-sm); }
 
 .duo { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
 .duo-pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-2); }
-.duo-pair img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: var(--r-sm); }
+.duo-pair img { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: var(--r-sm); }
+/* Second image of the pair drops to break the flat top edge. */
+.duo-pair img:last-child { translate: 0 var(--s-6); }
+@media (max-width: 880px) { .duo-pair img:last-child { translate: none; } }
 @media (max-width: 880px) { .duo { grid-template-columns: 1fr; } }
 
 /* ---------- Scroll reveal ----------
