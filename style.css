@@ -190,6 +190,55 @@ a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset:
 .section { padding-block: var(--section-pad); }
 .section--tint { background: var(--paper-2); }
 
+/* ---------- Pale tint bands ----------
+   Copied wholesale from the PostHog system on getdesign.md: a cream floor with
+   soft tinted panels doing the sectioning, rather than one flat canvas broken up
+   by heavy saturated blocks. These are the same four hue families as the
+   division colors, at roughly 12% strength, so the page reads as one family.
+   Text on all four is --ink, which clears AA on every one by a wide margin. */
+.section--mint   { background: var(--tint-sprouts); }
+.section--butter { background: var(--tint-roots); }
+.section--sky    { background: var(--tint-crew); }
+.section--blush  { background: var(--tint-club); }
+
+/* ---------- Callout ----------
+   PostHog's banner-tip pattern: a soft tinted side-rail panel carrying a note,
+   prefixed with an icon. Theirs uses an emoji; this uses a cut-paper mark, since
+   emoji in headings is on the anti-slop list and this site already has a mark
+   vocabulary. Flat fill, hairline border, no shadow. */
+.callout {
+  display: grid; grid-template-columns: 56px 1fr; gap: var(--s-3);
+  align-items: start;
+  background: var(--paper); border: 1px solid var(--hair);
+  border-inline-start: 4px solid var(--accent);
+  border-radius: var(--r-md);
+  padding: var(--s-3) var(--s-4);
+  margin-top: var(--s-5);
+}
+.callout--mint   { border-inline-start-color: var(--blk-sprouts); background: var(--tint-sprouts); }
+.callout--butter { border-inline-start-color: var(--blk-roots);   background: var(--tint-roots); }
+.callout--sky    { border-inline-start-color: var(--blk-crew);    background: var(--tint-crew); }
+.callout h4 {
+  font-family: var(--font-d); font-weight: 700; font-size: var(--text-base);
+  letter-spacing: -0.015em; margin-bottom: 4px;
+}
+.callout p { font-size: var(--text-sm); color: var(--ink-2); max-width: 60ch; }
+.callout .spot { margin-bottom: 0; width: 56px; height: 56px; }
+@media (max-width: 560px) {
+  .callout { grid-template-columns: 1fr; }
+  .callout .spot { width: 48px; height: 48px; }
+}
+
+/* ---------- Illustrated section head ----------
+   PostHog pairs each feature row with a character vignette. Same idea: the mark
+   gets real size and sits beside the heading instead of floating above it. */
+.s-illus { display: grid; grid-template-columns: 200px 1fr; gap: clamp(1.5rem, 4vw, 3rem); align-items: center; }
+.s-illus .spot--xl { width: 200px; height: 200px; margin-bottom: 0; }
+@media (max-width: 760px) {
+  .s-illus { grid-template-columns: 1fr; gap: var(--s-3); }
+  .s-illus .spot--xl { width: 132px; height: 132px; }
+}
+
 /* Section headers get a consistent editorial structure: a hairline, a tracked
    label, a large heading, and a lede at a controlled measure. */
 .s-head { max-width: 40ch; }
@@ -214,9 +263,9 @@ a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset:
    actually makes — challah, a bowl, a palette, a menorah — so they carry
    meaning rather than decorating. Flat fills only, native aspect, never framed
    or cropped. Hidden from assistive tech; the heading carries the meaning. */
-.spot { width: 76px; height: 76px; margin-bottom: var(--s-2); }
+.spot { width: 104px; height: 104px; margin-bottom: var(--s-2); }
 .spot--sm { width: 56px; height: 56px; }
-@media (max-width: 640px) { .spot { width: 60px; height: 60px; } }
+@media (max-width: 640px) { .spot { width: 76px; height: 76px; } }
 
 h2.s-title { font-size: var(--text-display-sm); }
 
