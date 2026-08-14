@@ -154,6 +154,15 @@
       <circle cx="50" cy="26" r="6" fill="#B4832A"/>
       <circle cx="72" cy="32" r="6" fill="#B4832A"/>
     </symbol>
+    <!-- Cut-paper star: two torn triangles laid over each other, edges
+         deliberately uneven so it reads as made rather than drawn by a machine.
+         Used for the outcomes section, whose stated goal is "be proud out
+         loud" — the one outcome the school says it cares about most. -->
+    <symbol id="spot-star" viewBox="0 0 100 100">
+      <path d="M50 14 L79 63 L20 64Z" fill="#17706A"/>
+      <path d="M50 86 L21 37 L80 36Z" fill="#17706A" opacity=".82"/>
+      <path d="M50 34 L62 55 L37 56Z" fill="#FBF7F0" opacity=".28"/>
+    </symbol>
     <symbol id="spot-clock" viewBox="0 0 100 100">
       <path d="M18 50 Q16 26 44 22 Q76 18 84 46 Q90 74 54 79 Q22 82 18 50Z" fill="#2F5D3A"/>
       <path d="M51 36 L51 52 L64 58" stroke="#FBF7F0" stroke-width="5" fill="none" stroke-linecap="round"/>
@@ -507,7 +516,7 @@
   <section class="section" id="learning">
     <div class="container">
       <div class="s-head s-head--wide reveal">
-        <svg class="spot" aria-hidden="true" focusable="false"><use href="#spot-menorah"/></svg>
+        <svg class="spot" aria-hidden="true" focusable="false"><use href="#spot-star"/></svg>
         <p class="eyebrow">The Substance</p>
         <h2 class="s-title">Fun is the method. This is the goal.</h2>
         <p class="lede">What your child should be able to do by the end of the year.</p>
@@ -544,6 +553,7 @@
   <section class="section section--butter" id="calendar">
     <div class="container cal">
       <div class="reveal">
+        <svg class="spot" aria-hidden="true" focusable="false"><use href="#spot-menorah"/></svg>
         <p class="eyebrow">Dates</p>
         <h2 class="s-title">The year at a glance.</h2>
         <ul class="cal-facts" style="margin-top:var(--s-5)">
