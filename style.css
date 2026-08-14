@@ -483,6 +483,25 @@ h2.s-title { font-size: var(--text-display-sm); }
   margin-top: 10px; font-size: 0.75rem; font-weight: 500;
   letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2);
 }
+
+/* Arrows. Real buttons, keyboard reachable, and they hide themselves when the
+   row cannot scroll any further in that direction. */
+.reels-wrap { position: relative; }
+.reels-nav {
+  display: flex; gap: var(--s-1); justify-content: flex-end;
+  margin-bottom: var(--s-2);
+}
+.reels-btn {
+  width: 44px; height: 44px; border-radius: var(--r-full);
+  border: 1.5px solid var(--ink); background: transparent; color: var(--ink);
+  display: grid; place-items: center; cursor: pointer;
+  transition: background-color 0.14s var(--ease), color 0.14s var(--ease),
+              opacity 0.14s var(--ease), transform 0.10s var(--ease);
+}
+.reels-btn:hover:not(:disabled) { background: var(--ink); color: var(--paper); }
+.reels-btn:active:not(:disabled) { transform: scale(0.94); }
+.reels-btn:disabled { opacity: 0.28; cursor: not-allowed; }
+.reels-btn svg { width: 18px; height: 18px; }
 /* Play affordance, hidden once the clip is running. */
 .reel-play {
   position: absolute; inset-inline-start: 50%; inset-block-start: 34%;
@@ -623,11 +642,19 @@ h2.s-title { font-size: var(--text-display-sm); }
 
 /* ---------- Aleph Champ ladder ---------- */
 
+/* The ladder runs RIGHT TO LEFT. It carries the Hebrew alphabet in sequence
+   (alef, beis, gimmel...), and running that left-to-right reads as broken to
+   anyone who reads Hebrew — which is most of this school's point. Level 01 sits
+   on the right and progress moves leftward.
+   Each rung is set back to ltr so the English level names and the 01-10 numbers
+   inside it are not themselves mirrored. */
 .ladder {
+  direction: rtl;
   display: grid; grid-template-columns: repeat(auto-fit, minmax(112px, 1fr));
   gap: 2px; margin-top: var(--s-6);
   border: 1px solid var(--hair);
 }
+.ladder .rung { direction: ltr; }
 .rung {
   padding: var(--s-3) var(--s-2) var(--s-3);
   display: flex; flex-direction: column; gap: 10px;
@@ -913,4 +940,46 @@ table.tuition tbody tr:last-child { border-bottom: 1px solid var(--hair); }
     opacity: 1; transform: none;
     transition: opacity 0.5s var(--ease), transform 0.55s var(--ease);
   }
+
+  /* Stagger — children of a .stagger group arrive in sequence rather than as a
+     block. Delays are capped at 10 children; anything beyond simply arrives
+     with the last one rather than trailing off for several seconds. */
+  .js-reveal .stagger > * { opacity: 0; transform: translateY(12px); }
+  .js-reveal .stagger.is-in > * {
+    opacity: 1; transform: none;
+    transition: opacity 0.45s var(--ease), transform 0.5s var(--ease);
+  }
+  .js-reveal .stagger.is-in > *:nth-child(1) { transition-delay: 0ms; }
+  .js-reveal .stagger.is-in > *:nth-child(2) { transition-delay: 60ms; }
+  .js-reveal .stagger.is-in > *:nth-child(3) { transition-delay: 120ms; }
+  .js-reveal .stagger.is-in > *:nth-child(4) { transition-delay: 180ms; }
+  .js-reveal .stagger.is-in > *:nth-child(5) { transition-delay: 240ms; }
+  .js-reveal .stagger.is-in > *:nth-child(6) { transition-delay: 300ms; }
+  .js-reveal .stagger.is-in > *:nth-child(7) { transition-delay: 360ms; }
+  .js-reveal .stagger.is-in > *:nth-child(8) { transition-delay: 420ms; }
+  .js-reveal .stagger.is-in > *:nth-child(n+9) { transition-delay: 480ms; }
+
+  /* Cut-paper marks settle into place, as though set down by hand. */
+  .js-reveal .reveal .spot,
+  .js-reveal .stagger .spot { transform: rotate(-6deg) scale(0.92); transform-origin: 50% 70%; }
+  .js-reveal .reveal.is-in .spot,
+  .js-reveal .stagger.is-in .spot {
+    transform: none;
+    transition: transform 0.6s cubic-bezier(0.22, 1.2, 0.36, 1);
+  }
+
+  /* Hero entrance on load. No scroll needed — it is already in view. */
+  .hero-content > * { animation: rise 0.62s var(--ease) both; }
+  .hero-content > *:nth-child(1) { animation-delay: 0.05s; }
+  .hero-content > *:nth-child(2) { animation-delay: 0.13s; }
+  .hero-content > *:nth-child(3) { animation-delay: 0.21s; }
+  .hero-content > *:nth-child(4) { animation-delay: 0.29s; }
+  .hero-content > *:nth-child(5) { animation-delay: 0.37s; }
+  .hero-media img { animation: heroImg 0.9s var(--ease) both 0.1s; }
+  @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+  @keyframes heroImg { from { opacity: 0; transform: scale(1.04); } to { opacity: 1; transform: none; } }
+
+  /* Division panels lift on hover. */
+  .dpanel { transition: flex-grow 0.35s var(--ease), transform 0.28s var(--ease); }
+  .dpanel:hover { transform: translateY(-4px); }
 }

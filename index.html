@@ -145,15 +145,6 @@
       <path d="M52 30 Q70 22 90 30 L90 76 Q70 68 52 76Z" fill="#24476E" opacity=".8"/>
       <path d="M50 28 L50 78" stroke="#FBF7F0" stroke-width="4" stroke-linecap="round"/>
     </symbol>
-    <symbol id="spot-menorah" viewBox="0 0 100 100">
-      <path d="M50 40 L50 78" stroke="#8F5A12" stroke-width="7" stroke-linecap="round"/>
-      <path d="M26 78 Q50 70 74 78" stroke="#8F5A12" stroke-width="7" fill="none" stroke-linecap="round"/>
-      <path d="M28 42 Q28 60 50 62" stroke="#8F5A12" stroke-width="5" fill="none" stroke-linecap="round"/>
-      <path d="M72 42 Q72 60 50 62" stroke="#8F5A12" stroke-width="5" fill="none" stroke-linecap="round"/>
-      <circle cx="28" cy="32" r="6" fill="#B4832A"/>
-      <circle cx="50" cy="26" r="6" fill="#B4832A"/>
-      <circle cx="72" cy="32" r="6" fill="#B4832A"/>
-    </symbol>
     <!-- Cut-paper star: two torn triangles laid over each other, edges
          deliberately uneven so it reads as made rather than drawn by a machine.
          Used for the outcomes section, whose stated goal is "be proud out
@@ -184,7 +175,7 @@
         <li><a href="#divisions">Divisions</a></li>
         <li><a href="#sundays">A Sunday here</a></li>
         <li><a href="#reels">Watch</a></li>
-        <li><a href="#kitchen">The Kitchen</a></li>
+        <li><a href="program.html">The Program</a></li>
         <li><a href="#tuition">Tuition</a></li>
         <li><a href="#faq">Questions</a></li>
       </ul>
@@ -285,7 +276,7 @@
         <p class="lede">Parents always ask what actually happens. Here it is, start to finish.</p>
       </div>
 
-      <ol class="timeline">
+      <ol class="timeline reveal stagger">
         <li class="reveal">
           <div class="tl-time"><span class="tl-dot"></span>10:00</div>
           <div class="tl-body">
@@ -351,7 +342,16 @@
         </p>
       </div>
 
-      <div class="reels reveal">
+      <div class="reels-wrap reveal">
+      <div class="reels-nav">
+        <button class="reels-btn" id="reelsPrev" type="button" aria-label="Scroll to previous clips" aria-controls="reelsRow">
+          <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M11.5 3 5.5 9l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="reels-btn" id="reelsNext" type="button" aria-label="Scroll to more clips" aria-controls="reelsRow">
+          <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M6.5 3l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div class="reels stagger" id="reelsRow">
         <figure class="reel">
           <video src="uploads/video/hsa-2025-05-04.mp4" preload="metadata" muted playsinline loop
                  aria-label="Hebrew school Sunday, May 4"></video>
@@ -402,7 +402,10 @@
         </figure>
       </div>
 
-      <p class="fine">Filmed at Hebrew School of the Arts, 2024&ndash;25 school year.</p>
+      </div>
+
+      <p class="fine">Filmed at Hebrew School of the Arts, 2024&ndash;25 school year. Tap a clip to
+         play it with sound.</p>
     </div>
   </section>
 
@@ -425,7 +428,7 @@
     </div>
   </section>
 
-  <div class="dband">
+  <div class="dband reveal stagger">
     <a class="dpanel dpanel--sprouts" href="divisions/sprouts.html">
       <span class="dpanel-n">01</span>
       <h3>Sprouts</h3>
@@ -456,169 +459,19 @@
     </a>
   </div>
 
-  <!-- ============================ HEBREW / ALEPH CHAMP ============================ -->
-  <section class="section section--sky" id="hebrew">
-    <div class="container">
-      <div class="s-illus reveal">
-        <svg class="spot spot--xl" aria-hidden="true" focusable="false"><use href="#spot-book"/></svg>
-        <div class="s-head s-head--wide">
-        <p class="eyebrow">Hebrew Reading</p>
-        <h2 class="s-title">Ten levels. They know exactly which one they're on.</h2>
-        <p class="lede">
-          We teach reading with Aleph Champ, which works the way karate belts do. Every child starts
-          where they actually are and moves up one color at a time. A beginner is never behind, an
-          advanced reader is never bored, and progress is something a seven-year-old can see.
-        </p>
-        </div>
-      </div>
-
-      <div class="ladder reveal">
-        <div class="rung" style="background:var(--ac-white);color:var(--ink)">
-          <div class="rung-top"><span class="rung-he he">&#1488;</span><span class="rung-n">01</span></div>
-          <div><div class="rung-name">White</div><p class="rung-what">First 19 letters</p></div>
-        </div>
-        <div class="rung" style="background:var(--ac-red);color:#fff">
-          <div class="rung-top"><span class="rung-he he">&#1489;</span><span class="rung-n">02</span></div>
-          <div><div class="rung-name">Red</div><p class="rung-what">Last 13 letters</p></div>
-        </div>
-        <div class="rung" style="background:var(--ac-orange);color:#26150A">
-          <div class="rung-top"><span class="rung-he he">&#1490;</span><span class="rung-n">03</span></div>
-          <div><div class="rung-name">Orange</div><p class="rung-what">First 3 vowels</p></div>
-        </div>
-        <div class="rung" style="background:var(--ac-yellow);color:#2B2405">
-          <div class="rung-top"><span class="rung-he he">&#1491;</span><span class="rung-n">04</span></div>
-          <div><div class="rung-name">Yellow</div><p class="rung-what">Next 3 vowels</p></div>
-        </div>
-        <!-- Dark text: white on this green measures 3.33:1 and fails AA.
-             The level color is the program's real one and must not be altered. -->
-        <div class="rung" style="background:var(--ac-green);color:#1A1712">
-          <div class="rung-top"><span class="rung-he he">&#1492;</span><span class="rung-n">05</span></div>
-          <div><div class="rung-name">Green</div><p class="rung-what">Last 3 vowels</p></div>
-        </div>
-        <div class="rung" style="background:var(--ac-blue);color:#fff">
-          <div class="rung-top"><span class="rung-he he">&#1493;</span><span class="rung-n">06</span></div>
-          <div><div class="rung-name">Blue</div><p class="rung-what">Exceptions to the rules</p></div>
-        </div>
-        <div class="rung" style="background:var(--ac-purple);color:#fff">
-          <div class="rung-top"><span class="rung-he he">&#1494;</span><span class="rung-n">07</span></div>
-          <div><div class="rung-name">Purple</div><p class="rung-what">Reading practice &middot; 13&ndash;23 words a minute</p></div>
-        </div>
-        <div class="rung" style="background:var(--ac-brown);color:#fff">
-          <div class="rung-top"><span class="rung-he he">&#1495;</span><span class="rung-n">08</span></div>
-          <div><div class="rung-name">Brown</div><p class="rung-what">Reading practice &middot; 23&ndash;33 words a minute</p></div>
-        </div>
-        <div class="rung" style="background:var(--ac-grey);color:#1A1712">
-          <div class="rung-top"><span class="rung-he he">&#1496;</span><span class="rung-n">09</span></div>
-          <div><div class="rung-name">Grey</div><p class="rung-what">Holiday prayers &middot; 33&ndash;43 words a minute</p></div>
-        </div>
-        <div class="rung" style="background:var(--ac-black);color:var(--paper)">
-          <div class="rung-top"><span class="rung-he he">&#1497;</span><span class="rung-n">10</span></div>
-          <div><div class="rung-name">Black</div><p class="rung-what">Reading from the Torah &middot; 43&ndash;53 words a minute</p></div>
-        </div>
-      </div>
-
-      <p class="fine" style="margin-top:var(--s-5)">
-        Each level has three stripes inside it, so there's always a next small win. Most students
-        arrive knowing no Hebrew at all &mdash; that's the normal starting point here, not the
-        exception.
-      </p>
-    </div>
-  </section>
-
-  <!-- ============================ THE KITCHEN ============================ -->
-  <section class="section section--mint" id="kitchen">
-    <div class="container">
-      <div class="s-illus reveal">
-        <svg class="spot spot--xl" aria-hidden="true" focusable="false"><use href="#spot-challah"/></svg>
-        <div class="s-head s-head--wide">
-          <p class="eyebrow">Beyond the Classroom</p>
-          <h2 class="s-title">A real kitchen. Not a hot plate in a classroom.</h2>
-          <p class="lede">
-            Every division rotates through the kitchen every month. They measure, they knead, they
-            burn a batch and make it again.
-          </p>
-        </div>
-      </div>
-
-      <ul class="months reveal">
-        <li><span class="m-when">Rosh Hashanah</span><span class="m-what">Challah, braided six different ways</span></li>
-        <li><span class="m-when">Hanukkah</span><span class="m-what">Latkes and jelly doughnuts, from scratch</span></li>
-        <li><span class="m-when">Purim</span><span class="m-what">A hamantaschen production line</span></li>
-        <li><span class="m-when">Passover</span><span class="m-what">Matzah, eighteen minutes, hands covered in flour</span></li>
-        <li><span class="m-when">Shavuot</span><span class="m-what">Cheesecake, obviously</span></li>
-      </ul>
-
-      <p class="fine" style="margin-top:var(--s-5)">
-        Whatever they make, they take home.
-      </p>
-      <!-- Kosher supervision and allergy handling are intentionally not stated
-           here yet. See CONTENT-SOURCES.md before adding them. -->
-
-    </div>
-  </section>
-
-  <!-- ============================ THE STUDIO ============================ -->
-  <section class="section section--blush" id="studio">
-    <div class="container duo">
-      <div class="reveal">
-        <svg class="spot" aria-hidden="true" focusable="false"><use href="#spot-palette"/></svg>
-        <p class="eyebrow">The Art Room</p>
-        <h2 class="s-title">The &ldquo;Arts&rdquo; was never decoration.</h2>
-        <p class="lede">
-          There has been a dedicated art teacher here since the beginning, and that room is the
-          reason a lot of kids show up. Mosaics, painting, sculpture, ceramics, mixed media &mdash;
-          always tied to what they're learning.
-        </p>
-        <p class="pull" style="margin-top:var(--s-6)">
-          They don't take home a worksheet. They take home an heirloom.
-        </p>
-        <p class="fine" style="margin-top:var(--s-5)">
-          A menorah they designed themselves. A seder plate their family will use for twenty years.
-        </p>
-      </div>
-      <div class="duo-pair reveal">
-        <img src="uploads/photos/kid-chef-cutter.jpg" width="562" height="750" loading="lazy" decoding="async"
-             alt="A student working carefully with their hands at the table." />
-        <img src="uploads/photos/group-bake-table.jpg" width="480" height="640" loading="lazy" decoding="async"
-             alt="Students gathered around a project table." />
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================ OUTCOMES ============================ -->
-  <section class="section" id="learning">
-    <div class="container">
+  <!-- ============================ PROGRAM TEASER ============================ -->
+  <section class="section section--mint" id="program">
+    <div class="container s-illus">
+      <svg class="spot spot--xl" aria-hidden="true" focusable="false"><use href="#spot-challah"/></svg>
       <div class="s-head s-head--wide reveal">
-        <svg class="spot" aria-hidden="true" focusable="false"><use href="#spot-star"/></svg>
-        <p class="eyebrow">The Substance</p>
-        <h2 class="s-title">Fun is the method. This is the goal.</h2>
-        <p class="lede">What your child should be able to do by the end of the year.</p>
+        <p class="eyebrow">The Program</p>
+        <h2 class="s-title">A real kitchen, a real studio, and Hebrew that sticks.</h2>
+        <p class="lede">
+          Ten levels of Hebrew reading, a full turn through the kitchen every month, the art room,
+          and the six subjects we teach every year.
+        </p>
+        <a class="btn btn--primary" href="program.html" style="margin-top:var(--s-4)">See the program &rarr;</a>
       </div>
-
-      <ol class="outcomes reveal">
-        <li>
-          <h3>Read Hebrew</h3>
-          <p>Actual letters, actual words, actual prayers, at their own level and without pressure.</p>
-        </li>
-        <li>
-          <h3>Know the holidays</h3>
-          <p>Not just when they fall. What they mean, why we do what we do, and how to run one at home.</p>
-        </li>
-        <li>
-          <h3>Own a piece of the story</h3>
-          <p>Abraham, Joseph, the Maccabees, Esther. Our history as their inheritance rather than a
-             textbook unit.</p>
-        </li>
-        <li>
-          <h3>Do it themselves</h3>
-          <p>Say a blessing. Braid a challah. Light a menorah. Lead the Four Questions at the seder.</p>
-        </li>
-        <li>
-          <h3>Be proud out loud</h3>
-          <p>The one we care about most. In a world that gives Jewish kids plenty of reasons to be
-             quiet, we are raising kids who aren't.</p>
-        </li>
-      </ol>
     </div>
   </section>
 
@@ -626,7 +479,6 @@
   <section class="section section--butter" id="calendar">
     <div class="container cal">
       <div class="reveal">
-        <svg class="spot" aria-hidden="true" focusable="false"><use href="#spot-menorah"/></svg>
         <p class="eyebrow">Dates</p>
         <h2 class="s-title">The year at a glance.</h2>
         <ul class="cal-facts" style="margin-top:var(--s-5)">
@@ -647,7 +499,7 @@
 
       <div class="reveal">
         <h3 style="font-size:var(--text-lg);margin-bottom:var(--s-3)">Days they will talk about</h3>
-        <ul class="cal-high">
+        <ul class="cal-high reveal stagger">
           <li>Sukkot in the Sukkah</li>
           <li>The Hanukkah party</li>
           <li>Model matzah bakery</li>
@@ -716,7 +568,7 @@
         <h2 class="s-title">Real questions. Straight answers.</h2>
       </div>
 
-      <div class="faq reveal">
+      <div class="faq reveal stagger">
         <details>
           <summary>Do we have to be religious to enroll?</summary>
           <div class="faq-a">No. This school is for every Jewish family in our community &mdash;
@@ -815,10 +667,10 @@
         <ul>
           <li><a href="#sundays">A Sunday here</a></li>
         <li><a href="#reels">Watch</a></li>
-          <li><a href="#hebrew">Hebrew reading</a></li>
-          <li><a href="#kitchen">The Kitchen</a></li>
-          <li><a href="#studio">The Studio</a></li>
-          <li><a href="#learning">What they'll know</a></li>
+          <li><a href="program.html#hebrew">Hebrew reading</a></li>
+          <li><a href="program.html">The Program</a></li>
+          <li><a href="program.html#studio">The Studio</a></li>
+          <li><a href="program.html#learning">What they'll know</a></li>
           <li><a href="#calendar">Calendar</a></li>
         </ul>
       </div>
@@ -865,13 +717,45 @@
       fig.addEventListener("click", function () {
         if (v.paused) {
           document.querySelectorAll(".reel video").forEach(function (o) {
-            if (o !== v) { o.pause(); o.closest(".reel").setAttribute("data-playing", "false"); }
+            if (o !== v) { o.pause(); o.muted = true; o.closest(".reel").setAttribute("data-playing", "false"); }
           });
-          v.play(); fig.setAttribute("data-playing", "true");
+          // Unmute only on a real click. The muted attribute stays in the markup
+          // so nothing can ever make noise without the visitor asking for it.
+          v.muted = false;
+          var p = v.play();
+          if (p && p.catch) { p.catch(function () { v.muted = true; v.play(); }); }
+          fig.setAttribute("data-playing", "true");
         } else { v.pause(); fig.setAttribute("data-playing", "false"); }
       });
       v.addEventListener("pause", function () { fig.setAttribute("data-playing", "false"); });
     });
+
+    // Reel arrows. Scroll by one card, and disable at each end.
+    var row = document.getElementById("reelsRow");
+    var prev = document.getElementById("reelsPrev");
+    var next = document.getElementById("reelsNext");
+    if (row && prev && next) {
+      var step = function () {
+        var card = row.querySelector(".reel");
+        return card ? card.getBoundingClientRect().width + 16 : 248;
+      };
+      // Honour prefers-reduced-motion, and fall back to an instant jump rather
+      // than relying on smooth scrolling being available.
+      var glide = function (dx) {
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        row.scrollBy({ left: dx, behavior: reduce ? "auto" : "smooth" });
+      };
+      prev.addEventListener("click", function () { glide(-step()); });
+      next.addEventListener("click", function () { glide(step()); });
+      var syncArrows = function () {
+        var max = row.scrollWidth - row.clientWidth;
+        prev.disabled = row.scrollLeft <= 2;
+        next.disabled = row.scrollLeft >= max - 2;
+      };
+      row.addEventListener("scroll", syncArrows, { passive: true });
+      window.addEventListener("resize", syncArrows);
+      syncArrows();
+    }
 
 
     // Scroll reveal, built so it can only ever ADD visibility.

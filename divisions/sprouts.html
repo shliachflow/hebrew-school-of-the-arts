@@ -27,6 +27,7 @@
         <li><a href="roots.html">Roots</a></li>
         <li><a href="mitzvah-crew.html">Mitzvah Crew</a></li>
         <li><a href="bat-mitzvah-club.html">Bat Mitzvah Club</a></li>
+        <li><a href="../program.html">The Program</a></li>
         <li><a href="../index.html#tuition">Tuition</a></li>
       </ul>
     </nav>
@@ -54,7 +55,7 @@
       <p class="eyebrow">What the year holds</p>
       <h2 class="s-title">Built for three, four and five year olds.</h2>
 
-      <ol class="plist">
+      <ol class="plist reveal stagger">
         <li>
           <div>
             <h3>First Hebrew letters</h3>
@@ -118,6 +119,25 @@
     </div>
   </div>
 </footer>
+
+<script>
+  (function () {
+    var items = document.querySelectorAll('.reveal');
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window) || !items.length) return;
+    var root = document.documentElement;
+    root.classList.add('js-reveal');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    items.forEach(function (el) { io.observe(el); });
+    setTimeout(function () {
+      if (!document.querySelector('.reveal.is-in')) root.classList.remove('js-reveal');
+    }, 2500);
+  })();
+</script>
 
 </body>
 </html>
