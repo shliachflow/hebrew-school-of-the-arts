@@ -226,9 +226,9 @@
         </p>
       </div>
       <div class="duo-pair reveal">
-        <img src="uploads/photos/kid-chef-cutter.jpg" width="562" height="750" loading="lazy" decoding="async"
+        <img src="uploads/photos/classroom-project.jpg" width="350" height="467" loading="lazy" decoding="async"
              alt="A student working carefully with their hands at the table." />
-        <img src="uploads/photos/group-bake-table.jpg" width="480" height="640" loading="lazy" decoding="async"
+        <img src="uploads/photos/class-in-session.jpg" width="350" height="467" loading="lazy" decoding="async"
              alt="Students gathered around a project table." />
       </div>
     </div>
@@ -356,7 +356,7 @@
         toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
     }
-    var items = document.querySelectorAll('.reveal');
+    var items = document.querySelectorAll('.reveal, .stagger');
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduce || !('IntersectionObserver' in window) || !items.length) return;
     var root = document.documentElement;
@@ -368,7 +368,7 @@
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
     items.forEach(function (el) { io.observe(el); });
     setTimeout(function () {
-      if (!document.querySelector('.reveal.is-in')) root.classList.remove('js-reveal');
+      if (!document.querySelector('.is-in')) root.classList.remove('js-reveal');
     }, 2500);
   })();
 </script>

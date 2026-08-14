@@ -221,7 +221,7 @@ a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset:
 .callout--mint   { border-inline-start-color: var(--blk-sprouts); background: var(--tint-sprouts); }
 .callout--butter { border-inline-start-color: var(--blk-roots);   background: var(--tint-roots); }
 .callout--sky    { border-inline-start-color: var(--blk-crew);    background: var(--tint-crew); }
-.callout h4 {
+.callout h3 {
   font-family: var(--font-d); font-weight: 700; font-size: var(--text-base);
   letter-spacing: -0.015em; margin-bottom: 4px;
 }
@@ -331,6 +331,7 @@ h2.s-title { font-size: var(--text-display-sm); }
 }
 
 .wordmark {
+  display: inline-flex; align-items: center; min-height: 32px;
   font-family: var(--font-d); font-weight: 700;
   font-size: clamp(1.0625rem, 0.9rem + 0.7vw, 1.3125rem);
   line-height: 1.1; letter-spacing: -0.02em;
@@ -340,7 +341,10 @@ h2.s-title { font-size: var(--text-display-sm); }
 .wordmark em { font-style: italic; color: var(--accent); }
 
 .nav-links { display: flex; gap: var(--s-3); list-style: none; margin: 0; padding: 0; }
+/* Hit area, not just text height. WCAG 2.2 target-size wants 24px minimum, and
+   the inline-in-prose exception does not apply to a navigation list. */
 .nav-links a {
+  display: inline-flex; align-items: center; min-height: 32px;
   font-weight: 500; font-size: 0.875rem; color: var(--ink-2); text-decoration: none;
   transition: color 0.14s var(--ease);
 }
@@ -353,6 +357,7 @@ h2.s-title { font-size: var(--text-display-sm); }
 @media (max-width: 940px) {
   .nav-links { display: none; }
   .nav-toggle { display: inline-flex; }
+  .nav-links--open a { min-height: 44px; width: 100%; }
   .nav-links--open {
     display: flex; flex-direction: column; position: absolute;
     inset-inline: 0; top: 100%; background: var(--paper);
@@ -398,6 +403,8 @@ h2.s-title { font-size: var(--text-display-sm); }
 .hero-fineprint strong { color: var(--ink); }
 
 .hero-media { position: relative; background: var(--paper-2); min-height: 46svh; overflow: hidden; }
+.hero-art { width: min(100%, 520px); height: auto; }
+.hero-media:has(img) .hero-art { display: none; }
 .hero-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 32%; }
 
 /* Stat tiles */
@@ -468,7 +475,7 @@ h2.s-title { font-size: var(--text-display-sm); }
 .reels {
   display: grid; grid-auto-flow: column; grid-auto-columns: minmax(232px, 232px);
   gap: var(--s-2); overflow-x: auto; overscroll-behavior-x: contain;
-  scroll-snap-type: x mandatory; padding-block: var(--s-2) var(--s-3);
+  scroll-snap-type: x proximity; padding-block: var(--s-2) var(--s-3);
   scrollbar-width: thin;
 }
 .reel { scroll-snap-align: start; position: relative; }
@@ -484,24 +491,27 @@ h2.s-title { font-size: var(--text-display-sm); }
   letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2);
 }
 
-/* Arrows. Real buttons, keyboard reachable, and they hide themselves when the
-   row cannot scroll any further in that direction. */
+/* Arrows sit ON the row, vertically centred against the cards — the
+   conventional carousel position. They were previously stacked above it, which
+   read as unrelated controls. Solid fill so they stay legible over video. */
 .reels-wrap { position: relative; }
-.reels-nav {
-  display: flex; gap: var(--s-1); justify-content: flex-end;
-  margin-bottom: var(--s-2);
-}
 .reels-btn {
-  width: 44px; height: 44px; border-radius: var(--r-full);
-  border: 1.5px solid var(--ink); background: transparent; color: var(--ink);
+  position: absolute; top: calc(50% - 22px); z-index: 2;
+  width: 48px; height: 48px; border-radius: var(--r-full);
+  border: 1px solid var(--hair); background: var(--paper); color: var(--ink);
   display: grid; place-items: center; cursor: pointer;
   transition: background-color 0.14s var(--ease), color 0.14s var(--ease),
-              opacity 0.14s var(--ease), transform 0.10s var(--ease);
+              opacity 0.16s var(--ease), transform 0.10s var(--ease);
 }
-.reels-btn:hover:not(:disabled) { background: var(--ink); color: var(--paper); }
+#reelsPrev { inset-inline-start: -10px; }
+#reelsNext { inset-inline-end: -10px; }
+.reels-btn:hover:not(:disabled) { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 .reels-btn:active:not(:disabled) { transform: scale(0.94); }
-.reels-btn:disabled { opacity: 0.28; cursor: not-allowed; }
+.reels-btn:disabled { opacity: 0; pointer-events: none; }
 .reels-btn svg { width: 18px; height: 18px; }
+
+/* Touch devices scroll the row by swiping, so the overlay arrows are noise. */
+@media (max-width: 760px) { .reels-btn { display: none; } }
 /* Play affordance, hidden once the clip is running. */
 .reel-play {
   position: absolute; inset-inline-start: 50%; inset-block-start: 34%;
@@ -912,13 +922,13 @@ table.tuition tbody tr:last-child { border-bottom: 1px solid var(--hair); }
 .footer-top { display: grid; grid-template-columns: 1.3fr 0.9fr 0.9fr 0.8fr; gap: var(--s-5); }
 .footer-brand .wordmark { font-size: var(--text-lg); }
 .footer-brand p { color: var(--ink-2); font-size: var(--text-sm); max-width: 42ch; margin-top: var(--s-2); }
-.footer h4 {
+.footer h3 {
   font-family: var(--font-b); font-weight: 500; font-size: 0.6875rem;
   letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2);
   margin-bottom: var(--s-2); letter-spacing: 0.12em;
 }
 .footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
-.footer a { color: var(--ink); text-decoration: none; font-size: var(--text-sm); }
+.footer a { display: inline-flex; align-items: center; min-height: 28px; color: var(--ink); text-decoration: none; font-size: var(--text-sm); }
 .footer a:hover { color: var(--accent); text-decoration: underline; }
 .footer-bottom {
   margin-top: var(--s-6); padding-top: var(--s-3); border-top: 1px solid var(--hair);

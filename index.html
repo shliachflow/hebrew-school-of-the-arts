@@ -214,10 +214,24 @@
       </p>
     </div>
 
+    <!-- Cut-paper composition rather than a photograph. The only genuine Hebrew
+         school photographs available are 350px wide, and a 2x upscale across a
+         panel this size looks visibly soft. The real photographs are used at the
+         sizes they hold up at, in the strip below. Swap this for an <img> the
+         moment a high-resolution school photo exists — .hero-media img is
+         already styled to cover the panel. -->
     <div class="hero-media">
-      <img src="uploads/photos/kid-chef-cutter.jpg" width="562" height="750"
-           fetchpriority="high" decoding="async"
-           alt="A young student in a paper chef's hat presses a round cutter into rolled dough." />
+      <svg class="hero-art" viewBox="0 0 460 400" role="img"
+           aria-label="Cut-paper illustration: a mixing bowl, a braided challah, a paint palette and a growing sprout.">
+        <title>The kitchen and the art room</title>
+        <use href="#spot-bowl"    x="10"  y="150" width="200" height="200"/>
+        <use href="#spot-challah" x="140" y="20"  width="230" height="230"/>
+        <use href="#spot-palette" x="250" y="170" width="200" height="200"/>
+        <use href="#spot-sprout"  x="40"  y="30"  width="120" height="120"/>
+        <circle cx="404" cy="86"  r="13" fill="#8A2B48"/>
+        <circle cx="60"  cy="360" r="9"  fill="#8F5A12"/>
+        <circle cx="238" cy="372" r="7"  fill="#24476E"/>
+      </svg>
     </div>
   </section>
 
@@ -246,20 +260,20 @@
        they document weekly sessions. See CONTENT-SOURCES.md -->
   <div class="strip">
     <figure>
-      <img src="uploads/photos/group-bake-table.jpg" width="480" height="640" loading="lazy" decoding="async"
-           alt="A long table of students in chef's hats rolling and filling dough." />
+      <img src="uploads/photos/classroom-project.jpg" width="350" height="467" loading="lazy" decoding="async"
+           alt="A student smiling beside a project she made, in a classroom lined with Jewish books and childrens artwork." />
     </figure>
     <figure>
-      <img src="uploads/photos/chef-hats-teacher.jpg" width="480" height="640" loading="lazy" decoding="async"
-           alt="Two students in chef's hats working alongside a teacher." />
+      <img src="uploads/photos/class-in-session.jpg" width="350" height="467" loading="lazy" decoding="async"
+           alt="Rabbi Caytak teaching a group of students around a table, a Torah story on the screen behind him." />
     </figure>
     <figure>
-      <img src="uploads/photos/rolling-dough.jpg" width="562" height="750" loading="lazy" decoding="async"
-           alt="A parent and child rolling out dough and spooning in filling together." />
+      <img src="uploads/photos/decorating.jpg" width="350" height="467" loading="lazy" decoding="async"
+           alt="A young student carefully decorating a cupcake with frosting and sprinkles." />
     </figure>
     <figure>
-      <img src="uploads/photos/kid-chef-cutter.jpg" width="562" height="750" loading="lazy" decoding="async"
-           alt="A student concentrating on cutting circles from rolled dough." />
+      <img src="uploads/photos/reading-together.jpg" width="350" height="467" loading="lazy" decoding="async"
+           alt="A teacher reading a Jewish picture book with a student." />
     </figure>
   </div>
   <div class="container">
@@ -343,15 +357,13 @@
       </div>
 
       <div class="reels-wrap reveal">
-      <div class="reels-nav">
         <button class="reels-btn" id="reelsPrev" type="button" aria-label="Scroll to previous clips" aria-controls="reelsRow">
           <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M11.5 3 5.5 9l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <button class="reels-btn" id="reelsNext" type="button" aria-label="Scroll to more clips" aria-controls="reelsRow">
           <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M6.5 3l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
-      </div>
-      <div class="reels stagger" id="reelsRow">
+      <div class="reels reveal stagger" id="reelsRow">
         <figure class="reel">
           <video src="uploads/video/hsa-2025-05-04.mp4" preload="metadata" muted playsinline loop
                  aria-label="Hebrew school Sunday, May 4"></video>
@@ -490,7 +502,7 @@
         <div class="callout callout--sky">
           <svg class="spot" aria-hidden="true" focusable="false"><use href="#spot-clock"/></svg>
           <div>
-            <h4>Missed a Sunday?</h4>
+            <h3>Missed a Sunday?</h3>
             <p>Let us know and we will send home what your child missed, plus their project. Nobody
                falls behind over a soccer tournament.</p>
           </div>
@@ -551,7 +563,7 @@
       <div class="callout callout--mint reveal">
         <svg class="spot" aria-hidden="true" focusable="false"><use href="#spot-sprout"/></svg>
         <div>
-          <h4>No child is turned away.</h4>
+          <h3>No child is turned away.</h3>
           <p>Thanks to the Long Lake Plaza Fund and H.E.R Management, families can apply for partial
              or full assistance. It is confidential, needs no financial paperwork, and is best done
              before you register. <a href="scholarship.html">Apply for assistance</a>.</p>
@@ -654,7 +666,7 @@
         </p>
       </div>
       <div>
-        <h4>The Divisions</h4>
+        <h3>The Divisions</h3>
         <ul>
           <li><a href="divisions/sprouts.html">Sprouts &middot; 3&ndash;5</a></li>
           <li><a href="divisions/roots.html">Roots &middot; 6&ndash;8</a></li>
@@ -663,7 +675,7 @@
         </ul>
       </div>
       <div>
-        <h4>The School</h4>
+        <h3>The School</h3>
         <ul>
           <li><a href="#sundays">A Sunday here</a></li>
         <li><a href="#reels">Watch</a></li>
@@ -675,7 +687,7 @@
         </ul>
       </div>
       <div>
-        <h4>Get Started</h4>
+        <h3>Get Started</h3>
         <ul>
           <li><a href="register.html">Enroll now</a></li>
           <li><a href="scholarship.html">Scholarship assistance</a></li>
@@ -741,17 +753,25 @@
       };
       // Honour prefers-reduced-motion, and fall back to an instant jump rather
       // than relying on smooth scrolling being available.
-      var glide = function (dx) {
-        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        row.scrollBy({ left: dx, behavior: reduce ? "auto" : "smooth" });
-      };
-      prev.addEventListener("click", function () { glide(-step()); });
-      next.addEventListener("click", function () { glide(step()); });
       var syncArrows = function () {
         var max = row.scrollWidth - row.clientWidth;
         prev.disabled = row.scrollLeft <= 2;
         next.disabled = row.scrollLeft >= max - 2;
       };
+      var glide = function (dx) {
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var from = row.scrollLeft;
+        row.scrollBy({ left: dx, behavior: reduce ? "auto" : "smooth" });
+        // Two guards, because both of these fail quietly in some environments:
+        // smooth scrolling can no-op, and the scroll event can fail to fire.
+        setTimeout(function () {
+          if (row.scrollLeft === from) row.scrollBy({ left: dx, behavior: "auto" });
+          syncArrows();
+        }, 120);
+        setTimeout(syncArrows, 600);   // again once a smooth scroll has settled
+      };
+      prev.addEventListener("click", function () { glide(-step()); });
+      next.addEventListener("click", function () { glide(step()); });
       row.addEventListener("scroll", syncArrows, { passive: true });
       window.addEventListener("resize", syncArrows);
       syncArrows();
@@ -761,7 +781,7 @@
     // Scroll reveal, built so it can only ever ADD visibility.
     // The CSS hiding rule is gated behind .js-reveal on <html>, so if anything
     // below fails the content simply stays visible. Bailing out early is safe.
-    var items = document.querySelectorAll('.reveal');
+    var items = document.querySelectorAll('.reveal, .stagger');
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduce || !('IntersectionObserver' in window) || !items.length) return;
 
@@ -782,7 +802,7 @@
     // tab, throttled renderer, anything unforeseen — drop the gate entirely so
     // the page can never be left blank.
     setTimeout(function () {
-      if (!document.querySelector('.reveal.is-in')) root.classList.remove('js-reveal');
+      if (!document.querySelector('.is-in')) root.classList.remove('js-reveal');
     }, 2500);
   })();
 </script>
