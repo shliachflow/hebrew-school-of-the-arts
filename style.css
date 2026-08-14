@@ -453,11 +453,6 @@ h2.s-title { font-size: var(--text-display-sm); }
   border: 10px solid var(--paper); border-radius: var(--r-lg);
   rotate: var(--tilt-b);
 }
-/* The only genuine school photo available is 350px wide. Left uncapped it was
-   being drawn at 632px — a 1.81x upscale, visibly soft. Capped until a
-   high-resolution photograph exists; delete this rule and the data-lowres
-   attribute together when one does. */
-.hero-action-img[data-lowres] { max-width: 430px; }
 
 .hero-action-title {
   position: absolute; inset-inline-start: -6px; inset-block-start: -6px;
@@ -499,7 +494,6 @@ h2.s-title { font-size: var(--text-display-sm); }
     gap: var(--s-6);
   }
   .hero-right { order: -1; padding-block: var(--s-5) var(--s-2); }
-  .hero-action-img { aspect-ratio: 5 / 4; }
   .hero-action-title { inset-inline-start: -2px; font-size: 1.05rem; padding: 10px 13px; }
   .hero-action-note { max-width: 15rem; inset-inline-end: -2px; inset-block-end: -14px; }
   .hero-facts { max-width: none; }
@@ -1063,4 +1057,57 @@ table.tuition tbody tr:last-child { border-bottom: 1px solid var(--hair); }
   /* Division panels lift on hover. */
   .dpanel { transition: flex-grow 0.35s var(--ease), transform 0.28s var(--ease); }
   .dpanel:hover { transform: translateY(-4px); }
+}
+/* Right column bleeds to the viewport edge and is filled entirely, matching
+   camp.jewishtroy.com where the hero image covers 104% of its panel. */
+.hero { padding-inline: max(1.5rem, calc((100vw - 1280px) / 2)) 0; }
+.hero-right {
+  position: relative; z-index: 1; align-self: stretch;
+  min-height: clamp(360px, 52vh, 620px);
+  display: grid; place-items: center; overflow: hidden;
+  background: var(--tint-crew);
+  border-start-start-radius: var(--r-xl);
+  border-end-start-radius: var(--r-xl);
+  padding: 0;
+}
+.hero-action-img,
+.hero-fallback {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  border: 0; border-radius: 0; rotate: none;
+}
+.hero-fallback { padding: clamp(1rem, 3vw, 2.5rem); }
+
+/* Cards sit over the filled panel — kept fully inside it, since a negative
+   inline start pushed this one over the headline column. */
+.hero-action-title { inset-inline-start: 18px; inset-block-start: 16px; }
+.hero-action-note  { inset-inline-end: 18px; inset-block-end: 16px; }
+.hero-action-chip  { inset-inline-end: 18px; inset-block-start: 16px; }
+
+/* ---------- Stat row: one full-width row under the header ---------- */
+.stat-row {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px; background: var(--hair); border-block: 1px solid var(--hair);
+}
+.stat { padding: var(--s-3) clamp(1rem, 2.4vw, 1.75rem); }
+.stat.s1 { background: var(--tint-sprouts); }
+.stat.s2 { background: var(--tint-roots); }
+.stat.s3 { background: var(--tint-club); }
+.stat.s4 { background: var(--tint-crew); }
+.stat strong {
+  display: block; font-family: var(--font-d); font-weight: 700;
+  font-size: var(--text-lg); letter-spacing: -0.02em; margin-bottom: 3px;
+  font-variant-numeric: tabular-nums; font-feature-settings: "tnum";
+}
+.stat span {
+  font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--ink-2);
+}
+@media (max-width: 760px) { .stat-row { grid-template-columns: repeat(2, 1fr); } }
+
+@media (max-width: 940px) {
+  .hero { padding-inline: clamp(1.25rem, 5vw, 2rem); }
+  .hero-right {
+    border-radius: var(--r-lg);
+    min-height: clamp(300px, 42vh, 420px);
+  }
 }

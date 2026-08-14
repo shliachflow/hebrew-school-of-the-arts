@@ -215,12 +215,6 @@
         and a Judaism they can actually taste.
       </p>
 
-      <div class="hero-facts">
-        <div class="hero-fact f1"><strong>Sundays</strong><span>10:00 AM &ndash; 12:30 PM</span></div>
-        <div class="hero-fact f2"><strong>Sept 13 &ndash; May 17</strong><span>Full school year</span></div>
-        <div class="hero-fact f3"><strong>Ages 3&ndash;13</strong><span>Four divisions</span></div>
-        <div class="hero-fact f4"><strong>Troy, MI</strong><span>4050 Coolidge Hwy</span></div>
-      </div>
 
       <div class="hero-btns">
         <a class="btn btn--primary" href="register.html">Enroll Now &rarr;</a>
@@ -235,13 +229,31 @@
     </div>
 
     <div class="hero-right">
-      <!-- HERO IMAGE SLOT. Currently the best genuine Hebrew school photo
-           available, but it is only 350px wide and wants to be ~1200px here.
-           Replace with a high-resolution landscape photograph of a Sunday
-           morning and delete the data-lowres attribute. -->
-      <img class="hero-action-img" src="uploads/photos/classroom-project.jpg"
-           width="350" height="467" data-lowres="true" fetchpriority="high" decoding="async"
-           alt="A student smiling beside a project she made, in a classroom lined with Jewish books and children's artwork." />
+      <!-- ================= HERO IMAGE SLOT =================
+           Wants a landscape image about 1800x900, filling this whole panel
+           edge-to-edge, exactly like camp.jewishtroy.com/uploads/hero-boys-action.jpg
+           (1837x856, object-fit: cover, no frame).
+
+           To use it:  save as uploads/hero.jpg, then replace the <svg> below with
+             <img class="hero-action-img" src="uploads/hero.jpg" width="1800" height="900"
+                  fetchpriority="high" alt="Children cooking and making art at Hebrew
+                  School of the Arts in Troy." />
+
+           Until then this panel is a cut-paper composition on a tinted ground,
+           which fills the space at any size without going soft. The one genuine
+           school photo available is 350px wide and looked bad stretched here. -->
+      <svg class="hero-fallback" viewBox="0 0 800 700" role="img"
+           aria-label="Cut-paper illustration of a mixing bowl, a braided challah, a paint palette and a growing sprout.">
+        <title>The kitchen and the art room</title>
+        <use href="#spot-challah" x="70"  y="90"  width="300" height="300"/>
+        <use href="#spot-palette" x="450" y="60"  width="260" height="260"/>
+        <use href="#spot-bowl"    x="410" y="360" width="290" height="290"/>
+        <use href="#spot-sprout"  x="120" y="410" width="210" height="210"/>
+        <circle cx="415" cy="60"  r="19" fill="#8A2B48"/>
+        <circle cx="70"  cy="380" r="14" fill="#8F5A12"/>
+        <circle cx="720" cy="330" r="16" fill="#24476E"/>
+        <circle cx="330" cy="655" r="12" fill="#2F5D3A"/>
+      </svg>
 
       <div class="hero-action-title">
         <span class="ha1">Messy aprons.</span>
@@ -258,6 +270,15 @@
     </div>
   </section>
 
+
+  <!-- Single full-width row beneath the header, four across. Client preferred
+       this to a 2x2 stack inside the hero. -->
+  <div class="stat-row">
+    <div class="stat s1"><strong>Sundays</strong><span>10:00 AM &ndash; 12:30 PM</span></div>
+    <div class="stat s2"><strong>Sept 13 &ndash; May 17</strong><span>Full school year</span></div>
+    <div class="stat s3"><strong>Ages 3&ndash;13</strong><span>Four divisions</span></div>
+    <div class="stat s4"><strong>Troy, MI</strong><span>4050 Coolidge Hwy</span></div>
+  </div>
   <!-- ============================ BAND ============================ -->
   <section class="band">
     <div class="container">
