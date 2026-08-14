@@ -82,7 +82,45 @@ Team roster and bios (the document has `[Name] — Ryan Merritt` with both a pla
 name; his live site names only Chana Caytak), all three testimonials, the calendar PDF, the
 early-bird deadline, the multi-child tuition scale, and the security and pickup details.
 
-## Photography
+## Video — [V] the only verified Hebrew school media on the site
+
+The school's **Media** page (`/templates/articlecco_cdo/aid/6745426/`) links seven files labelled
+"HSA video" plus a Matzah Bakery clip. HSA is Hebrew School of the Arts, and **every date is a
+Sunday** — Dec 22, Jan 12, Jan 19, Jan 26, Feb 2, Apr 27, May 4 — so these are weekly recaps of
+actual Hebrew school mornings. They are hosted on `www1.clhosting.org/media/av/` and were downloaded
+to `uploads/video/`.
+
+All are **480×848 vertical phone video**, 20–40 seconds. Native reel format, which is why they are
+presented in a 9:16 snap-scroll row rather than reframed.
+
+This matters because it is the **only footage on the site that is verifiably from the Hebrew school
+program.** Everything in the photo galleries is a Chabad-house community event.
+
+Total 60MB across 8 files. No local ffmpeg, so they are served exactly as downloaded — not
+re-encoded, not compressed, and not checked for faststart. Worth optimising before launch if page
+weight matters.
+
+## Photography — NOT from the Hebrew school
+
+**Every photograph currently on the site is from the Family Hamantaschen Bake**, a family event held
+in a supermarket. It is not a Hebrew school session. The six galleries on jewishtroy.com are all
+community events, not school programming:
+
+| Gallery | What it actually is |
+|---|---|
+| Family Hamantaschen Bake | Family event in a supermarket |
+| Chanukah on ICE | Community skating event |
+| Purim in the Jungle | A live animal show |
+| Purim: Under Construction | Purim carnival, 239 photos |
+| 1-day Trip to NY | A trip |
+| Letters for Life | Adult women at a memorial plaque board |
+
+The images read as on-message — children in chef's hats making hamantaschen — which is exactly why
+this is worth writing down. **Client decision pending:** keep them for the draft and swap when real
+school photos arrive, or pull them now. Either way, high-resolution photographs of actual Hebrew
+school Sundays are the single most valuable thing Menachem could send.
+
+## Photography — technical
 
 Four images, hand-picked from 138 downloaded out of the client's own Chabad.org galleries. They show
 **identifiable minors**. His galleries already publish them publicly, but a marketing site is a

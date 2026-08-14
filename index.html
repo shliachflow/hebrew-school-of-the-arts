@@ -183,6 +183,7 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#divisions">Divisions</a></li>
         <li><a href="#sundays">A Sunday here</a></li>
+        <li><a href="#reels">Watch</a></li>
         <li><a href="#kitchen">The Kitchen</a></li>
         <li><a href="#tuition">Tuition</a></li>
         <li><a href="#faq">Questions</a></li>
@@ -330,6 +331,78 @@
         Every division follows this rhythm, adapted to age. The youngest get more movement and more
         snack. The teen divisions get more depth, more responsibility, and more freedom in the kitchen.
       </p>
+    </div>
+  </section>
+
+  <!-- ============================ REELS ============================
+       The school's own weekly Sunday videos, pulled from the Media page on
+       jewishtroy.com. Native 480x848 vertical phone video. These are the only
+       genuinely Hebrew-school footage available — the photo galleries are all
+       community events. See CONTENT-SOURCES.md
+       ==================================================================== -->
+  <section class="section" id="reels">
+    <div class="container">
+      <div class="s-head s-head--wide reveal">
+        <svg class="spot" aria-hidden="true" focusable="false"><use href="#spot-bowl"/></svg>
+        <p class="eyebrow">Sundays, Filmed</p>
+        <h2 class="s-title">See a morning for yourself.</h2>
+        <p class="lede">
+          Short clips from actual Sundays, filmed as the morning happened. Tap any one to play.
+        </p>
+      </div>
+
+      <div class="reels reveal">
+        <figure class="reel">
+          <video src="uploads/video/hsa-2025-05-04.mp4" preload="metadata" muted playsinline loop
+                 aria-label="Hebrew school Sunday, May 4"></video>
+          <span class="reel-play"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M4 2.5 17 10 4 17.5Z"/></svg></span>
+          <figcaption>May 4</figcaption>
+        </figure>
+        <figure class="reel">
+          <video src="uploads/video/hsa-2025-04-27.mp4" preload="metadata" muted playsinline loop
+                 aria-label="Hebrew school Sunday, April 27"></video>
+          <span class="reel-play"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M4 2.5 17 10 4 17.5Z"/></svg></span>
+          <figcaption>April 27</figcaption>
+        </figure>
+        <figure class="reel">
+          <video src="uploads/video/matzah-bakery.mp4" preload="metadata" muted playsinline loop
+                 aria-label="Model matzah bakery"></video>
+          <span class="reel-play"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M4 2.5 17 10 4 17.5Z"/></svg></span>
+          <figcaption>Model matzah bakery</figcaption>
+        </figure>
+        <figure class="reel">
+          <video src="uploads/video/hsa-2025-02-02.mp4" preload="metadata" muted playsinline loop
+                 aria-label="Hebrew school Sunday, February 2"></video>
+          <span class="reel-play"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M4 2.5 17 10 4 17.5Z"/></svg></span>
+          <figcaption>February 2</figcaption>
+        </figure>
+        <figure class="reel">
+          <video src="uploads/video/hsa-2025-01-26.mp4" preload="metadata" muted playsinline loop
+                 aria-label="Hebrew school Sunday, January 26"></video>
+          <span class="reel-play"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M4 2.5 17 10 4 17.5Z"/></svg></span>
+          <figcaption>January 26</figcaption>
+        </figure>
+        <figure class="reel">
+          <video src="uploads/video/hsa-2025-01-19.mp4" preload="metadata" muted playsinline loop
+                 aria-label="Hebrew school Sunday, January 19"></video>
+          <span class="reel-play"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M4 2.5 17 10 4 17.5Z"/></svg></span>
+          <figcaption>January 19</figcaption>
+        </figure>
+        <figure class="reel">
+          <video src="uploads/video/hsa-2025-01-12.mp4" preload="metadata" muted playsinline loop
+                 aria-label="Hebrew school Sunday, January 12"></video>
+          <span class="reel-play"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M4 2.5 17 10 4 17.5Z"/></svg></span>
+          <figcaption>January 12</figcaption>
+        </figure>
+        <figure class="reel">
+          <video src="uploads/video/hsa-2024-12-22.mp4" preload="metadata" muted playsinline loop
+                 aria-label="Hebrew school Sunday, December 22"></video>
+          <span class="reel-play"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M4 2.5 17 10 4 17.5Z"/></svg></span>
+          <figcaption>December 22</figcaption>
+        </figure>
+      </div>
+
+      <p class="fine">Filmed at Hebrew School of the Arts, 2024&ndash;25 school year.</p>
     </div>
   </section>
 
@@ -741,6 +814,7 @@
         <h4>The School</h4>
         <ul>
           <li><a href="#sundays">A Sunday here</a></li>
+        <li><a href="#reels">Watch</a></li>
           <li><a href="#hebrew">Hebrew reading</a></li>
           <li><a href="#kitchen">The Kitchen</a></li>
           <li><a href="#studio">The Studio</a></li>
@@ -784,6 +858,21 @@
         }
       });
     }
+    // Reels: click to play, one at a time. Never autoplay.
+    document.querySelectorAll(".reel").forEach(function (fig) {
+      var v = fig.querySelector("video");
+      if (!v) return;
+      fig.addEventListener("click", function () {
+        if (v.paused) {
+          document.querySelectorAll(".reel video").forEach(function (o) {
+            if (o !== v) { o.pause(); o.closest(".reel").setAttribute("data-playing", "false"); }
+          });
+          v.play(); fig.setAttribute("data-playing", "true");
+        } else { v.pause(); fig.setAttribute("data-playing", "false"); }
+      });
+      v.addEventListener("pause", function () { fig.setAttribute("data-playing", "false"); });
+    });
+
 
     // Scroll reveal, built so it can only ever ADD visibility.
     // The CSS hiding rule is gated behind .js-reveal on <html>, so if anything

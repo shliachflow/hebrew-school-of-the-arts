@@ -148,6 +148,9 @@ h1, h2, h3, h4 {
 }
 
 p { margin: 0; }
+/* figure carries a default UA margin of 1em 40px, which silently ate 80px off
+   every reel card. Reset globally rather than per-component. */
+figure { margin: 0; }
 img, svg { max-width: 100%; display: block; }
 a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
 
@@ -455,6 +458,46 @@ h2.s-title { font-size: var(--text-display-sm); }
   padding-block: var(--s-2);
 }
 @media (max-width: 760px) { .strip { grid-template-columns: repeat(2, 1fr); } }
+
+/* ---------- Reels ----------
+   The school's own weekly Sunday videos, shot vertically on a phone at 480x848.
+   Presented in their native 9:16 as a horizontal snap-scroll row, which is the
+   format they were filmed for. Click to play — never autoplay: eight videos
+   autoplaying is a bandwidth and accessibility problem, and muted autoplay on a
+   school site reads as an ad. */
+.reels {
+  display: grid; grid-auto-flow: column; grid-auto-columns: minmax(232px, 232px);
+  gap: var(--s-2); overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory; padding-block: var(--s-2) var(--s-3);
+  scrollbar-width: thin;
+}
+.reel { scroll-snap-align: start; position: relative; }
+.reel video {
+  width: 100%; aspect-ratio: 9 / 16; height: auto;
+  object-fit: cover; display: block;
+  background: var(--ink);
+  border: 6px solid var(--paper); border-radius: var(--r-md);
+  cursor: pointer;
+}
+.reel figcaption {
+  margin-top: 10px; font-size: 0.75rem; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2);
+}
+/* Play affordance, hidden once the clip is running. */
+.reel-play {
+  position: absolute; inset-inline-start: 50%; inset-block-start: 34%;
+  translate: -50% -50%;
+  width: 56px; height: 56px; border-radius: var(--r-full);
+  background: rgba(251, 247, 240, 0.92); color: var(--ink);
+  display: grid; place-items: center; pointer-events: none;
+  transition: opacity 0.18s var(--ease);
+}
+.reel[data-playing="true"] .reel-play { opacity: 0; }
+.reel-play svg { width: 20px; height: 20px; translate: 2px 0; }
+
+@media (max-width: 560px) {
+  .reels { grid-auto-columns: minmax(196px, 196px); }
+}
 
 /* ---------- Sunday timeline ---------- */
 
