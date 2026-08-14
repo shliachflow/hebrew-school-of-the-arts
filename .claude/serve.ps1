@@ -8,6 +8,25 @@ while ($listener.IsListening) {
   try {
     $ctx = $listener.GetContext()
     $path = [System.Uri]::UnescapeDataString($ctx.Request.Url.LocalPath.TrimStart('/'))
+
+    # Dev-only: POST a base64 body to /__save?name=foo.jpg to write it into
+    # .claude/grabs/. Used to pull canvas frames out of the browser for review
+    # without round-tripping large blobs through the transcript.
+    if ($ctx.Request.HttpMethod -eq 'POST' -and $path -eq '__save') {
+      $name = $ctx.Request.QueryString['name']
+      if ($name -and $name -notmatch '[\\/:*?"<>|]') {
+        $reader = New-Object System.IO.StreamReader($ctx.Request.InputStream)
+        $body = $reader.ReadToEnd(); $reader.Close()
+        $body = $body -replace '^data:[^,]*,', ''
+        $dir = Join-Path $root '.claude\grabs'
+        if (-not (Test-Path $dir)) { New-Item -ItemType Directory -Path $dir | Out-Null }
+        [System.IO.File]::WriteAllBytes((Join-Path $dir $name), [System.Convert]::FromBase64String($body))
+        $ctx.Response.StatusCode = 200
+      } else { $ctx.Response.StatusCode = 400 }
+      $ctx.Response.Close()
+      continue
+    }
+
     if ($path -eq '') { $path = 'index.html' }
     $file = Join-Path $root $path
     if (Test-Path $file -PathType Leaf) {
