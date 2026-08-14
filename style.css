@@ -365,137 +365,149 @@ h2.s-title { font-size: var(--text-display-sm); }
   }
 }
 
-/* ---------- Hero ---------- */
+/* ---------- Hero ----------
+   Same skeleton as camp.jewishtroy.com: copy column on the left carrying a
+   tilted tag chip, a big per-word-coloured headline, a tilted sub, a 2x2 facts
+   grid, buttons and a note; one image on the right with tilted text cards laid
+   over it. Structure borrowed, everything else this site's own. */
 
 .hero {
   position: relative;
-  display: grid; grid-template-columns: 1fr 1.02fr;
-  min-height: 90svh; overflow: hidden;
+  display: grid; grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
+  padding-block: clamp(2.5rem, 6vw, 5rem) clamp(3rem, 7vw, 5.5rem);
+  padding-inline: max(1.5rem, calc((100vw - 1280px) / 2)) clamp(1.5rem, 4vw, 3rem);
+  overflow: hidden;
 }
 .hero::after {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background-image: var(--grain); opacity: 0.03; mix-blend-mode: multiply;
 }
+.hero-left { position: relative; z-index: 1; }
 
-.hero-content {
-  display: flex; flex-direction: column; justify-content: flex-end;
-  padding: clamp(3rem, 7vw, 6rem) clamp(2rem, 4vw, 4.5rem) clamp(3rem, 5vw, 4.5rem);
-  padding-inline-start: max(1.5rem, calc((100vw - 1280px) / 2));
-  z-index: 1;
+/* Tag chip, tilted like a sticker. */
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--tint-roots); color: #573809;
+  border: 1px solid rgba(143, 90, 18, .3); border-radius: var(--r-full);
+  padding: 8px 16px; rotate: -1.2deg; margin-bottom: var(--s-3);
+  font-family: var(--font-b); font-weight: 500; font-size: 0.75rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
 }
 
-/* -0.03em, not -0.04em: the scaling formula puts a 96px heading near -0.03em,
-   and Erode is a serif — pulling serifs as tight as a grotesque collides the
-   bracketing. */
-.hero h1 {
+/* One word per line, one colour per word, each tilted a hair. All three are
+   verified past 4.5:1 on the canvas, well beyond the 3:1 large text needs. */
+.hero-h1 {
   font-size: var(--text-display);
-  letter-spacing: -0.03em;
-  line-height: 0.96;
-  margin-bottom: var(--s-3);
-  max-width: 11ch;
+  letter-spacing: -0.03em; margin-bottom: var(--s-3);
 }
-.hero-sub {
-  font-size: var(--text-lg); color: var(--ink-2);
-  max-width: 42ch; line-height: 1.55; margin-bottom: var(--s-4);
-}
-.hero-btns { display: flex; flex-wrap: wrap; gap: var(--s-2); }
-.hero-fineprint { margin-top: var(--s-3); font-size: var(--text-sm); color: var(--ink-2); max-width: 46ch; }
-.hero-fineprint strong { color: var(--ink); }
-
-/* --- Hero headline -------------------------------------------------------
-   One word per line, one colour per word. These three are display-only and
-   appear nowhere else. They are brighter than the division blocks because the
-   headline renders at 96px, where WCAG asks 3:1 rather than 4.5:1. The
-   alternating half-degree tilt is the one place type may rotate on this site. */
-.hero-h1 .hw { display: block; line-height: 0.92; }
+.hero-h1 .hw { display: block; line-height: 0.9; }
 .hero-h1 .hw1 { color: #146B64; rotate: -1deg; }
 .hero-h1 .hw2 { color: #B4560F; rotate: 0.6deg; }
 .hero-h1 .hw3 { color: #A32351; rotate: -0.4deg; }
 
-/* Eyebrow becomes a tilted chip, like a sticker on a folder. */
-.eyebrow--chip {
-  display: inline-flex; align-items: center; width: auto;
-  background: var(--tint-roots); color: #573809;
-  border: 1px solid rgba(143, 90, 18, .3);
-  border-radius: var(--r-full);
-  padding: 7px 15px; rotate: -1.2deg;
-}
-.eyebrow--chip::before { display: none; }
-
-/* --- Hero media ---------------------------------------------------------- */
-.hero-media {
-  position: relative; background: var(--tint-crew); min-height: 46svh;
-  display: grid; place-items: center; overflow: hidden;
-  padding: clamp(1.5rem, 4vw, 3rem);
-}
-.hero-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 32%; }
-
-/* Cut-paper pieces sit behind the clip, framing rather than competing. */
-.hero-confetti {
-  position: absolute; inset: 50% auto auto 50%; translate: -50% -50%;
-  width: min(112%, 640px); height: auto; opacity: 0.5; pointer-events: none;
+.hero-sub {
+  font-size: var(--text-lg); color: var(--ink-2);
+  max-width: 40ch; line-height: 1.5; margin-bottom: var(--s-4);
+  rotate: -0.3deg;
 }
 
-/* The clip, framed and tilted like a print pinned to a wall. */
-.hero-reel { position: relative; z-index: 1; width: min(100%, 290px); rotate: var(--tilt-b); }
-.hero-reel video {
-  width: 100%; height: auto; aspect-ratio: 9 / 16; object-fit: cover;
-  display: block; background: var(--ink);
-  border: 10px solid var(--paper); border-radius: var(--r-md);
+/* Facts live inside the hero, 2x2, each tinted. */
+.hero-facts {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px; margin-bottom: var(--s-4); max-width: 30rem;
 }
-
-.hero-sound {
-  position: absolute; inset-inline-end: 2px; inset-block-end: 14px;
-  display: inline-flex; align-items: center; gap: 7px;
-  min-height: 40px; padding: 0 14px;
-  border: 1px solid var(--hair); border-radius: var(--r-full);
-  background: var(--paper); color: var(--ink); cursor: pointer;
-  font-family: var(--font-b); font-weight: 500; font-size: 0.75rem;
-  letter-spacing: 0.06em; text-transform: uppercase;
-  transition: background-color .14s var(--ease), color .14s var(--ease), transform .1s var(--ease);
+.hero-fact {
+  padding: 12px 14px; border-radius: var(--r-md);
+  border: 1px solid rgba(26, 23, 18, .1);
 }
-.hero-sound:hover { background: var(--ink); color: var(--paper); }
-.hero-sound:active { transform: scale(0.95); }
-.hero-sound svg { width: 17px; height: 17px; flex: none; }
-.hero-sound .ico-on { display: none; }
-.hero-sound[aria-pressed="true"] .ico-on { display: block; }
-.hero-sound[aria-pressed="true"] .ico-off { display: none; }
-
-@media (max-width: 940px) {
-  .hero-reel { width: min(100%, 236px); }
-  .hero-confetti { width: 122%; opacity: .42; }
-}
-
-/* Stat tiles */
-.hero-stats {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: 1px; background: var(--hair); border-block: 1px solid var(--hair);
-}
-.hero-stat { padding: var(--s-3) clamp(1rem, 2.4vw, 1.75rem); }
-.hero-stat:nth-child(1) { background: var(--tint-sprouts); }
-.hero-stat:nth-child(2) { background: var(--tint-roots); }
-.hero-stat:nth-child(3) { background: var(--tint-club); }
-.hero-stat:nth-child(4) { background: var(--tint-crew); }
-.hero-stat b {
+.hero-fact.f1 { background: var(--tint-sprouts); rotate: -0.6deg; }
+.hero-fact.f2 { background: var(--tint-roots);   rotate: 0.5deg; }
+.hero-fact.f3 { background: var(--tint-club);    rotate: 0.4deg; }
+.hero-fact.f4 { background: var(--tint-crew);    rotate: -0.5deg; }
+.hero-fact strong {
   display: block; font-family: var(--font-d); font-weight: 700;
-  font-size: var(--text-lg); letter-spacing: -0.02em; margin-bottom: 3px;
-  font-variant-numeric: tabular-nums; font-feature-settings: "tnum";
+  font-size: 1rem; letter-spacing: -0.015em; margin-bottom: 2px;
+  font-variant-numeric: tabular-nums;
 }
-.hero-stat span {
-  font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.1em;
+.hero-fact span {
+  font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.08em;
   text-transform: uppercase; color: var(--ink-2);
 }
 
+.hero-btns { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.hero-note {
+  margin-top: var(--s-3); font-size: var(--text-sm);
+  color: var(--ink-2); max-width: 46ch;
+}
+.hero-note strong { color: var(--ink); }
+
+/* --- Right column: image with tilted text cards over it --- */
+
+.hero-right { position: relative; z-index: 1; padding-block: var(--s-4); }
+
+.hero-right { display: grid; place-items: center; }
+.hero-action-img {
+  width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover;
+  border: 10px solid var(--paper); border-radius: var(--r-lg);
+  rotate: var(--tilt-b);
+}
+/* The only genuine school photo available is 350px wide. Left uncapped it was
+   being drawn at 632px — a 1.81x upscale, visibly soft. Capped until a
+   high-resolution photograph exists; delete this rule and the data-lowres
+   attribute together when one does. */
+.hero-action-img[data-lowres] { max-width: 430px; }
+
+.hero-action-title {
+  position: absolute; inset-inline-start: -6px; inset-block-start: -6px;
+  background: var(--paper); border: 1px solid var(--hair);
+  border-radius: var(--r-md); padding: 12px 16px; rotate: -2deg;
+  font-family: var(--font-d); font-weight: 700;
+  font-size: clamp(1.05rem, 0.85rem + 0.7vw, 1.5rem);
+  line-height: 1.05; letter-spacing: -0.02em;
+}
+.hero-action-title span { display: block; }
+.hero-action-title .ha1 { color: #146B64; }
+.hero-action-title .ha2 { color: #B4560F; }
+.hero-action-title .ha3 { color: #A32351; }
+
+.hero-action-note {
+  position: absolute; inset-inline-end: -4px; inset-block-end: 6px;
+  max-width: 17rem;
+  background: var(--ink); color: var(--paper);
+  border-radius: var(--r-md); padding: 14px 16px; rotate: 2deg;
+}
+.hero-action-note strong {
+  display: block; font-family: var(--font-d); font-weight: 700;
+  font-size: 1.0625rem; letter-spacing: -0.015em; margin-bottom: 3px;
+}
+.hero-action-note span { font-size: 0.8125rem; line-height: 1.45; color: #C6BCAB; }
+
+.hero-action-chip {
+  position: absolute; inset-inline-end: 10px; inset-block-start: 0;
+  background: var(--blk-sprouts); color: #fff;
+  border-radius: var(--r-full); padding: 7px 14px; rotate: 3deg;
+  font-family: var(--font-b); font-weight: 500; font-size: 0.6875rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+
 @media (max-width: 940px) {
-  .hero { grid-template-columns: 1fr; grid-template-rows: 44svh auto; min-height: 0; }
-  .hero-media { order: -1; }
-  .hero-content {
-    justify-content: flex-start;
-    padding-inline: clamp(1.5rem, 5vw, 2rem);
-    padding-block: var(--s-6) var(--s-5);
+  .hero {
+    grid-template-columns: 1fr;
+    padding-inline: clamp(1.25rem, 5vw, 2rem);
+    gap: var(--s-6);
   }
-  .hero h1 { max-width: 14ch; }
-  .hero-stats { grid-template-columns: repeat(2, 1fr); }
+  .hero-right { order: -1; padding-block: var(--s-5) var(--s-2); }
+  .hero-action-img { aspect-ratio: 5 / 4; }
+  .hero-action-title { inset-inline-start: -2px; font-size: 1.05rem; padding: 10px 13px; }
+  .hero-action-note { max-width: 15rem; inset-inline-end: -2px; inset-block-end: -14px; }
+  .hero-facts { max-width: none; }
+}
+@media (max-width: 560px) {
+  .hero-facts { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .hero-action-note { position: static; rotate: 0deg; max-width: none; margin-top: var(--s-3); }
+  .hero-action-chip { inset-block-start: -6px; }
 }
 
 /* ---------- Dark band ---------- */
@@ -1038,13 +1050,13 @@ table.tuition tbody tr:last-child { border-bottom: 1px solid var(--hair); }
   }
 
   /* Hero entrance on load. No scroll needed — it is already in view. */
-  .hero-content > * { animation: rise 0.62s var(--ease) both; }
-  .hero-content > *:nth-child(1) { animation-delay: 0.05s; }
-  .hero-content > *:nth-child(2) { animation-delay: 0.13s; }
-  .hero-content > *:nth-child(3) { animation-delay: 0.21s; }
-  .hero-content > *:nth-child(4) { animation-delay: 0.29s; }
-  .hero-content > *:nth-child(5) { animation-delay: 0.37s; }
-  .hero-media img { animation: heroImg 0.9s var(--ease) both 0.1s; }
+  .hero-left > * { animation: rise 0.62s var(--ease) both; }
+  .hero-left > *:nth-child(1) { animation-delay: 0.05s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.13s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.21s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.29s; }
+  .hero-left > *:nth-child(5) { animation-delay: 0.37s; }
+  .hero-action-img { animation: heroImg 0.9s var(--ease) both 0.12s; }
   @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
   @keyframes heroImg { from { opacity: 0; transform: scale(1.04); } to { opacity: 1; transform: none; } }
 

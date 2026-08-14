@@ -193,80 +193,70 @@
 
 <main id="main">
 
-  <!-- ============================ HERO ============================ -->
+  <!-- ============================ HERO ============================
+       Built on the same skeleton as camp.jewishtroy.com: a tilted tag chip, a
+       big per-word-coloured headline, a tilted sub, a 2x2 facts grid INSIDE the
+       hero, two buttons and a small note; then one image on the right carrying
+       tilted text cards laid over it. Same structure, this site's own face,
+       palette and words. No video here.
+       ==================================================================== -->
   <section class="hero">
-    <div class="hero-content">
-      <p class="eyebrow eyebrow--chip">Chabad of Troy &middot; 2026&ndash;27 School Year</p>
-      <!-- One word per line, one colour per word, each tilted a hair. The camp
-           site does this with three colours in Bangers; this is the same idea in
-           this site's own face and palette rather than a copy of it. -->
+    <div class="hero-left">
+      <p class="hero-tag">&#9733; Chabad of Troy &middot; 2026&ndash;27 School Year</p>
+
       <h1 class="hero-h1">
         <span class="hw hw1">Make.</span>
         <span class="hw hw2">Bake.</span>
         <span class="hw hw3">Belong.</span>
       </h1>
+
       <p class="hero-sub">
         Where kids cook, create, and come home proud. A real kitchen, a real art studio,
-        and a Judaism they can actually taste. Sundays in Troy, ages 3 to 13.
+        and a Judaism they can actually taste.
       </p>
+
+      <div class="hero-facts">
+        <div class="hero-fact f1"><strong>Sundays</strong><span>10:00 AM &ndash; 12:30 PM</span></div>
+        <div class="hero-fact f2"><strong>Sept 13 &ndash; May 17</strong><span>Full school year</span></div>
+        <div class="hero-fact f3"><strong>Ages 3&ndash;13</strong><span>Four divisions</span></div>
+        <div class="hero-fact f4"><strong>Troy, MI</strong><span>4050 Coolidge Hwy</span></div>
+      </div>
+
       <div class="hero-btns">
         <a class="btn btn--primary" href="register.html">Enroll Now &rarr;</a>
         <a class="btn btn--ghost" href="#divisions">Meet the Divisions</a>
       </div>
-      <p class="hero-fineprint">
+
+      <p class="hero-note">
         <strong>New families: your first year is free</strong> &mdash; just the $100 registration
-        fee per child. And no child is turned away. <a href="scholarship.html">Scholarship
-        assistance</a> is confidential, needs no financial paperwork, and is best applied for
-        before you register.
+        fee per child. No child is turned away.
+        <a href="scholarship.html">Apply for assistance before registering.</a>
       </p>
     </div>
 
-    <!-- Cut-paper composition rather than a photograph. The only genuine Hebrew
-         school photographs available are 350px wide, and a 2x upscale across a
-         panel this size looks visibly soft. The real photographs are used at the
-         sizes they hold up at, in the strip below. Swap this for an <img> the
-         moment a high-resolution school photo exists — .hero-media img is
-         already styled to cover the panel. -->
-    <div class="hero-media">
-      <!-- Cut-paper pieces sit BEHIND the clip and frame it. -->
-      <svg class="hero-confetti" viewBox="0 0 620 620" aria-hidden="true" focusable="false">
-        <use href="#spot-challah" x="0"   y="70"  width="200" height="200"/>
-        <use href="#spot-palette" x="430" y="40"  width="185" height="185"/>
-        <use href="#spot-sprout"  x="20"  y="420" width="150" height="150"/>
-        <use href="#spot-bowl"    x="440" y="420" width="180" height="180"/>
-        <circle cx="330" cy="26"  r="14" fill="#8A2B48"/>
-        <circle cx="86"  cy="330" r="10" fill="#8F5A12"/>
-        <circle cx="560" cy="300" r="12" fill="#24476E"/>
-        <circle cx="300" cy="600" r="9"  fill="#2F5D3A"/>
-      </svg>
+    <div class="hero-right">
+      <!-- HERO IMAGE SLOT. Currently the best genuine Hebrew school photo
+           available, but it is only 350px wide and wants to be ~1200px here.
+           Replace with a high-resolution landscape photograph of a Sunday
+           morning and delete the data-lowres attribute. -->
+      <img class="hero-action-img" src="uploads/photos/classroom-project.jpg"
+           width="350" height="467" data-lowres="true" fetchpriority="high" decoding="async"
+           alt="A student smiling beside a project she made, in a classroom lined with Jewish books and children's artwork." />
 
-      <figure class="hero-reel">
-        <video id="heroReel" src="uploads/video/hsa-2025-05-04.mp4"
-               autoplay muted loop playsinline preload="metadata"
-               aria-label="A Sunday morning at Hebrew School of the Arts, filmed 4 May."></video>
-        <button class="hero-sound" id="heroSound" type="button"
-                aria-pressed="false" aria-controls="heroReel" aria-label="Turn sound on">
-          <svg class="ico-off" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-            <path d="M3 8v4h3l4 3V5L6 8H3Z" fill="currentColor"/>
-            <path d="M14 8l4 4m0-4l-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-          </svg>
-          <svg class="ico-on" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-            <path d="M3 8v4h3l4 3V5L6 8H3Z" fill="currentColor"/>
-            <path d="M13.5 7.5a3.5 3.5 0 0 1 0 5M15.8 5.2a6.5 6.5 0 0 1 0 9.6"
-                  stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-          </svg>
-          <span class="hero-sound-txt">Sound</span>
-        </button>
-      </figure>
+      <div class="hero-action-title">
+        <span class="ha1">Messy aprons.</span>
+        <span class="ha2">Big ideas.</span>
+        <span class="ha3">Jewish pride.</span>
+      </div>
+
+      <div class="hero-action-note">
+        <strong>You belong here.</strong>
+        <span>No membership needed. Most students start with no Hebrew at all.</span>
+      </div>
+
+      <div class="hero-action-chip">Enrollment open</div>
     </div>
   </section>
-
-  <div class="hero-stats">
-    <div class="hero-stat"><b>Sundays</b><span>10:00 AM &ndash; 12:30 PM</span></div>
-    <div class="hero-stat"><b>Sept 13 &ndash; May 17</b><span>Full school year</span></div>
-    <div class="hero-stat"><b>Ages 3&ndash;13</b><span>Four divisions</span></div>
-    <div class="hero-stat"><b>Troy, MI</b><span>4050 Coolidge Hwy</span></div>
-  </div>
 
   <!-- ============================ BAND ============================ -->
   <section class="band">
@@ -747,29 +737,6 @@
           toggle.setAttribute('aria-expanded', 'false');
         }
       });
-    }
-    // Hero clip: autoplays muted and loops. One button turns sound on.
-    // Under prefers-reduced-motion it does not autoplay at all — the button
-    // then starts it, so the content is still reachable.
-    var heroReel = document.getElementById("heroReel");
-    var heroSound = document.getElementById("heroSound");
-    if (heroReel && heroSound) {
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        heroReel.autoplay = false;
-        heroReel.pause();
-      }
-      heroSound.addEventListener("click", function () {
-        var on = heroReel.muted;                 // about to turn sound ON
-        heroReel.muted = !on;
-        heroSound.setAttribute("aria-pressed", on ? "true" : "false");
-        heroSound.setAttribute("aria-label", on ? "Turn sound off" : "Turn sound on");
-        if (heroReel.paused) { var p = heroReel.play(); if (p && p.catch) p.catch(function(){}); }
-        // Any other clip playing should not talk over it.
-        document.querySelectorAll(".reel video").forEach(function (o) { o.pause(); o.muted = true; });
-      });
-      // If the browser refuses the muted autoplay, do not leave a frozen frame.
-      var hp = heroReel.play();
-      if (hp && hp.catch) hp.catch(function () { heroReel.controls = true; });
     }
 
     // Reels: click to play, one at a time. Never autoplay.
