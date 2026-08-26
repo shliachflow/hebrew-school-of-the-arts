@@ -140,15 +140,20 @@ Sunday** — Dec 22, Jan 12, Jan 19, Jan 26, Feb 2, Apr 27, May 4 — so these a
 actual Hebrew school mornings. They are hosted on `www1.clhosting.org/media/av/` and were downloaded
 to `uploads/video/`.
 
-All are **480×848 vertical phone video**, 20–40 seconds. Native reel format, which is why they are
-presented in a 9:16 snap-scroll row rather than reframed.
+All eight **display** as 480×848 vertical phone video. Durations run 20–61 seconds, not 20–40.
+
+One wrinkle worth knowing: `hsa-2025-04-27.mp4` is *stored* 848×480 with a **-90° display matrix**.
+It renders vertically in any browser, which honours that matrix — so it always looked right. Only
+`ffprobe`'s raw `width`/`height` report it as landscape. If you probe these files, read the
+`side_data_list` rotation before concluding anything about aspect ratio. The 2026-08-26 re-encode
+bakes the rotation into the pixels, so the file is now genuinely 480×848 with no rotation metadata.
 
 This matters because it is the **only footage on the site that is verifiably from the Hebrew school
 program.** Everything in the photo galleries is a Chabad-house community event.
 
-Total 60MB across 8 files. No local ffmpeg, so they are served exactly as downloaded — not
-re-encoded, not compressed, and not checked for faststart. Worth optimising before launch if page
-weight matters.
+Originally 59.2MB across 8 files, served exactly as downloaded at ~1500kbps. Re-encoded 2026-08-26
+with ffmpeg: H.264 CRF 27, AAC 96k, `+faststart` so playback can begin before the file is complete.
+The originals are preserved in git history.
 
 ## Photography — NOT from the Hebrew school
 

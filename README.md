@@ -3,47 +3,84 @@
 Marketing and enrollment site for the 2026–27 school year.
 **Culinary. Creative. Jewish.** · *Make. Bake. Belong.*
 
-Live: https://hebrewschool.jewishtroy.com
+- Preview: https://shliachflow.github.io/hebrew-school-of-the-arts/
+- Target domain: hebrewschool.jewishtroy.com — **not live yet**, see `HANDOFF.md`
 
 ## Stack
 
-Plain static HTML/CSS. No framework, no build step. Hosted on GitHub Pages.
-Content is edited through [Pages CMS](https://pagescms.org) via `.pages.yml`;
-editable copy lives in `content/*.json` and images in `uploads/`.
+Plain static HTML/CSS. No framework, no bundler. GitHub Pages from `main`.
+
+The only build step is `build.py`, and it is optional — it renders
+`content/site.json` into marked spans in the HTML. The site is correct whether
+or not it has run. Never make the HTML depend on a build having happened.
 
 ## Files
 
 | Path | What it is |
 |---|---|
 | `index.html` | Homepage |
-| `style.css` | The whole design system — all tokens live at the top |
-| `design-digest.md` | **Read this first.** Every design decision and why. Rules that govern the tokens. |
-| `uploads/IMAGE-BRIEF.md` | Every image slot: size, filename, and a ready-to-use generation prompt |
-| `content/` | CMS-editable copy (JSON) |
-| `.claude/serve.ps1` | Local preview server on port 8153 |
+| `program.html` | Aleph Champ ladder, the Kitchen, the Studio, curriculum |
+| `divisions/*.html` | One page per division |
+| `register.html`, `scholarship.html` | Tuition + Tally form slots (**both slots still empty**) |
+| `style.css` | The whole design system. All tokens at the top. |
+| `design-digest.md` | **Read before changing any design.** Every decision and why. |
+| `CONTENT-SOURCES.md` | **Read before changing any copy.** Provenance of every claim. |
+| `HANDOFF.md` | Current state and open decisions |
+| `content/site.json` | The facts that change — edited via Pages CMS |
+| `build.py` | Renders that JSON into the HTML. `--check` asserts they match. |
+| `.pages.yml` | Pages CMS config |
+| `uploads/IMAGE-BRIEF.md` | Every image slot with dimensions |
 
 ## Local preview
 
-```bash
-pwsh -NoProfile -ExecutionPolicy Bypass -File .claude/serve.ps1
-```
+    pwsh -NoProfile -ExecutionPolicy Bypass -File .claude/serve.ps1
 
-Then open http://localhost:8153.
+Serves on http://localhost:8153. **Single-threaded** — the homepage has eight
+videos, so it will appear to hang. For anything involving the reels, use
+`python -m http.server` instead.
+
+## Editing content
+
+Facts like hours, dates, ages and tuition live in `content/site.json` and are
+editable through Pages CMS. A push to `content/` triggers `.github/workflows/content.yml`,
+which runs `build.py` and commits the rendered HTML.
+
+In the HTML those values sit between markers:
+
+    <!--f:hours-->10:00 AM &ndash; 12:00 PM<!--/f-->
+
+Do not hand-edit between markers; `build.py` overwrites it. Change the JSON.
+Run `python build.py --check` to verify the two are in sync.
+
+Copy that carries a **factual claim** is deliberately NOT in the CMS. It stays
+in the HTML, versioned and reviewed against `CONTENT-SOURCES.md`.
 
 ## Before touching the design
 
-Read `design-digest.md`. The short version:
+Read `design-digest.md`. The short version, as actually shipped:
 
-- **No blurred shadows anywhere.** Depth comes from 1px hairlines and flat offset silhouettes.
-- **Three font weights total** — Suez One 400, Assistant 400, Assistant 700. Do not add a fourth.
-- **Two color tiers.** Teal `--accent` is the only color allowed on buttons, links and focus rings.
-  The paper-tier colors (berry, blue, mustard, green) are for illustration and surface tints only.
-- **`--ceremony` gold appears in exactly three places** — the two Bar/Bat Mitzvah division marks and
-  the Siyum calendar entry. Never on a button.
-- **Nothing rotates.** The sibling camp site tilts; this one does not.
-- **Hebrew never takes negative letter-spacing, italic, or uppercase.** See the digest.
+- **Type is Bespoke Slab 700 (display) + Switzer 400/500 (body)**, both from
+  Fontshare. Suez One 400 is used *only* for Hebrew glyphs in the Aleph Champ
+  ladder. Fontshare over Google Fonts is deliberate — the Google top-fifty is
+  where the "AI website" look comes from. Do not add a fourth Latin weight.
+- **No blurred shadows anywhere.** Currently zero `box-shadow` in the stylesheet;
+  keep it that way. Depth is 1px hairlines and flat offset silhouettes.
+- **Nothing rotates** except the cut-paper spot marks, which take a −6deg
+  reveal animation. No tilt on photos, cards or buttons.
+- **Teal `--accent` is the only colour on buttons, links and focus rings.**
+- **`--ceremony` gold appears in exactly three places** — the two Bar/Bat Mitzvah
+  division marks and the Siyum calendar entry. Never on a button.
+- **Paper-tier colours may be full-bleed section backgrounds.** The original
+  illustration-only restriction was reversed in the premium pass; it is what made
+  the page anemic.
+- **Any `img` with an `aspect-ratio` needs `height: auto`** — the width/height
+  attributes make the box height definite and silently cancel `aspect-ratio`.
+- **No marker glyphs before list items.** No dots, chevrons, checks or icons.
+  Lists use a CSS counter on hairline-ruled rows.
+- **Hebrew never takes negative letter-spacing, italic, or uppercase.**
+- **Contrast is measured, not assumed.** Four real failures were caught that way.
 
 ## Outstanding
 
-Tracked in the "Open / unconfirmed" section of `design-digest.md` — division count, Sunday hours,
-tuition figures, the team roster, and the official Aleph Champ level colors.
+See the "Open items" section of `HANDOFF.md`. The launch blockers are the two
+empty Tally form slots and DNS.

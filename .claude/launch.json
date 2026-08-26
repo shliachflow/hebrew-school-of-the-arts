@@ -4,8 +4,24 @@
     {
       "name": "hsa-static",
       "runtimeExecutable": "pwsh",
-      "runtimeArgs": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", ".claude/serve.ps1"],
+      "runtimeArgs": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        ".claude/serve.ps1"
+      ],
       "port": 8153
+    },
+    {
+      "name": "hsa-threaded",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8154"
+      ],
+      "port": 8154
     }
   ]
 }
