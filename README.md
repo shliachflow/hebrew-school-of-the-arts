@@ -65,8 +65,12 @@ Read `design-digest.md`. The short version, as actually shipped:
   where the "AI website" look comes from. Do not add a fourth Latin weight.
 - **No blurred shadows anywhere.** Currently zero `box-shadow` in the stylesheet;
   keep it that way. Depth is 1px hairlines and flat offset silhouettes.
-- **Nothing rotates** except the cut-paper spot marks, which take a −6deg
-  reveal animation. No tilt on photos, cards or buttons.
+- **Tilt is a real, tokenised part of the design** — `--tilt-a/-b/-c`
+  (−1.3deg / 1.1deg / −0.8deg), applied to the hero headline words, the tag
+  chip, the hero cards, division photos and the studio pair. 21 rotations in
+  all. `design-digest.md` still carries an early "nothing rotates" rule; that
+  was reversed by the header rebuild and the digest was never updated. **Buttons
+  and body copy still never tilt** — that part of the rule holds.
 - **Teal `--accent` is the only colour on buttons, links and focus rings.**
 - **`--ceremony` gold appears in exactly three places** — the two Bar/Bat Mitzvah
   division marks and the Siyum calendar entry. Never on a button.
