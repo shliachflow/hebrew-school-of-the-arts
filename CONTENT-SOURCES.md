@@ -14,6 +14,11 @@ Three tiers:
 - **[W] Written for the site** — connective copy, headings and framing written during the build.
   Contains no factual assertions beyond what [V] or [C] supports.
 
+**2026-08-25 update.** Menachem returned a revision brief through Ozer. It promotes nine items to
+verified and leaves the rest of the [C] table untouched. Newly verified items are marked **[V-rev]**
+below and have been applied to the site. Anything still sitting in [C] was *not* addressed by the
+brief and remains unconfirmed.
+
 ---
 
 ## [V] Verified
@@ -37,18 +42,35 @@ Three tiers:
 | A beginner is never behind, an advanced reader is never bored | His FAQ, near-verbatim |
 | Photos are from the **Family Hamantaschen Bake** | The gallery they were pulled from |
 
+## [V-rev] Verified by the 2026-08-25 revision brief
+
+| Claim | What he confirmed |
+|---|---|
+| Sundays **10:00 AM – 12:00 PM**, **two hours** | Corrected both the 12:30 end time and the "two and a half hours" headline. Supersedes his live site's 10:30–12:00 *and* the copy document's 10:00–12:30. |
+| First Sunday **October 11, 2026** | Verified independently as a Sunday. |
+| **23 sessions** | Stated outright. Site no longer publishes an end date. |
+| "The full schedule, including breaks, will be published soon." | His wording, used verbatim. |
+| Minimum age **4** | Corrected from 3. Applied sitewide. |
+| "Families come from across the **Metro Detroit** area." | His wording. Explicitly replaces the Troy / Auburn Hills / Rochester Hills list. |
+| **Chanukah**, spelled with "Ch" | Explicit instruction. |
+| No school on **Rosh Hashanah** | The challah activity moved to Shabbat. |
+| A dedicated art teacher comes **every week** | Note the scope: he confirmed the weekly cadence, **not** "since the beginning". That phrasing has been removed from program.html. |
+| **Ryan Merritt** is the art teacher; his work sells internationally | Name and the one claim. No bio, medium, photo or credential detail supplied — see "Still missing". |
+| Program is **art-forward**; cooking is secondary | Positioning instruction. **Not yet applied** — conflicts with the retained tagline. See "Open questions". |
+
 ## [C] Client-supplied — CONFIRM BEFORE LAUNCH
+
+*Untouched by the revision brief. Still unconfirmed.*
 
 | Claim on the site | Why it needs confirming |
 |---|---|
-| Sundays **10:00 AM – 12:30 PM** | His live site says **10:30–12:00**. The site now shows the longer day. Bracketed placeholder in his document. |
-| **Sept 13, 2026 – May 17, 2027** | Both dates were bracketed placeholders. Currently published as if final. |
-| **Four divisions** (Sprouts / Roots / Mitzvah Crew / Bat Mitzvah Club) | His live site has **three**; the Zoom summary also says three. |
-| Ages **3–5, 6–8, 9–13** | Live site has 4–5, 6–12, 12–13. Taking three-year-olds and splitting 9–13 by gender are both new. Teen ages were bracketed. |
+| **End date and break dates** | He gave a start and a count but no end. 23 sessions from Oct 11 with no breaks lands on **Mar 14, 2027**, so roughly nine weeks of breaks are unaccounted for. The previously published "May 17, 2027 — Last Sunday" was also a **Monday**; it has been removed. |
+| **Four divisions** (Sprouts / Roots / Mitzvah Crew / Bat Mitzvah Club) | His live site has **three**; the Zoom summary also says three. Not addressed by the revision brief. |
+| Age bands **4–5, 6–8, 9–13** | The floor is now confirmed at 4, but the bands are not. Sprouts currently reads **4–5**, which is a narrow two-year band produced mechanically by raising the floor — he has not confirmed it. Splitting 9–13 by gender is also still unconfirmed. |
 | A **commercial kitchen** the school "built and had certified kosher" | Appears nowhere on his current site. The whole culinary program is new and unevidenced online. |
-| A **dedicated art teacher since the beginning** | Not on his current site. The current curriculum page lists no art at all. |
-| The month-by-month baking cycle (challah / latkes / hamantaschen / matzah / cheesecake) | From the copy document. Plausible and on-brand, but not documented anywhere. |
-| Kitchen/studio **rotation** structure and the Sunday running order | His live site shows a different order: prayer, curriculum, hands-on activity, then Hebrew. |
+| The month-by-month baking cycle (challah / latkes / hamantaschen / matzah / cheesecake) | From the copy document. Plausible and on-brand, but not documented anywhere. The Rosh Hashanah entry is now Shabbat per the brief; the rest of the cycle is unverified. |
+| Kitchen/studio **rotation** structure and the Sunday running order | His live site shows a different order: prayer, curriculum, hands-on activity, then Hebrew. The brief **flagged this as wrong but did not say what is right** — he asked that the copy not imply a fixed weekly switch unless that is how it actually runs. Still says "Next week they switch" on the homepage. |
+| The Sunday running order **fits two hours** | It does not. Slots run 10:00 / 10:15 / 10:50 / 11:40 / 12:15; a 12:00 finish deletes the 12:15 pickup slot and leaves Torah & Story twenty minutes. Needs his real block lengths. |
 | **Every division caps enrollment** | No evidence either way. It is on the register page as fact. |
 | Allergies reviewed before the year starts; severe allergies discussed directly | From the copy document. This is a **safety claim** and must not be published unverified. |
 | Security presence, controlled entry, ID at pickup | Bracketed placeholder in the document. Not yet on the site. Do not publish until confirmed. |
@@ -76,11 +98,26 @@ No factual assertions beyond the tiers above.
   sufganiyot, "Jewish manhood". The school's core pitch is that unaffiliated families belong, and
   that pitch fails if the homepage assumes the reader already knows the words.
 
+## Open questions the revision brief created
+
+1. **Art-forward vs. the tagline.** He wants the program positioned art-forward with cooking
+   secondary, and he separately asked in writing to **keep "Make. Bake. Belong."** Baking is a third
+   of the tagline; the section eyebrow is "Culinary. Creative. Jewish."; the hero sub-head sells a
+   real kitchen; and program.html's centrepiece is a month-by-month *baking* cycle. Both can be true
+   — the tagline survives as a slogan while the surrounding copy re-weights toward the studio — but
+   this is a real tension and needs his call, not ours.
+2. **How the kitchen/studio rotation actually works.** He flagged the current claim as possibly
+   wrong without saying what replaces it.
+3. **The real two-hour running order**, with block lengths.
+4. **Ryan Merritt's specifics** — medium, credentials, where the work sells, a photo, a bio. The
+   brief says feature him prominently and supplies a name plus one adjective. Featuring him
+   prominently on that alone means writing exactly the invented content he has objected to twice.
+
 ## Still missing entirely
 
-Team roster and bios (the document has `[Name] — Ryan Merritt` with both a placeholder and a real
-name; his live site names only Chana Caytak), all three testimonials, the calendar PDF, the
-early-bird deadline, the multi-child tuition scale, and the security and pickup details.
+Bios and roles beyond Ryan Merritt's name (his live site names only Chana Caytak), all three
+testimonials, the calendar PDF, the early-bird deadline, the multi-child tuition scale, and the
+security and pickup details.
 
 ## Video — [V] the only verified Hebrew school media on the site
 
