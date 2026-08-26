@@ -1,0 +1,92 @@
+# Pages CMS - https://pagescms.org
+# Editing here commits to `main`. A GitHub Action then runs build.py, which
+# rewrites the marked spans in the HTML. Nothing else in the repo is editable
+# from the CMS on purpose: the copy that carries factual claims is versioned
+# in the HTML and reviewed, per CONTENT-SOURCES.md.
+
+media:
+  input: uploads
+  output: uploads
+
+content:
+  - name: facts
+    label: The facts that change
+    path: content/site.json
+    type: file
+    fields:
+      - name: hours
+        label: Sunday hours
+        type: string
+        description: 'Shown in the stat row and the calendar. Use &ndash; for the dash, e.g. 10:00 AM &ndash; 12:00 PM'
+      - name: hours_prose
+        label: Sunday hours, in a sentence
+        type: string
+        description: 'The register page writes it out, e.g. 10:00 AM to 12:00 PM'
+      - name: hours_plain
+        label: Sunday hours, plain text
+        type: string
+        description: Used where HTML entities are not allowed. No &ndash; here.
+
+      - name: start_short
+        label: Start date, short
+        type: string
+        description: 'The stat row under the header, e.g. Starts Oct 11'
+      - name: start_long
+        label: Start date, full
+        type: string
+        description: 'The calendar section, e.g. October 11, 2026'
+      - name: sessions_short
+        label: Session count, short
+        type: string
+        description: 'Stat row, e.g. 23 Sundays'
+      - name: sessions_long
+        label: Session count, full
+        type: string
+        description: 'Calendar, e.g. 23 sessions'
+      - name: schedule_note
+        label: Note under the session count
+        type: string
+        description: Where the full schedule and break dates are promised.
+
+      - name: age_min
+        label: Youngest age
+        type: string
+      - name: age_max
+        label: Oldest age
+        type: string
+      - name: age_range
+        label: Age range, with dash
+        type: string
+        description: 'Use &ndash;, e.g. 4&ndash;13'
+      - name: age_range_plain
+        label: Age range, plain
+        type: string
+        description: 'For meta tags, e.g. 4-13'
+      - name: age_range_prose
+        label: Age range, in a sentence
+        type: string
+        description: 'e.g. 4 to 13'
+
+      - name: division_count_word
+        label: Number of divisions, capitalised
+        type: string
+        description: 'e.g. Four. Changing this does NOT add or remove division pages.'
+      - name: division_count_lower
+        label: Number of divisions, lowercase
+        type: string
+
+      - name: tuition
+        label: Tuition
+        type: string
+        description: 'Include the dollar sign, e.g. $950'
+      - name: reg_fee
+        label: Registration fee
+        type: string
+        description: 'Include the dollar sign, e.g. $100'
+
+      - name: phone
+        label: Phone
+        type: string
+      - name: address
+        label: Address
+        type: string
