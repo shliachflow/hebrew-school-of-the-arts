@@ -142,17 +142,19 @@ is actually live.
 - Small radii, 4–10px. Fonts are Bespoke Slab 700 (display) and Switzer 400/500 (body).
 - **Never put opacity on text.** It has caused three separate contrast failures on this project.
 
-## What I could not give you
+## What is sourced, and what is not
 
-**I do not have the Zoom call notes or transcript.** What is above comes from `design-digest.md`,
-`CONTENT-SOURCES.md` and the slot comments, which are what previous sessions recorded *from* that
-call. Two things are recorded as decided on it and I would treat them as reliable:
+The Zoom AI's note on this work item is quoted in full at the top — that is the whole of it, one
+sentence, and it is the only first-hand record of the call anyone has produced. Everything else in
+this brief comes from `design-digest.md`, `CONTENT-SOURCES.md` and the slot comments, which are
+what earlier sessions wrote down *from* that call rather than the call itself.
 
-- the scholarship form is **separate** from registration
-- first-year-free lives **inside** the registration form
+That matters because the one place they can be compared, they disagree: the Zoom note hedges
+("likely as a separate form") where the slot comment asserts ("Deliberately a SEPARATE form... per
+the client call"). Where the derived notes are more confident than the source, trust the source.
 
-If the shliach still has the Zoom notes, they may settle the payment and registration-fee questions
-above faster than asking Menachem again.
+Nothing available settles the payment question, the registration-fee discrepancy or the $750
+figure. Those need Menachem.
 
 Also still missing entirely, from CONTENT-SOURCES: the early-bird deadline and the multi-child
 tuition scale. If either is meant to be in the form, someone has to supply the numbers.
