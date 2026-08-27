@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hebrewschool.jewishtroy.com/sitemap.xml
+Sitemap: https://shliachflow.github.io/hebrew-school-of-the-arts/sitemap.xml

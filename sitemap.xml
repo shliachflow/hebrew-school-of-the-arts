@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://shliachflow.github.io/hebrew-school-of-the-arts/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://shliachflow.github.io/hebrew-school-of-the-arts/program.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shliachflow.github.io/hebrew-school-of-the-arts/register.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shliachflow.github.io/hebrew-school-of-the-arts/scholarship.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shliachflow.github.io/hebrew-school-of-the-arts/divisions/sprouts.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shliachflow.github.io/hebrew-school-of-the-arts/divisions/roots.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shliachflow.github.io/hebrew-school-of-the-arts/divisions/mitzvah-crew.html</loc>
+    <priority>0.7</priority>
+  </url>
+</urlset>
