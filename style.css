@@ -792,7 +792,7 @@ h2.s-title { font-size: var(--text-display-sm); }
    gaps or borders so it reads as a single band of color rather than a
    four-card grid, which is the tell this site is trying to avoid. */
 
-.dband { display: grid; grid-template-columns: repeat(4, 1fr); }
+.dband { display: grid; grid-template-columns: repeat(3, 1fr); }
 .dpanel {
   position: relative; display: flex; flex-direction: column; justify-content: flex-end;
   min-height: 420px; padding: var(--s-5) var(--s-3) var(--s-4);
@@ -802,7 +802,6 @@ h2.s-title { font-size: var(--text-display-sm); }
 .dpanel--sprouts { background: var(--blk-sprouts); }
 .dpanel--roots   { background: var(--blk-roots); }
 .dpanel--crew    { background: var(--blk-crew); }
-.dpanel--club    { background: var(--blk-club); }
 
 .dpanel-n {
   font-family: var(--font-b); font-weight: 500; font-size: 0.6875rem;
@@ -823,7 +822,7 @@ h2.s-title { font-size: var(--text-display-sm); }
 .dpanel:hover .dpanel-go { gap: 14px; }
 
 @media (max-width: 900px) {
-  .dband { grid-template-columns: repeat(2, 1fr); }
+  .dband { grid-template-columns: 1fr; }
   .dpanel { min-height: 320px; }
 }
 @media (max-width: 560px) {

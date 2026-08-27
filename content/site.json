@@ -1,28 +1,22 @@
 {
   "_comment": "Edited through Pages CMS. Running build.py rewrites the HTML from these values. Do not hand-edit the marked spans in the HTML - they are overwritten.",
-
   "hours": "10:00 AM &ndash; 12:00 PM",
   "hours_prose": "10:00 AM to 12:00 PM",
   "hours_plain": "10:00 AM - 12:00 PM",
-
   "start_short": "Starts Oct 11",
   "start_long": "October 11, 2026",
   "sessions_short": "23 Sundays",
   "sessions_long": "23 sessions",
   "schedule_note": "The full schedule, including breaks, will be published soon",
-
   "age_min": "4",
   "age_max": "13",
   "age_range": "4&ndash;13",
   "age_range_plain": "4-13",
   "age_range_prose": "4 to 13",
-
-  "division_count_word": "Four",
-  "division_count_lower": "four",
-
+  "division_count_word": "Three",
+  "division_count_lower": "three",
   "tuition": "$950",
   "reg_fee": "$100",
-
   "phone": "248-873-5851",
   "address": "4050 Coolidge Hwy, Troy MI 48098"
 }

@@ -59,17 +59,25 @@ brief and remains unconfirmed.
 | The 11:40 block covers **essential Jewish ideas that shape a child's Jewish identity** | His framing, and he suggested the "Torah and Story" title. Applied. |
 | The morning ends at **12:00** | The timeline's final stamp moved 12:15 -> 12:00. Every other stamp (10:00 / 10:15 / 10:50 / 11:40) is unchanged and 11:40 is one he named himself. **No block lengths were invented**, but he has not signed off on the running order as a whole. |
 | **Ryan Merritt** is the art teacher; his work sells internationally | Name and the one claim. No bio, medium, photo or credential detail supplied — see "Still missing". |
-| Program is **art-forward**; cooking is secondary | Positioning instruction. **Not yet applied** — conflicts with the retained tagline. See "Open questions". |
+| Program is **art-forward**; cooking is secondary | Positioning instruction. The 2026-08-26 answers make this a schedule fact, not just a preference: the kitchen comes round about monthly, so art is the weekly activity. Tagline retained by the shliach's decision. |
+
+## [V-rev2] Verified 2026-08-26, second round of answers
+
+| Claim | What he confirmed |
+|---|---|
+| **Three divisions**, not four | "9-13 are together." The boys/girls split was never real. The Mitzvah Crew and Bat Mitzvah Club are now one 9-13 division carrying both names; `divisions/bat-mitzvah-club.html` is deleted. The shliach asked that the mixed-age-group aspect not be highlighted in copy. |
+| Age floor is **4** | "its from 4", confirming the earlier answer. |
+| Roots at **6-8** | Accepted by omission — he corrected the 9-13 band and the floor but not this one. Weakest link in the age structure; worth one more confirmation. |
+| Kitchen runs **about once a month** ("once a month or every three weeks") | This confirms the "kitchen every month" copy already on program.html and divisions/roots.html, and invalidates the homepage's parallel kitchen/studio framing, which has been rewritten. |
+| Pickup and ID procedure is **NOT accurate** | "That's not accurate." The FAQ entry is removed entirely. Nothing true was left to say once the authorised-pickup and ID claims came out. |
 
 ## [C] Client-supplied — CONFIRM BEFORE LAUNCH
 
-*Untouched by the revision brief. Still unconfirmed.*
+*Untouched by either round of answers. Still unconfirmed.*
 
 | Claim on the site | Why it needs confirming |
 |---|---|
 | **End date and break dates** | He gave a start and a count but no end. 23 sessions from Oct 11 with no breaks lands on **Mar 14, 2027**, so roughly nine weeks of breaks are unaccounted for. The previously published "May 17, 2027 — Last Sunday" was also a **Monday**; it has been removed. |
-| **Four divisions** (Sprouts / Roots / Mitzvah Crew / Bat Mitzvah Club) | His live site has **three**; the Zoom summary also says three. Not addressed by the revision brief. |
-| Age bands **4–5, 6–8, 9–13** | The floor is now confirmed at 4, but the bands are not. Sprouts currently reads **4–5**, which is a narrow two-year band produced mechanically by raising the floor — he has not confirmed it. Splitting 9–13 by gender is also still unconfirmed. |
 | The month-by-month baking cycle (challah / latkes / hamantaschen / matzah / cheesecake) | From the copy document. Plausible and on-brand, but not documented anywhere. The Rosh Hashanah entry is now Shabbat per the brief; the rest of the cycle is unverified. |
 | How kitchen and studio are actually **assigned** | His question was, roughly, "It's kitchen or studio. I don't see 'next week they switch.' Is that depending on the week, there's different programs?" That is a challenge to the claim, not a correction to it. **"Divisions rotate / Next week they switch" has been removed** from the homepage; the copy now says only that one group is in the kitchen and one in the studio. Restore a cadence only when he states one. Note `program.html` still says every division rotates through the kitchen monthly, and `divisions/roots.html` still sells "full kitchen rotations" — both unverified, both left in place pending his answer. |
 | The **block lengths** in the Sunday running order | He said the general schedule is broadly fine and gave a hard 12:00 finish, but never a minute-by-minute. The published order is the old one with only the final stamp moved. Worth a sanity check from him. |
@@ -86,6 +94,17 @@ No factual assertions beyond the tiers above.
 - "Sprouts runs on songs, snacks, mess and repetition."
 - "A real kitchen. Not a hot plate in a classroom." — *this one is his*, retained from the document
 - Photo credit line: "Family Hamantaschen Bake · Chabad Jewish Center of Troy"
+
+### Removed 2026-08-26
+
+- **Every remaining "caps enrollment" claim** — six of them, on index.html, program.html and all
+  four division pages. Only the register.html one was pulled on 2026-08-25; that was an incomplete
+  job, caught by grepping the whole tree rather than trusting the earlier pass.
+- **The whole drop-off and pickup FAQ** (`index.html`) — he said the authorised-pickup and ID
+  procedure is not accurate, and the only remaining sentence was the street address, which the
+  footer already carries.
+- **"One group is in the kitchen, one is in the art studio"** — implied a parallel weekly split.
+  Kitchen is about monthly; the studio is the weekly activity.
 
 ### Removed 2026-08-25
 
