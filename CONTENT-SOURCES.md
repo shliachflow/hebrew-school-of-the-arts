@@ -141,22 +141,22 @@ No factual assertions beyond the tiers above.
 2. **How the kitchen/studio rotation actually works.** He flagged the current claim as possibly
    wrong without saying what replaces it.
 3. **The real two-hour running order**, with block lengths.
-4. **Ryan Merritt's specifics.** Researched 2026-08-26 at the shliach's suggestion. There is a
-   **Ryan Merritt Fine Art** (ryanmerrittfineart.com) whose About page opens "I'm a painter based in
-   Troy, Michigan" — same town as the school — who "teaches art history and leads art creation
-   projects" and manages an art department in vocational rehabilitation. Identity match is likely
-   but **not confirmed**, and nothing has been published.
+4. **Ryan Merritt — resolved 2026-08-26.** Identity confirmed by the shliach as the Ryan Merritt
+   of **Ryan Merritt Fine Art**, Troy, Michigan (ryanmerrittfineart.com). A short bio now runs in
+   the Studio section of program.html and a mention leads the homepage program teaser.
 
-   **The "sold internationally" claim is not supported by his own site.** That page states his first
-   art show was late summer 2023, Arts, Beats and Eats in Royal Oak, Michigan, and describes him as
-   up and coming. It says nothing about where his work sells. A separate search result about an
-   artist who "supports herself by selling her art internationally" is a different person, which is
-   a plausible route for the detail to have been picked up.
+   Sourced from that site's own About page, which is written entirely in the first person
+   ("Hello, my name is Ryan Merritt." / "I'm a painter based in Troy, Michigan."): painter based in
+   Troy · trained at Savannah College of Art and Design · landscapes and geometric abstracts in oil
+   and acrylic · teaches art history.
 
-   Do not publish "sold internationally" without Ryan or Menachem confirming it. Do not write his
-   bio from web research either: he is a private individual, his About page carries family details
-   that have no business on a school site, and this is exactly the category of claim the client has
-   twice objected to. Ask him for two or three sentences and a photo he is happy with.
+   **"Sells internationally" is client-attested, not web-verified.** The About page does not say it;
+   it records a first show in late summer 2023 at Arts, Beats and Eats in Royal Oak. Raised with the
+   shliach, who confirmed it and asked to keep it. Published on his authority, logged here as such.
+
+   **The site never states Ryan's gender** — first person throughout, no third-person pronouns. The
+   bio is written pronoun-free on purpose. Do not introduce "he" or "she" without being told which
+   is right; an earlier draft of this file inferred one from the name and was wrong.
 
 ## Still missing entirely
 

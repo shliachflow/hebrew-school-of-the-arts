@@ -750,7 +750,12 @@ h2.s-title { font-size: var(--text-display-sm); }
 .rung-he { font-size: 1.5rem; line-height: 1; }
 .rung-n {
   font-family: var(--font-b); font-weight: 500; font-size: 0.625rem;
-  letter-spacing: 0.1em; opacity: 0.75;
+  letter-spacing: 0.1em;
+  /* No opacity here. At 0.75 this failed contrast on five of the ten rungs
+     (3.14:1 on level 02) - the same trap as .d-ages, which the premium pass
+     already caught. The Aleph Champ colours are program data and cannot be
+     altered, so the text has to carry the ratio. It is already de-emphasised
+     by size against .rung-name; it does not need the alpha too. */
 }
 .rung-name {
   font-family: var(--font-b); font-weight: 500; font-size: 0.6875rem;
