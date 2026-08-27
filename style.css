@@ -352,7 +352,12 @@ h2.s-title { font-size: var(--text-display-sm); }
 
 .nav-cta { min-height: 44px; }
 
-.nav-toggle { display: none; background: none; border: 0; cursor: pointer; padding: var(--s-1); color: var(--ink); }
+.nav-toggle {
+  display: none; background: none; border: 0; cursor: pointer; color: var(--ink);
+  /* 44px minimum touch target - it is the only nav control on a phone. */
+  min-width: 44px; min-height: 44px; padding: var(--s-1);
+  align-items: center; justify-content: center;
+}
 
 @media (max-width: 940px) {
   .nav-links { display: none; }
@@ -1101,12 +1106,32 @@ table.tuition tbody tr:last-child { border-bottom: 1px solid var(--hair); }
   font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.1em;
   text-transform: uppercase; color: var(--ink-2);
 }
-@media (max-width: 760px) { .stat-row { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 760px) {
+  .stat-row { grid-template-columns: repeat(2, 1fr); }
+  /* These carry real information on a phone - the hours and the age range -
+     not decoration. 11px with 0.1em tracking is a label size, not a reading
+     size, so ease both back at the width where the row goes 2-up. */
+  .stat span { font-size: 0.75rem; letter-spacing: 0.06em; }
+}
 
 @media (max-width: 940px) {
   .hero { padding-inline: clamp(1.25rem, 5vw, 2rem); }
+  /* Below 940px .hero-right takes order: -1, so this panel is spent before the
+     reader reaches the headline. At 42vh it ran to ~354px on a 390x844 phone
+     and pushed Enroll Now past the fold. Fixed heights, not vh: the panel is
+     decoration above the copy, so it should cost a predictable amount rather
+     than scale with the screen. The real hero photo fills it the same way via
+     object-fit: cover. */
   .hero-right {
     border-radius: var(--r-lg);
-    min-height: clamp(300px, 42vh, 420px);
+    /* The base rule sets align-self: stretch. Left alone, the grid row keeps
+       its content-derived height and stretches the panel straight back, so the
+       height below does nothing. Both declarations are needed. */
+    align-self: start;
+    min-height: 0;
+    height: 260px;
   }
+}
+@media (max-width: 560px) {
+  .hero-right { height: 200px; }
 }
