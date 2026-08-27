@@ -141,9 +141,22 @@ No factual assertions beyond the tiers above.
 2. **How the kitchen/studio rotation actually works.** He flagged the current claim as possibly
    wrong without saying what replaces it.
 3. **The real two-hour running order**, with block lengths.
-4. **Ryan Merritt's specifics** — medium, credentials, where the work sells, a photo, a bio. The
-   brief says feature him prominently and supplies a name plus one adjective. Featuring him
-   prominently on that alone means writing exactly the invented content he has objected to twice.
+4. **Ryan Merritt's specifics.** Researched 2026-08-26 at the shliach's suggestion. There is a
+   **Ryan Merritt Fine Art** (ryanmerrittfineart.com) whose About page opens "I'm a painter based in
+   Troy, Michigan" — same town as the school — who "teaches art history and leads art creation
+   projects" and manages an art department in vocational rehabilitation. Identity match is likely
+   but **not confirmed**, and nothing has been published.
+
+   **The "sold internationally" claim is not supported by his own site.** That page states his first
+   art show was late summer 2023, Arts, Beats and Eats in Royal Oak, Michigan, and describes him as
+   up and coming. It says nothing about where his work sells. A separate search result about an
+   artist who "supports herself by selling her art internationally" is a different person, which is
+   a plausible route for the detail to have been picked up.
+
+   Do not publish "sold internationally" without Ryan or Menachem confirming it. Do not write his
+   bio from web research either: he is a private individual, his About page carries family details
+   that have no business on a school site, and this is exactly the category of claim the client has
+   twice objected to. Ask him for two or three sentences and a photo he is happy with.
 
 ## Still missing entirely
 

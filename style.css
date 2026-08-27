@@ -77,7 +77,12 @@
   /* --- Space. Every value divisible by 8. --- */
   --s-1: 8px;  --s-2: 16px; --s-3: 24px; --s-4: 32px;
   --s-5: 40px; --s-6: 48px; --s-8: 64px; --s-10: 80px; --s-12: 96px;
-  --section-pad:    clamp(4.5rem, 11vw, 9rem);
+  /* Floor was 4.5rem, so every phone sat at 72px - the same air as a laptop.
+     PostHog drops section padding from 80px to 48px at mobile; 3.5rem is that
+     move, eased slightly because our sections carry tint bands where theirs
+     run on one continuous canvas. Only bites below ~654px, where 11vw < the
+     floor, so desktop rhythm is untouched. */
+  --section-pad:    clamp(3.5rem, 11vw, 9rem);
   --section-pad-lg: clamp(6rem, 14vw, 12rem);
 
   /* --- Radius ---
@@ -1004,7 +1009,10 @@ table.tuition tbody tr:last-child { border-bottom: 1px solid var(--hair); }
   display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-3); justify-content: space-between;
   font-size: 0.8125rem; color: var(--ink-2);
 }
-@media (max-width: 780px) { .footer-top { grid-template-columns: 1fr; gap: var(--s-5); } }
+/* 4 -> 2 -> 1 rather than 4 -> 1: dropping straight to a single column made a
+   very tall stack on tablets. */
+@media (max-width: 780px) { .footer-top { grid-template-columns: 1fr 1fr; gap: var(--s-5); } }
+@media (max-width: 520px) { .footer-top { grid-template-columns: 1fr; } }
 
 /* ---------- Scroll reveal ----------
    Opacity and transform only.
