@@ -17,17 +17,32 @@ is client-approved — **no redesign is wanted.** What is left is the forms, DNS
 The client is Rabbi Menachem Caytak; his wife Mrs. Chana Caytak directs the school. He has twice
 caught invented content on this project, so nothing goes on the page that cannot be traced.
 
-## Two forms, and why they are separate
+## Two forms
 
-Confirmed on the client call and recorded in `design-digest.md` and the slot comments:
+The scope, quoted verbatim from the Zoom AI notes of the client call:
+
+> Set up the registration form(s) for Hebrew School of the Arts, integrating options for regular
+> registration, first-year free (with registration fee), and scholarship (likely as a separate
+> form).
+
+That gives three things:
 
 1. **Registration** — `register.html`, slot `#registrationForm`
-2. **Scholarship application** — `scholarship.html`, slot `#scholarshipForm`
+2. **First-year free, with the registration fee still payable** — an option *inside* the
+   registration form, not a third form. Note "(with registration fee)": the $100 applies to
+   new families too. The site's hero already says exactly this.
+3. **Scholarship application** — `scholarship.html`, slot `#scholarshipForm`
 
-**They are deliberately separate.** A family applies for assistance *before* registering. The
-scholarship page says so and links accordingly. Do not merge them.
+**On "separate": the source says "likely as a separate form", not "definitely".** The slot comment
+in `scholarship.html` reads "Deliberately a SEPARATE form from registration, per the client call" —
+an earlier session firmed a hedge into a certainty, which is the same drift this project keeps
+having to undo. Treat separate as the working assumption, because it is what got built and the flow
+depends on it (the scholarship page tells families to apply for help *before* registering, and
+links that way), but know it was never hard-confirmed. If merging them ever looks better, that door
+is not actually closed — ask Menachem rather than citing the call.
 
-The **first-year-free** offer is folded into the *registration* form, not a third form.
+Note what the Zoom notes do **not** settle: the registration-fee discrepancy, the $750 figure, and
+how payment is handled. All four questions below still need answers.
 
 ## What each form must capture
 
