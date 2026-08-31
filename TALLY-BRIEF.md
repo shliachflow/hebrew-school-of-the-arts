@@ -1,5 +1,10 @@
 # The two Tally forms — brief for a fresh session
 
+> **Built 2026-08-31. Read [FORMS-SPEC.md](FORMS-SPEC.md) first** for what actually exists —
+> form ids, final field lists, decisions taken and known gaps. This file is kept because it
+> records *why*, and which claims were never confirmed. The four questions below are still
+> open except payment, which was settled: neither form collects money, Stripe comes later.
+
 **The job:** build two Tally forms and embed them. The site cannot take a registration until this
 is done; both slots currently say "call this number instead."
 

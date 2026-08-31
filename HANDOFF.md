@@ -7,7 +7,7 @@
 - **Target domain:** hebrewschool.jewishtroy.com (not live yet — see Open items)
 - **Client:** Rabbi Menachem & Mrs. Chana Caytak, Chabad Jewish Center of Troy, MI
 
-*Last updated 2026-08-27.*
+*Last updated 2026-08-31.*
 
 ## Picking this up in a new session
 
@@ -21,7 +21,8 @@ Those three files carry everything. Nothing important lives only in the chat.
 | File | What it holds |
 |---|---|
 | HANDOFF.md | This file — state and open decisions |
-| **TALLY-BRIEF.md** | **The next job: the two registration forms.** Self-contained. |
+| **FORMS-SPEC.md** | **The two forms as built** — ids, fields, decisions, known gaps. |
+| TALLY-BRIEF.md | Why the forms were built the way they were, and what was never confirmed. |
 | design-digest.md | Every design decision, why, and each revision. Read before changing any design. |
 | CONTENT-SOURCES.md | Provenance of every claim: verified / client-supplied / written-for-the-build |
 | README.md | Stack, local preview, content editing, the short design rules |
@@ -52,8 +53,8 @@ generates `sitemap.xml` and `robots.txt`.
 | index.html | Header, stat row, "You belong here" band, photo strip, 8 Sunday video reels, Sunday timeline, three division colour panels, program teaser, calendar, tuition, FAQ, final CTA, footer |
 | program.html | Aleph Champ ladder (10 levels), The Kitchen, The Studio + Ryan Merritt, what they'll know, six curriculum subjects |
 | divisions/*.html | Sprouts 4–5 · Roots 6–8 · Mitzvah Crew & Bat Mitzvah Club 9–13 |
-| register.html | Tuition figures + **empty Tally slot** |
-| scholarship.html | Scholarship terms + **empty Tally slot** |
+| register.html | Tuition figures + Tally registration embed, switch off |
+| scholarship.html | Scholarship terms + Tally scholarship embed, switch off |
 
 **Design system:** Bespoke Slab 700 (display) + Switzer 400/500 (body), both from Fontshare —
 deliberately not Google Fonts. Suez One only for Hebrew in the Aleph Champ ladder. Warm paper
@@ -75,8 +76,12 @@ photos are gitignored.
 
 ### The next job
 
-1. **The two Tally forms.** See **TALLY-BRIEF.md** — it is self-contained and has the existing
-   form's full field list. Both slots are empty, so **the site cannot take a registration.**
+1. **Review the two forms, then flip them live.** Both are built and published in Tally —
+   registration `ODNABR`, scholarship `KYjMP8`. See **FORMS-SPEC.md**. They are embedded in
+   both pages behind `data-tally-live="false"`, so the site still shows the phone fallback and
+   **still cannot take a registration.** To go live: one test submission per form to confirm
+   the child-reveal logic, then set that attribute to `"true"` on each page.
+   Check first who actually receives the Tally notifications — see gap 4 in FORMS-SPEC.
 
 ### Needs Menachem
 
@@ -84,20 +89,25 @@ photos are gitignored.
    from Oct 11 with no breaks lands on **March 14, 2027**, so about nine weeks of breaks are
    unaccounted for. He has said he does not know yet. The site publishes no end date and says the
    full schedule is coming, which is honest meanwhile.
-3. **Roots at 6–8.** He confirmed the floor (4) and the top band (9–13 together) but never this
+3. **The culinary tagline.** The kickoff-call Zoom summary has him deciding to keep the name
+   "Hebrew School of the Arts" and add a tagline describing the culinary side. That predates the
+   2026-08-25 art-forward instruction and the 2026-08-26 "kitchen is about monthly" answer, which
+   both point the other way, and no later file records the tagline decision being closed. Nothing
+   on the site or in the forms depends on it. Ask him which way it landed.
+4. **Roots at 6–8.** He confirmed the floor (4) and the top band (9–13 together) but never this
    one. His live site says 6–12. Weakest link in the age structure.
-4. **Hero image.** The right panel holds a ~1800x900 landscape image edge-to-edge; it currently
+5. **Hero image.** The right panel holds a ~1800x900 landscape image edge-to-edge; it currently
    holds a cut-paper composition and degrades correctly without one. He is sending photos.
 
 ### Technical
 
-5. **DNS — now the highest-value item on the project.** Deferred by the client, but every day the
+6. **DNS — now the highest-value item on the project.** Deferred by the client, but every day the
    site is indexed at the github.io URL is authority built on a URL that gets abandoned. CNAME is
    parked as CNAME.pending. To go live: DNS CNAME hebrewschool -> shliachflow.github.io, then
    `git mv CNAME.pending CNAME`, then change `site_url` in `content/site.json` and run `build.py`
    — that one field drives every canonical, og:url, the sitemap and robots.txt.
    jewishtroy.com sits on Chabad.org's platform — confirm who controls the registrar.
-6. **Google Search Console.** After DNS: verify the domain, submit the sitemap. Also get
+7. **Google Search Console.** After DNS: verify the domain, submit the sitemap. Also get
    jewishtroy.com to link to the new site — one link from the established parent site is worth more
    than every on-page tweak. And check the Chabad center's Google Business Profile, which outranks
    websites for local queries.

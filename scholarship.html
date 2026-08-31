@@ -63,11 +63,24 @@
 
       <!-- ==========================================================
            TALLY FORM SLOT — scholarship application
-           Deliberately a SEPARATE form from registration, per the client call.
-           Should capture: parents/guardians, children and ages, statement of
-           need, and the amount the family can contribute toward tuition.
+           Form: https://tally.so/r/KYjMP8   (Tally form id KYjMP8)
+           Built 2026-08-31. Separate from registration. NOTE the source only
+           says "likely as a separate form" -- treated as the working
+           assumption, never hard-confirmed. See TALLY-BRIEF.md.
+           Captures: parents, children and ages (1-4, same reveal pattern as
+           registration), part-vs-full request with a conditional dollar
+           amount, statement of need, and two acknowledgements ($100 fee not
+           covered; consistent attendance).
+           Asks for NO tax returns, pay stubs or financial documents, because
+           the page promises none are required. Do not add a file upload.
+           TO GO LIVE: set data-tally-live="true" below. Until then the slot
+           shows the phone fallback and no iframe is requested.
            ========================================================== -->
-      <div id="scholarshipForm" style="margin-top:var(--s-8)">
+      <div id="scholarshipForm"
+           data-tally-form="KYjMP8"
+           data-tally-live="false"
+           data-tally-title="Hebrew School of the Arts scholarship application"
+           style="margin-top:var(--s-8)">
         <div style="border:1px solid var(--hair);border-radius:var(--r-md);padding:var(--s-6);background:var(--paper-2)">
           <p class="eyebrow" style="margin-bottom:var(--s-2)">Form goes here</p>
           <p class="fine">
@@ -85,6 +98,64 @@
     </div>
   </section>
 </main>
+
+<script>
+/* Tally embed loader.
+   Injects the iframe ONLY for slots marked data-tally-live="true", so the phone
+   fallback inside each slot stays put until someone deliberately flips the switch.
+   Never clears a slot unless it has an embed to put in its place. */
+(function () {
+  var slots = document.querySelectorAll('[data-tally-form][data-tally-live="true"]');
+  if (!slots.length) return;
+
+  Array.prototype.forEach.call(slots, function (slot) {
+    var id = slot.getAttribute('data-tally-form');
+    if (!id) return;
+
+    var src = 'https://tally.so/embed/' + id +
+      '?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1';
+
+    var frame = document.createElement('iframe');
+    /* src is set directly on purpose. Tally's embed.js is supposed to populate
+       it from data-tally-src, but it was verified NOT to on this page, which
+       would leave families staring at an empty box. data-tally-src is kept so
+       embed.js can still take over height management if it does hook in. */
+    frame.setAttribute('data-tally-src', src);
+    frame.setAttribute('src', src);
+    frame.setAttribute('loading', 'lazy');
+    frame.setAttribute('title', slot.getAttribute('data-tally-title') || 'Form');
+    frame.setAttribute('width', '100%');
+    frame.setAttribute('frameborder', '0');
+    frame.style.border = '0';
+    /* Fixed fallback height. dynamicHeight=1 shrinks this to fit when embed.js
+       connects; when it does not, the form scrolls inside the frame instead of
+       being clipped. */
+    frame.style.width = '100%';
+    frame.style.minHeight = '900px';
+    frame.setAttribute('height', '900');
+
+    while (slot.firstChild) slot.removeChild(slot.firstChild);
+    slot.appendChild(frame);
+
+    var help = document.createElement('p');
+    help.className = 'fine';
+    help.style.marginTop = 'var(--s-4)';
+    help.innerHTML = 'Trouble with the form? <a href="https://tally.so/r/' + id +
+      '">Open it in a new tab</a>, or call <a href="tel:+12488735851">248-873-5851</a>.';
+    slot.appendChild(help);
+  });
+
+  var s = document.createElement('script');
+  s.src = 'https://tally.so/widgets/embed.js';
+  s.async = true;
+  s.onload = function () {
+    if (window.Tally && typeof window.Tally.loadEmbeds === 'function') {
+      window.Tally.loadEmbeds();
+    }
+  };
+  document.body.appendChild(s);
+})();
+</script>
 
 </body>
 </html>
