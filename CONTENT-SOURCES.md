@@ -187,6 +187,36 @@ Originally 59.2MB across 8 files, served exactly as downloaded at ~1500kbps. Re-
 with ffmpeg: H.264 CRF 27, AAC 96k, `+faststart` so playback can begin before the file is complete.
 The originals are preserved in git history.
 
+## Photography — the client's own session photos, 2026-08-26
+
+Four photographs sent by Menachem over WhatsApp on 2026-08-26, in response to the request for real
+Hebrew school images. **These are the first photographs on this project that show the actual
+programme** rather than a community event, and they are 1200x1600 against the archive set's 350px.
+
+| File | What it shows |
+|---|---|
+| `uploads/photos/session-dough.jpg` | A child in an apron shaping coloured dough onto foil trays |
+| `uploads/photos/session-drawing.jpg` | A child drawing at a table with coloured pencils |
+| `uploads/photos/session-flowerpot.jpg` | A child holding a decorated flower pot craft, classroom behind |
+| `uploads/photos/session-snack.jpg` | A child in a smock with a snack at a table |
+
+`uploads/hero.jpg` is the dough photograph, cropped 1.4:1 from the original and biased upward so the
+head and hands survive the mobile panel's 1.95:1 crop. It replaced the cut-paper composition on
+2026-08-31.
+
+**Why that one for the hero.** It is hands-and-craft-at-a-table rather than a portrait — the child
+is looking down at the work. That is what `uploads/IMAGE-BRIEF.md` asked for from the start, and it
+is the least identifying of the four. The flower-pot photograph was tested and rejected: at the
+mobile panel's ratio the crop cuts the face at the top and the craft at the bottom.
+
+**Permission still applies.** All four show identifiable minors. The shliach cleared photography for
+this site on 2026-08-26, and these were supplied by the school itself for this purpose, which is
+stronger ground than the archive set. Parental release is still not documented anywhere.
+
+**The archive photographs are still in place** on the homepage strip and the division pages. They
+remain the supermarket Hamantaschen Bake, not school sessions. Replacing them with these four is
+the obvious next improvement and has not been done.
+
 ## Photography — NOT from the Hebrew school
 
 **Every photograph currently on the site is from the Family Hamantaschen Bake**, a family event held

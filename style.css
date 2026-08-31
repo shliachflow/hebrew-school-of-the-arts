@@ -1091,6 +1091,28 @@ table.tuition tbody tr:last-child { border-bottom: 1px solid var(--hair); }
 .hero-fallback {
   width: 100%; height: 100%; object-fit: cover; display: block;
   border: 0; border-radius: 0; rotate: none;
+  /* aspect-ratio: auto is REQUIRED here, not tidiness. The earlier
+     .hero-action-img rule (the framed, tilted treatment) sets aspect-ratio
+     4/5, and an aspect-ratio silently beats height: 100% - the image rendered
+     438px tall inside a 200px panel and overflowed it. This is the same trap
+     the digest records in mirror image: there, width/height attributes
+     cancelled an aspect-ratio; here, an aspect-ratio cancels a height. */
+  aspect-ratio: auto;
+  /* Keep the child and the tray in frame. Dead-centre cropping pushes the
+     head out of the top on the short mobile panel. */
+  object-position: center 34%;
+}
+
+/* The panel is display:grid with place-items:center, so its child is never
+   stretched and a percentage height does not resolve - the image took its
+   intrinsic 250px inside a 200px panel. Pinning to the panel box is
+   deterministic and does not care how the panel lays its children out.
+   .hero-right is position:relative, so inset:0 is exactly the panel. */
+.hero-action-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 .hero-fallback { padding: clamp(1rem, 3vw, 2.5rem); }
 

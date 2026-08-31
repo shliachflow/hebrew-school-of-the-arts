@@ -6,3 +6,6 @@ live.html
 uploads/archive/
 uploads/hsa-media/
 .claude/grabs/
+
+# Client photo drops land in the repo root; the working copies live in uploads/photos/
+WhatsApp Image*.jpeg

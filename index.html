@@ -229,31 +229,22 @@
     </div>
 
     <div class="hero-right">
-      <!-- ================= HERO IMAGE SLOT =================
-           Wants a landscape image about 1800x900, filling this whole panel
-           edge-to-edge, exactly like camp.jewishtroy.com/uploads/hero-boys-action.jpg
-           (1837x856, object-fit: cover, no frame).
+      <!-- ================= HERO IMAGE =================
+           A real session photo, supplied by the client 2026-08-26. 1680x1200,
+           cropped 1.4:1 from a 1200x1600 original and biased upward so the head
+           and hands survive the mobile panel's harder 1.95:1 crop.
 
-           To use it:  save as uploads/hero.jpg, then replace the <svg> below with
-             <img class="hero-action-img" src="uploads/hero.jpg" width="1800" height="900"
-                  fetchpriority="high" alt="Children cooking and making art at Hebrew
-                  School of the Arts in Troy." />
+           object-position keeps the action, not the dead centre, in frame when
+           `cover` crops. The cut-paper fallback this replaced is preserved in
+           git history if it is ever needed back.
 
-           Until then this panel is a cut-paper composition on a tinted ground,
-           which fills the space at any size without going soft. The one genuine
-           school photo available is 350px wide and looked bad stretched here. -->
-      <svg class="hero-fallback" viewBox="0 0 800 700" role="img"
-           aria-label="Cut-paper illustration of a mixing bowl, a braided challah, a paint palette and a growing sprout.">
-        <title>The kitchen and the art room</title>
-        <use href="#spot-challah" x="70"  y="90"  width="300" height="300"/>
-        <use href="#spot-palette" x="450" y="60"  width="260" height="260"/>
-        <use href="#spot-bowl"    x="410" y="360" width="290" height="290"/>
-        <use href="#spot-sprout"  x="120" y="410" width="210" height="210"/>
-        <circle cx="415" cy="60"  r="19" fill="#8A2B48"/>
-        <circle cx="70"  cy="380" r="14" fill="#8F5A12"/>
-        <circle cx="720" cy="330" r="16" fill="#24476E"/>
-        <circle cx="330" cy="655" r="12" fill="#2F5D3A"/>
-      </svg>
+           Chosen over the other three because it is hands-and-craft-at-a-table
+           rather than a portrait: the child is looking down at the work, which
+           is what the original image brief asked for and is the least
+           identifying of the four. -->
+      <img class="hero-action-img" src="uploads/hero.jpg" width="1680" height="1200"
+           fetchpriority="high" decoding="async"
+           alt="A child in an apron shaping coloured dough onto a foil tray at Hebrew School of the Arts in Troy." />
 
       <div class="hero-action-title">
         <span class="ha1">Messy aprons.</span>
