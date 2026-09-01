@@ -181,22 +181,50 @@ Note for anyone testing: per Tally's docs you cannot use Stripe test cards on
 a Tally payment form. Confirming an end-to-end charge means a real card and a
 refund in Stripe.
 
-### What the payment does NOT do
+### Option B: the form charges the full amount
 
-It charges the **$100-per-child registration fee only**. It does not read the
-"Which applies to your family?" answer, so a returning family and a new family
-are charged identically. Tuition is never collected by the form.
+Client decision 2026-09-01, asked as a choice between charging the registration
+fee only (A) or everything up front (B). He chose **B**.
 
-- New family: first year of tuition free, $100 fee -> $100/child is correct.
-- Returning family: $950 tuition + $100 fee -> charged $100.
+The calculation therefore depends on TWO questions, not one - the child count on
+page 2 and "Which applies to your family?" on page 4. Eight rules, mutually
+exclusive, so exactly one fires:
 
-Either tuition is billed separately, which is coherent but is stated nowhere
-at the payment step, or returning families are under-collected by $950 each.
-**Raised with the client and still unanswered.**
+| Children | New family | Returning family |
+|---|---|---|
+| 1 | $100 | $1,050 |
+| 2 | $200 | $2,100 |
+| 3 | $300 | $3,150 |
+| 4 | $400 | $4,200 |
 
-Related: the thank-you page still reads "We will be in touch about tuition,
-the registration fee, and the full schedule." The registration fee is now paid
-on the form, so that sentence is stale.
+New = the $100 registration fee only, because their first year of tuition is
+free. Returning = $950 tuition + $100 fee = $1,050 each.
+
+All eight rules moved to page 4 automatically, since a rule must sit after every
+question it references.
+
+**Verified live after publishing:** New family + 2 children showed $200;
+switching the same submission to Returning family showed **$2,100**. Earlier,
+changing 2 children to 3 moved $200 -> $300 rather than $500. The FORMULA
+operator assigns rather than increments, and that is confirmed in the published
+form in both dimensions.
+
+**`registrationFeeTotal` is now a misnomer** - it holds tuition too. The name is
+left alone deliberately: the payment block binds to that field by uuid and
+renaming risks breaking the binding for no user-visible gain.
+
+### Open: scholarship families and option B
+
+A family with an approved scholarship award who selects "Returning family" is
+charged the **full $1,050 per child**. The form has no way to apply an award,
+and the scholarship page tells families their award is confirmed *before* they
+register. Under option A this did not arise, because the form only ever took the
+$100 fee, which scholarships never cover.
+
+Not addressed here because it needs a decision, not a guess. Options include a
+third choice on the family question ("Scholarship approved - I will pay the
+agreed amount"), or telling awarded families to register by phone. **Raised with
+the client 2026-09-01.**
 
 ## On calculations
 
