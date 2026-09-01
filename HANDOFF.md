@@ -22,6 +22,7 @@ Those three files carry everything. Nothing important lives only in the chat.
 |---|---|
 | HANDOFF.md | This file — state and open decisions |
 | **FORMS-SPEC.md** | **The two forms as built** — ids, fields, decisions, known gaps. |
+| **MARKETING-BRIEF.md** | **Self-contained brief for the enrollment campaign** — offer, voice, visual identity, assets, and the list of claims that must never be repeated. |
 | TALLY-BRIEF.md | Why the forms were built the way they were, and what was never confirmed. |
 | design-digest.md | Every design decision, why, and each revision. Read before changing any design. |
 | CONTENT-SOURCES.md | Provenance of every claim: verified / client-supplied / written-for-the-build |
