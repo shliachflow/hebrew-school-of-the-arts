@@ -4,7 +4,7 @@
 
 - **Live:** https://shliachflow.github.io/hebrew-school-of-the-arts/
 - **Repo:** https://github.com/shliachflow/hebrew-school-of-the-arts
-- **Target domain:** hebrewschool.jewishtroy.com (not live yet — see Open items)
+- **Target domain:** hsa.jewishtroy.com (not live yet — see Open items)
 - **Client:** Rabbi Menachem & Mrs. Chana Caytak, Chabad Jewish Center of Troy, MI
 
 *Last updated 2026-08-31.*
@@ -103,7 +103,7 @@ photos are gitignored.
 
 6. **DNS — now the highest-value item on the project.** Deferred by the client, but every day the
    site is indexed at the github.io URL is authority built on a URL that gets abandoned. CNAME is
-   parked as CNAME.pending. To go live: DNS CNAME hebrewschool -> shliachflow.github.io, then
+   parked as CNAME.pending. To go live: DNS CNAME hsa -> shliachflow.github.io, then
    `git mv CNAME.pending CNAME`, then change `site_url` in `content/site.json` and run `build.py`
    — that one field drives every canonical, og:url, the sitemap and robots.txt.
    jewishtroy.com sits on Chabad.org's platform — confirm who controls the registrar.

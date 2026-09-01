@@ -37,6 +37,12 @@ PAGES = ["index.html", "program.html", "register.html", "scholarship.html",
 
 MARKER = re.compile(r"(<!--f:([a-z0-9_]+)-->)(.*?)(<!--/f-->)", re.S)
 
+# JSON-LD @id and url. These were hard-coded to hebrewschool.jewishtroy.com and
+# build.py did not touch them, so structured data declared a host that does not
+# exist - the same failure the canonical tags had, in the one place Google reads
+# to identify the entity. Driven from site_url like everything else.
+LD_URL = re.compile(r'("(?:@id|url)":\s*")https?://[^"#]*(#[^"]*)?(")')
+
 # canonical / og:url point at the page itself; og:image / twitter:image at the card.
 # The path is derived from the FILENAME, never parsed out of the existing URL - an
 # earlier version matched its own output and doubled the repo segment on every run,
@@ -93,6 +99,10 @@ def render(page, text, f):
     card_url = base + "/uploads/og-image.jpg"
     text = SELF_URL.sub(lambda m: m.group(1) + self_url + m.group(2), text)
     text = CARD_URL.sub(lambda m: m.group(1) + card_url + m.group(2), text)
+    # JSON-LD lives inside <script>, where an HTML comment marker is illegal,
+    # so it is rewritten by pattern like the meta tags. Any #fragment is kept:
+    # "...#school" and "...#faq" are entity ids and must stay distinct.
+    text = LD_URL.sub(lambda m: m.group(1) + base + "/" + (m.group(2) or "") + m.group(3), text)
     return text, unknown
 
 

@@ -120,7 +120,7 @@ month names in the kitchen cycle, and scattered terms. Rules, all non-negotiable
 Static HTML on GitHub Pages under the `shliachflow` org. Pages CMS via `.pages.yml`, content in
 `content/*.json`, media in `uploads/`. Shared `style.css` rather than per-page inline styles —
 nine pages make a shared stylesheet the maintainable choice. CNAME to
-`hebrewschool.jewishtroy.com`. Registration via Tally embeds, CMS-editable embed slots.
+`hsa.jewishtroy.com`. Registration via Tally embeds, CMS-editable embed slots.
 Tokens ship as real CSS custom properties; there is no ChabadOne inline-compile step for this build.
 
 ## Do's and Don'ts — client-specific and checkable

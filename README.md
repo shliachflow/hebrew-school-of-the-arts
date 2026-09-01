@@ -4,7 +4,7 @@ Marketing and enrollment site for the 2026–27 school year.
 **Culinary. Creative. Jewish.** · *Make. Bake. Belong.*
 
 - Preview: https://shliachflow.github.io/hebrew-school-of-the-arts/
-- Target domain: hebrewschool.jewishtroy.com — **not live yet**, see `HANDOFF.md`
+- Target domain: hsa.jewishtroy.com — **not live yet**, see `HANDOFF.md`
 
 ## Stack
 

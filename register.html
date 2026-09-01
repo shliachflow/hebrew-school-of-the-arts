@@ -75,7 +75,15 @@
                                              only; claims NO procedure, because
                                              the pickup/ID procedure was pulled
                                              from this site as not accurate.
-           NO PAYMENT is collected. Stripe is a later, additive change.
+           PAYMENT: added to the Tally form 2026-09-01. A calculated field
+           registrationFeeTotal is set by FORMULA (an absolute value, not an
+           increment, so changing the child count re-computes rather than
+           accumulating) to 100/200/300/400 for 1-4 children, and a required
+           USD payment block charges it on the last page.
+           It charges the $100-per-child REGISTRATION FEE ONLY. Tuition is not
+           collected here, and the payment does NOT read the "Which applies to
+           your family?" answer - returning and new families are charged the
+           same. Confirm that is intended before going live.
            Scholarship applications are a SEPARATE form: scholarship.html
            TO GO LIVE: set data-tally-live="true" below. Until then the slot
            shows the phone fallback and no iframe is requested.

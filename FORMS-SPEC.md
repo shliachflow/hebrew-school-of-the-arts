@@ -204,7 +204,7 @@ notes, not a transcript.** It is evidence of what was discussed, not a record of
 ## At DNS cutover
 
 Both forms hard-code `shliachflow.github.io` URLs in their intro text — registration links to the
-scholarship page, scholarship links to the registration page. When `hebrewschool.jewishtroy.com`
+scholarship page, scholarship links to the registration page. When `hsa.jewishtroy.com`
 goes live those two links need editing **inside Tally**; `build.py` and `content/site.json` do not
 reach into the forms.
 
