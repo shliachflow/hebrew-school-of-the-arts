@@ -71,14 +71,14 @@
   --text-lg:         clamp(1.125rem, 1rem + 0.55vw, 1.4375rem);
   --text-xl:         clamp(1.375rem, 1.05rem + 1.4vw, 2rem);
   --text-display-sm: clamp(2rem, 1.3rem + 3.2vw, 3.5rem);
-  /* Sized so the longest word actually fills its column. Measured at 1920:
-     the column is 733px and "Belong." was only 417px of ink at 120px, leaving
-     316px of dead width - which is what read as "not big enough" and "too much
-     dead space". The vw coefficient, not just the ceiling, had to rise: at
-     7.4vw the middle term capped out before it filled anything.
-     1rem + 9.3vw gives ~194px at 1920 (Belong. ~674px, 92% of the column) and
-     ~135px at 1280. The 12rem ceiling only bites above ~2100px. */
-  --text-display:    clamp(2.75rem, 1rem + 9.3vw, 12rem);
+  /* 9.3vw (~192px at 1920) overshot: it filled the column but pushed the stat
+     row off the first screen. Budget for a 1000px window at 1920 is
+     1000 - 80 header - 110 stat row = 810px of hero. The fixed parts of the
+     left column (eyebrow, sub, buttons, note and their gaps) come to ~367px,
+     and three headline lines run ~2.58x the font size, so with 44px of padding
+     top and bottom the headline can be ~128px and still clear it.
+     1rem + 5.85vw = ~128px at 1920, ~91px at 1280. */
+  --text-display:    clamp(2.5rem, 1rem + 5.5vw, 7.5rem);
   --text-display-xl: clamp(3.25rem, 1.4rem + 9vw, 7.5rem);
 
   /* --- Space. Every value divisible by 8. --- */
@@ -395,7 +395,11 @@ h2.s-title { font-size: var(--text-display-sm); }
      unused inside an over-wide text column plus a 56px gap. The photo now
      takes the larger share and the gap is gone - the fade below does the
      separating instead of empty space. */
-  display: grid; grid-template-columns: 0.92fr 1.08fr;
+  /* 0.92/1.08 left the headline filling only ~53% of its column at 1440.
+     Narrowing the text column closes that dead space without growing the
+     type back - which is what pushed the stat row off the first screen -
+     and hands the extra width to the photograph. */
+  display: grid; grid-template-columns: 0.78fr 1.22fr;
   gap: 0;
   align-items: center;
   /* padding-block lives on .hero-left now, so the photo can fill the band
@@ -404,7 +408,9 @@ h2.s-title { font-size: var(--text-display-sm); }
   padding-inline: max(1.5rem, calc((100vw - 1280px) / 2)) clamp(1.5rem, 4vw, 3rem);
   overflow: hidden;
 }
-.hero-left { padding-block: clamp(2.5rem, 6vw, 5rem) clamp(3rem, 7vw, 5.5rem); }
+/* Was up to 80px top / 88px bottom, which alone cost 168px of the first
+   screen and pushed the stat row under the fold. */
+.hero-left { padding-block: clamp(1.5rem, 2.2vw, 2.5rem) clamp(1.5rem, 2.2vw, 2.5rem); }
 .hero::after {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background-image: var(--grain); opacity: 0.03; mix-blend-mode: multiply;
@@ -1139,9 +1145,14 @@ table.tuition tbody tr:last-child { border-bottom: 1px solid var(--hair); }
      the digest records in mirror image: there, width/height attributes
      cancelled an aspect-ratio; here, an aspect-ratio cancels a height. */
   aspect-ratio: auto;
-  /* Keep the child and the tray in frame. Dead-centre cropping pushes the
-     head out of the top on the short mobile panel. */
-  object-position: center 28%;
+  /* The source is now framed head-to-craft, and the panel still crops ~140px
+     of it vertically. Biased low (62%) so that crop comes off the top rather
+     than the bottom: losing a little headroom costs nothing, losing the flower
+     pot she is holding up costs the whole point of the photograph.
+     62% put the craft dead centre but cropped her eyes, which is the worse
+     trade for a school hero - a face with no eyes reads as a mistake. 50%
+     keeps the eyes and still carries the flowers and most of the pot. */
+  object-position: center 50%;
 }
 
 /* The panel is display:grid with place-items:center, so its child is never
