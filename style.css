@@ -71,9 +71,14 @@
   --text-lg:         clamp(1.125rem, 1rem + 0.55vw, 1.4375rem);
   --text-xl:         clamp(1.375rem, 1.05rem + 1.4vw, 2rem);
   --text-display-sm: clamp(2rem, 1.3rem + 3.2vw, 3.5rem);
-  /* Ceiling raised 6rem -> 7.5rem. At 1920 the headline was 96px against a
-     808px column and read small for a hero. */
-  --text-display:    clamp(2.75rem, 1.2rem + 7.4vw, 7.5rem);
+  /* Sized so the longest word actually fills its column. Measured at 1920:
+     the column is 733px and "Belong." was only 417px of ink at 120px, leaving
+     316px of dead width - which is what read as "not big enough" and "too much
+     dead space". The vw coefficient, not just the ceiling, had to rise: at
+     7.4vw the middle term capped out before it filled anything.
+     1rem + 9.3vw gives ~194px at 1920 (Belong. ~674px, 92% of the column) and
+     ~135px at 1280. The 12rem ceiling only bites above ~2100px. */
+  --text-display:    clamp(2.75rem, 1rem + 9.3vw, 12rem);
   --text-display-xl: clamp(3.25rem, 1.4rem + 9vw, 7.5rem);
 
   /* --- Space. Every value divisible by 8. --- */
@@ -513,9 +518,15 @@ h2.s-title { font-size: var(--text-display-sm); }
   .hero {
     grid-template-columns: 1fr;
     padding-inline: clamp(1.25rem, 5vw, 2rem);
-    gap: var(--s-6);
+    /* Was var(--s-6) = 48px. With the photo stacked directly above the copy
+       that row gap was most of the 69px sitting between them. Zero here; the
+       16px of padding on .hero-left below is the whole separation, and the
+       bottom fade carries the rest. */
+    gap: 0;
   }
-  .hero-right { order: -1; padding-block: var(--s-5) var(--s-2); }
+  /* padding-block removed: the panel has a fixed height below 940px, so this
+     padding did nothing but widen the gap between photo and copy. */
+  .hero-right { order: -1; padding-block: 0; }
   .hero-action-title { inset-inline-start: -2px; font-size: 1.05rem; padding: 10px 13px; }
   .hero-action-note { max-width: 15rem; inset-inline-end: -2px; inset-block-end: -14px; }
   .hero-facts { max-width: none; }
@@ -1199,6 +1210,33 @@ table.tuition tbody tr:last-child { border-bottom: 1px solid var(--hair); }
     height: 260px;
   }
 }
+@media (max-width: 940px) {
+  /* Measured at 390x844: 85px sat between the bottom of the photo and the
+     eyebrow, which is what made the two read as separate blocks stacked up
+     rather than one hero. */
+  .hero-left { padding-block: var(--s-2) var(--s-6); }
+
+  /* The mobile equivalent of the desktop edge fade: the photo dissolves
+     downward into the paper instead of ending on a hard line above the copy.
+     Same idea, rotated 90 degrees to match the stacked layout. */
+  .hero-action-img {
+    -webkit-mask-image: linear-gradient(to bottom, #000 62%, transparent 100%);
+            mask-image: linear-gradient(to bottom, #000 62%, transparent 100%);
+  }
+}
 @media (max-width: 560px) {
-  .hero-right { height: 200px; }
+  /* The eyebrow chip cost ~68px (44px tall plus a 24px margin) sitting between
+     the photograph and the headline, which is what made the phone hero feel
+     loose. Everything it says is already on screen: the wordmark names the
+     school in the header, and the stat row directly below carries "Starts
+     Oct 11" and "Troy, MI". Hidden on phones only - it still renders on
+     tablet and desktop, where there is room for it. */
+  .hero-tag { display: none; }
+
+  /* The 68px goes into the photograph. 200px was a thin strip; 300 gives it
+     presence and the headline now sits directly under it. */
+  .hero-right { height: 300px; }
+
+  /* The headline left 183px of a 350px column unused at 48px. */
+  .hero-h1 { font-size: clamp(3.25rem, 16vw, 4.5rem); letter-spacing: -0.04em; }
 }
