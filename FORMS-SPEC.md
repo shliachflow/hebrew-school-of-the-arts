@@ -156,6 +156,48 @@ procedure**, because the pickup and ID procedure was removed from this site as n
    its submissions therefore record "None" allergies for children who do not exist. These forms
    carry no defaults, so an unused child's fields come back genuinely empty.
 
+## Payment — added 2026-09-01, verified working
+
+The registration form charges through Stripe on its last page.
+
+| | |
+|---|---|
+| Calculated field | `registrationFeeTotal`, NUMBER, initial 0 |
+| Set by | four logic rules on "How many children are you registering?" |
+| Operator | `FORMULA` with expressions `100` / `200` / `300` / `400` |
+| Payment block | required, USD, amount bound to `registrationFeeTotal` |
+| Position | last page, after Volunteering, before Submit |
+
+**FORMULA assigns, it does not increment.** That is the whole safety property
+here: a parent who selects 2 children and then changes to 3 is charged $300,
+not $500. Verified live, not assumed - the payment step read $200 with two
+children selected, then $300 after going back and changing to three.
+
+**Verified in the published form 2026-09-01:** `js.stripe.com` loads, Stripe's
+card iframes render, and the block displays the amount above Card number /
+MM-YY / Name on card / Your email.
+
+Note for anyone testing: per Tally's docs you cannot use Stripe test cards on
+a Tally payment form. Confirming an end-to-end charge means a real card and a
+refund in Stripe.
+
+### What the payment does NOT do
+
+It charges the **$100-per-child registration fee only**. It does not read the
+"Which applies to your family?" answer, so a returning family and a new family
+are charged identically. Tuition is never collected by the form.
+
+- New family: first year of tuition free, $100 fee -> $100/child is correct.
+- Returning family: $950 tuition + $100 fee -> charged $100.
+
+Either tuition is billed separately, which is coherent but is stated nowhere
+at the payment step, or returning families are under-collected by $950 each.
+**Raised with the client and still unanswered.**
+
+Related: the thank-you page still reads "We will be in touch about tuition,
+the registration fee, and the full schedule." The registration fee is now paid
+on the form, so that sentence is stale.
+
 ## On calculations
 
 There are none, in either form, by design — no payment step means no totals to compute. Worth
