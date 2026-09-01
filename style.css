@@ -1100,7 +1100,7 @@ table.tuition tbody tr:last-child { border-bottom: 1px solid var(--hair); }
   aspect-ratio: auto;
   /* Keep the child and the tray in frame. Dead-centre cropping pushes the
      head out of the top on the short mobile panel. */
-  object-position: center 34%;
+  object-position: center 28%;
 }
 
 /* The panel is display:grid with place-items:center, so its child is never
