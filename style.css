@@ -71,7 +71,9 @@
   --text-lg:         clamp(1.125rem, 1rem + 0.55vw, 1.4375rem);
   --text-xl:         clamp(1.375rem, 1.05rem + 1.4vw, 2rem);
   --text-display-sm: clamp(2rem, 1.3rem + 3.2vw, 3.5rem);
-  --text-display:    clamp(2.75rem, 1.4rem + 6.4vw, 6rem);
+  /* Ceiling raised 6rem -> 7.5rem. At 1920 the headline was 96px against a
+     808px column and read small for a hero. */
+  --text-display:    clamp(2.75rem, 1.2rem + 7.4vw, 7.5rem);
   --text-display-xl: clamp(3.25rem, 1.4rem + 9vw, 7.5rem);
 
   /* --- Space. Every value divisible by 8. --- */
@@ -383,13 +385,21 @@ h2.s-title { font-size: var(--text-display-sm); }
 
 .hero {
   position: relative;
-  display: grid; grid-template-columns: 1.05fr 0.95fr;
-  gap: clamp(1.5rem, 4vw, 3.5rem);
+  /* Was 1.05fr 0.95fr with a clamp gap up to 3.5rem. At 1920 that left 334px
+     of dead cream between the end of the sub-headline and the photo: 278px
+     unused inside an over-wide text column plus a 56px gap. The photo now
+     takes the larger share and the gap is gone - the fade below does the
+     separating instead of empty space. */
+  display: grid; grid-template-columns: 0.92fr 1.08fr;
+  gap: 0;
   align-items: center;
-  padding-block: clamp(2.5rem, 6vw, 5rem) clamp(3rem, 7vw, 5.5rem);
+  /* padding-block lives on .hero-left now, so the photo can fill the band
+     top to bottom instead of floating with cream above and below it. */
+  padding-block: 0;
   padding-inline: max(1.5rem, calc((100vw - 1280px) / 2)) clamp(1.5rem, 4vw, 3rem);
   overflow: hidden;
 }
+.hero-left { padding-block: clamp(2.5rem, 6vw, 5rem) clamp(3rem, 7vw, 5.5rem); }
 .hero::after {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background-image: var(--grain); opacity: 0.03; mix-blend-mode: multiply;
@@ -410,7 +420,9 @@ h2.s-title { font-size: var(--text-display-sm); }
    verified past 4.5:1 on the canvas, well beyond the 3:1 large text needs. */
 .hero-h1 {
   font-size: var(--text-display);
-  letter-spacing: -0.03em; margin-bottom: var(--s-3);
+  /* Tighter at the larger size - tracking scales with size, and -0.03em
+     that suited 96px is loose at 120px. */
+  letter-spacing: -0.038em; margin-bottom: var(--s-3);
 }
 .hero-h1 .hw { display: block; line-height: 0.9; }
 .hero-h1 .hw1 { color: #146B64; rotate: -1deg; }
@@ -1082,10 +1094,28 @@ table.tuition tbody tr:last-child { border-bottom: 1px solid var(--hair); }
   position: relative; z-index: 1; align-self: stretch;
   min-height: clamp(360px, 52vh, 620px);
   display: grid; place-items: center; overflow: hidden;
-  background: var(--tint-crew);
-  border-start-start-radius: var(--r-xl);
-  border-end-start-radius: var(--r-xl);
+  /* Paper, not the blue tint it used to carry: the image is masked to
+     transparent on its left edge, so whatever sits behind it IS the fade.
+     A tint here would show as a coloured block bleeding out of the photo. */
+  background: var(--paper);
+  /* No left radius. A rounded corner made this read as a card pasted beside
+     the text; square, full-height and faded, it reads as one surface. */
+  border-radius: 0;
   padding: 0;
+}
+
+/* The photo dissolves into the paper on its left edge rather than butting
+   against the copy with a hard line. This is the "fading into each other"
+   the client asked for, and it is why the grid gap could go to zero: the
+   fade does the separating, so the headline can sit close without colliding.
+   Desktop only - below 940px the panel is a full-width band above the copy,
+   where a left-edge fade would make no sense. Both mask properties are
+   needed; Safari still wants the prefix. */
+@media (min-width: 941px) {
+  .hero-action-img {
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 26%);
+            mask-image: linear-gradient(to right, transparent 0%, #000 26%);
+  }
 }
 .hero-action-img,
 .hero-fallback {
@@ -1138,7 +1168,9 @@ table.tuition tbody tr:last-child { border-bottom: 1px solid var(--hair); }
   font-variant-numeric: tabular-nums; font-feature-settings: "tnum";
 }
 .stat span {
-  font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.1em;
+  /* Was 0.6875rem (11px). These carry the hours, the session count and the
+     age range - information, not decoration - and read as fine print. */
+  font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.07em;
   text-transform: uppercase; color: var(--ink-2);
 }
 @media (max-width: 760px) {
